@@ -5,6 +5,8 @@ All informations, tips and tricks was gathered from:
  - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Base project files and amazing collection of tips and tricks to get all up and running
  - http://linuxiumcomau.blogspot.com/ - Respin script and info
  - http://hansdegoede.livejournal.com/ - Kernel patches and amazing work on Bay Trail and Cherry Trail devices
+ 
+ Kudos and all the credits go to them! 
 
 # Build iso image with tweaks
 
