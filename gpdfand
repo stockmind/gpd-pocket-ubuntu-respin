@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case $1 in
+  pre)
+    # stop fan control script
+    systemctl stop gpdfand.service
+
+    # disable fans
+    echo 0 > /sys/class/gpio/gpio397/value
+    echo 0 > /sys/class/gpio/gpio398/value
+    ;;
+  post)
+    # start fan control script
+    systemctl start gpdfand.service
+    ;;
+esac

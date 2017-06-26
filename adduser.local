@@ -1,0 +1,17 @@
+#!/bin/bash
+
+username=$1;
+uid=$2;
+gid=$3;
+homedir=$4;
+
+mkdir -p /var/lib/lightdm/.config/
+cp /usr/share/monitors.xml /var/lib/lightdm/.config/
+mkdir -p $homedir/.config
+cp /usr/share/monitors.xml $homedir/.config
+chown $username:$username $homedir/.config/monitors.xml
+chown $username:$username $homedir/.config
+
+rm /usr/local/sbin/adduser.local
+
+
