@@ -8,10 +8,9 @@ All informations, tips and tricks was gathered from:
  
  Kudos and all the credits go to them! 
 
-to make work:<br>
-chmod +x /lib/systemd/system-sleep/gpdfand /usr/local/bin/gpdfand<br>
+# Build iso image with tweaks
 
-apt-get -y install libproc-daemon-perl libproc-pid-file-perl liblog-dispatch-perl<br>
+Build iso running this:
 
     ./build.sh <iso filenamme>
     
