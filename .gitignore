@@ -1,0 +1,8 @@
+isorespin.sh
+*.iso
+*.log
+*.deb
+linux*
+*.zip
+gpdfand/*
+gpdfand
