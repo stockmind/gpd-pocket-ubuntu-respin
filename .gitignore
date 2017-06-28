@@ -1,4 +1,6 @@
 isorespin.sh
+isorespin
+isorespin/*
 *.iso
 *.log
 *.deb
@@ -6,3 +8,4 @@ linux*
 *.zip
 gpdfand/*
 gpdfand
+__MAC*

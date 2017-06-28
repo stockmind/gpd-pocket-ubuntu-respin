@@ -2,11 +2,18 @@
 
 cd /usr/local/bin
 
-# load pwm for Intel Low Power Subsystem PWM controller driver
+# load modules into initramfs make tools to include on boot
 echo "pwm-lpss" >> /etc/initramfs-tools/modules
 echo "pwm-lpss-platform" >> /etc/initramfs-tools/modules
+echo "btusb" >> /etc/initramfs-tools/modules
 
-update-initramfs -u -k all
+# echo them also in /etc/modules to have them on live environment
+echo "pwm-lpss" >> /etc/modules
+echo "pwm-lpss-platform" >> /etc/modules
+echo "btusb" >> /etc/modules
+
+# bluetooth enable
+echo "0000 0000" > /sys/bus/usb/drivers/btusb/new_id
 
 # update grub config
 echo "Update grub default..."
