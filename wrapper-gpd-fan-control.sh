@@ -8,9 +8,9 @@ echo "pwm-lpss-platform" >> /etc/initramfs-tools/modules
 echo "btusb" >> /etc/initramfs-tools/modules
 
 # echo them also in /etc/modules to have them on live environment
+echo "btusb" >> /etc/modules
 echo "pwm-lpss" >> /etc/modules
 echo "pwm-lpss-platform" >> /etc/modules
-echo "btusb" >> /etc/modules
 
 # bluetooth enable
 echo "0000 0000" > /sys/bus/usb/drivers/btusb/new_id

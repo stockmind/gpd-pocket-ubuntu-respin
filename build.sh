@@ -30,7 +30,7 @@ fi
 
 chmod +x isorespin.sh
 
-./isorespin.sh -i $ISOFILE -l "*.deb" -p "libproc-daemon-perl libproc-pid-file-perl liblog-dispatch-perl thermald i965-va-driver gstreamer1.0-libav gstreamer1.0-plugins-bad-faad gstreamer1.0-vaapi" -f 90x11-rotate_and_scale -f HiFi.conf -f chtrt5645.conf -f brcmfmac4356-pcie.txt -f wrapper-fix-sound-wifi.sh -f wrapper-rotate-and-scale.sh -f gpdfand/gpdfand -f gpdfand/gpdfand.pl -f gpdfand/gpdfand.service -f wrapper-gpd-fan-control.sh -f monitors.xml -f adduser.local -f 20-intel.conf -c wrapper-rotate-and-scale.sh -c wrapper-fix-sound-wifi.sh -c wrapper-gpd-fan-control.sh -g "i915.fastboot=1 fbcon=rotate:1"
+./isorespin.sh -i $ISOFILE -l "*.deb" -p "libproc-daemon-perl libproc-pid-file-perl liblog-dispatch-perl thermald va-driver-all vainfo i965-va-driver gstreamer1.0-libav gstreamer1.0-plugins-bad-faad gstreamer1.0-vaapi" -f 90x11-rotate_and_scale -f HiFi.conf -f chtrt5645.conf -f brcmfmac4356-pcie.txt -f wrapper-fix-sound-wifi.sh -f wrapper-rotate-and-scale.sh -f gpdfand/gpdfand -f gpdfand/gpdfand.pl -f gpdfand/gpdfand.service -f wrapper-gpd-fan-control.sh -f monitors.xml -f adduser.local -f 20-intel.conf -c wrapper-rotate-and-scale.sh -c wrapper-fix-sound-wifi.sh -c wrapper-gpd-fan-control.sh -g "i915.fastboot=1 fbcon=rotate:1"
 
 
 
