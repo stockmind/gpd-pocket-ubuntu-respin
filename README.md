@@ -8,6 +8,8 @@ All informations, tips and tricks was gathered from:
  
  Kudos and all the credits go to them! 
  
+ Repository need a lot of refactoring to naming scripts better and documenting things. I'll do it in the next days.
+ 
 # What works out of the box
 
  - ✔ Display already rotated in terminal buffer and desktop/login
