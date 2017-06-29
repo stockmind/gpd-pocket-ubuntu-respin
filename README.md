@@ -66,3 +66,12 @@ Download an already respinned ISO for GPD Pocket
 
 https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
+# Troubleshooting
+
+## Screen keep spamming errors regarding squashfs after power button press or close/open lid
+
+Try to burn image on smaller usb device or try another one.
+
+I sugget [Etcher]https://etcher.io/ to write ISO on usb flash drives.
+It's fast, reliable and multi-platform.
+
