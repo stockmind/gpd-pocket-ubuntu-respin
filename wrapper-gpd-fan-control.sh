@@ -7,13 +7,8 @@ echo "pwm-lpss" >> /etc/initramfs-tools/modules
 echo "pwm-lpss-platform" >> /etc/initramfs-tools/modules
 echo "btusb" >> /etc/initramfs-tools/modules
 
-# echo them also in /etc/modules to have them on live environment
-echo "btusb" >> /etc/modules
-echo "pwm-lpss" >> /etc/modules
-echo "pwm-lpss-platform" >> /etc/modules
-
 # bluetooth enable
-echo "0000 0000" > /sys/bus/usb/drivers/btusb/new_id
+cp 99-local-bluetooth.rules /etc/udev/rules.d/99-local-bluetooth.rules
 
 # update grub config
 echo "Update grub default..."
@@ -24,6 +19,10 @@ sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 fbcon=rot
 mkdir -p /etc/pm/config.d/
 touch /etc/pm/config.d/config
 echo "SUSPEND_MODULES=\"brcmfmac\"" >> /etc/pm/config.d/config
+
+# set audio output
+pacmd set-default-sink "alsa_output.platform-cht-bsw-rt5645.HiFi__hw_chtrt5645__sink"
+sed -i "s/; default-sink =/default-sink = alsa_output.platform-cht-bsw-rt5645.HiFi__hw_chtrt5645__sink/" /etc/pulse/client.conf
 
 # use sbin for gpdfand service
 sed -i "s/\/usr\/local\/bin\/gpdfand/\/usr\/local\/sbin\/gpdfand/" gpdfand.service

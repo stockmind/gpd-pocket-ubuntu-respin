@@ -1,7 +1,5 @@
 xinput set-prop 11 "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
 
 gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 14}"
+dconf write /com/ubuntu/user-interface/scale-factor "{'DSI-1': 14}"
 gsettings set org.gnome.desktop.interface scaling-factor 2
-
-# bluetooth enable
-echo "0000 0000" > /sys/bus/usb/drivers/btusb/new_id
