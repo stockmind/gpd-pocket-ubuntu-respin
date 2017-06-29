@@ -70,3 +70,8 @@ Try to burn image on smaller usb device or try another one.
 I sugget [Etcher]https://etcher.io/ to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
+## No sound / streaming video crashing/not playing
+
+Check that the correct sound output device is selected in System Settings. 
+It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt5645" for the audio jack output.
+
