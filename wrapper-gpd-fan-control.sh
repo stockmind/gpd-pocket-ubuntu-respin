@@ -22,8 +22,8 @@ echo "SUSPEND_MODULES=\"brcmfmac\"" >> /etc/pm/config.d/config
 
 # set audio output
 pacmd set-default-sink "alsa_output.platform-cht-bsw-rt5645.HiFi__hw_chtrt5645__sink"
-sed -i "s/; default-sink =/default-sink = 1/" /etc/pulse/client.conf
-sed -i "s/; default-source =/default-source = 1/" /etc/pulse/client.conf
+sed -i "s/#set-default-sink/set-default-sink 1/" /etc/pulse/default.pa
+sed -i "s/#set-default-source/set-default-source 1/" /etc/pulse/default.pa
 
 # use sbin for gpdfand service
 sed -i "s/\/usr\/local\/bin\/gpdfand/\/usr\/local\/sbin\/gpdfand/" gpdfand.service
