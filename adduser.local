@@ -12,6 +12,10 @@ cp /usr/share/monitors.xml $homedir/.config
 chown $username:$username $homedir/.config/monitors.xml
 chown $username:$username $homedir/.config
 
+# update gpdfand script to point to right hwmon
+HWMONPATH=$(for i in /sys/class/hwmon/hwmon*/; do [ "$(cat "$i"name)" = coretemp ] && break; done; echo "$i")
+sudo sed -i 's|/sys/class/hwmon/hwmon4/|'$HWMONPATH'|' /usr/local/sbin/gpdfand
+
 rm /usr/local/sbin/adduser.local
 
 
