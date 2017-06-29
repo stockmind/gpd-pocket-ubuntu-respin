@@ -39,17 +39,14 @@ Those commands will update your grub boot options to optimize the boot process f
     
 ## GPDFAND
 
-Check where *temp2_input, temp3_input, temp4_input, temp5_input* are located and update gdpfand service as needed.
+*THIS COMMAND IS NOW INTEGRATED INTO LOADING SCRIPTS SO IT'S NOT NEEDED ANYMORE*
 
-    ls /sys/class/hwmon/hwmon0/ && \
-    ls /sys/class/hwmon/hwmon1/ && \
-    ls /sys/class/hwmon/hwmon2/ && \
-    ls /sys/class/hwmon/hwmon3/ && \
-    ls /sys/class/hwmon/hwmon4/
-    
-Mine for example are inside */sys/class/hwmon/hwmon3/* so i use this command to update the service:
+GPDFAND must be updated to point where *temp2_input, temp3_input, temp4_input, temp5_input* are located.
+Mine for example are inside */sys/class/hwmon/hwmon3/*.
+Use this command to let the system find requested files and update the service as needed:
 
-    sudo sed -i "s/\/sys\/class\/hwmon\/hwmon4\//\/sys\/class\/hwmon\/hwmon3\//" /usr/local/sbin/gpdfand
+    HWMONPATH=$(for i in /sys/class/hwmon/hwmon*/; do [ "$(cat "$i"name)" = coretemp ] && break; done; echo "$i")
+    sudo sed -i 's|/sys/class/hwmon/hwmon4/|'$HWMONPATH'|' /usr/local/sbin/gpdfand
     
 Then restart it
 
