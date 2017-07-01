@@ -70,6 +70,13 @@ Then restart it
 Check status
 
     systemctl status gpdfand.service
+    
+## SDDM/KDE DPI and Rotate
+
+To let SDDM (The preferred display manager for KDE Plasma desktop) to scale correctly and be rotated you should put two xrandr arguments into his starting configuration file like this:
+
+    echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
+    echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
 
 # Download ISO
 
