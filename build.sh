@@ -2,26 +2,24 @@
 
 ISOFILE=$1
 
+./clean.sh
+
 if [ ! -f linux-image* ]; then
     echo "Kernel image not found"
 
-    if [ ! -f gpdpocket-kernel-wifi-sound-display.zip ]; then
+    if [ ! -f chrisaw-kernel-files.zip ]; then
     	echo "Download kernel files"
-    	wget -O gpdpocket-kernel-wifi-sound-display.zip https://www.dropbox.com/s/fgohikbsb9aehyu/gpdpocket-kernel-wifi-sound-display.zip?dl=1 
+    	wget -O chrisaw-kernel-files.zip "https://drive.google.com/uc?export=download&id=0B8-M0eiR7v8sRkZPOGxiUXpHMjQ"
     fi
 
     echo "Extracting kernel files..."
-    unzip -o gpdpocket-kernel-wifi-sound-display.zip
+    unzip -o chrisaw-kernel-files.zip
 fi
 
 if [ ! -d gpdfand ]; then
 	echo "Gpdfand folder missing. Donwloading it..."
 	git clone https://github.com/efluffy/gpdfand.git
 fi
-
-echo "Overwrite working monitors.xml"
-rm monitors.xml
-cp monitors_working.xml monitors.xml
 
 if [ ! -f isorespin.sh ]; then
 	echo "Isorespin script not found. Downloading it..."
