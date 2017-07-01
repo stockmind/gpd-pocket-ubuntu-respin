@@ -18,6 +18,7 @@ cp 90-monitor.conf /etc/X11/xorg.conf.d/90-monitor.conf
 
 # patch SDDM / KDE config if exist
 if [ -f /usr/share/sddm/scripts/Xsetup ]; then
+  echo "xrandr --output DSI-1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
   echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
   echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
 fi
