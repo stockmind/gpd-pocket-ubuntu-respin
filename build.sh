@@ -8,8 +8,14 @@ if [ ! -f linux-image* ]; then
     echo "Kernel image not found"
 
     if [ ! -f chrisaw-kernel-files.zip ]; then
-    	echo "Download kernel files"
-    	wget -O chrisaw-kernel-files.zip "https://drive.google.com/uc?export=download&id=0B8-M0eiR7v8sRkZPOGxiUXpHMjQ"
+	echo ""
+	echo ""
+	echo "###### WARNING KERNEL FILES MISSING! ######"
+    	echo "Download kernel files zip from this link: "
+	echo "https://drive.google.com/uc?export=download&id=0B8-M0eiR7v8sRkZPOGxiUXpHMjQ"
+	echo "And put it on the build.sh folder."
+	echo "###########################################"
+	exit 1;
     fi
 
     echo "Extracting kernel files..."
