@@ -6,3 +6,4 @@ xinput set-prop 11 "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
 
 gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 14, 'DSI1': 14}"
 gsettings set org.gnome.desktop.interface scaling-factor 2
+gsettings set org.cinnamon.desktop.interface scaling-factor 2
