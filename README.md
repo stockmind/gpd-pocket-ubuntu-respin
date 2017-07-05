@@ -44,6 +44,20 @@ Build iso running this:
 
     PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
     
+# Build latest kernel
+
+## Debian based systems:
+
+    sudo apt-get install build-essential git libncurses5-dev libssl-dev
+    git clone https://github.com/jwrdegoede/linux-sunxi.git
+    cd linux-sunxi/
+    make clean
+    make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-customK    
+
+You can find the generated kernel .deb files in the parent folder where linux-sunxi repository have been cloned.
+Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository. Overwrite existing zip.
+Build.sh script will extract them and install during respin.
+
 # Post install
 
 Commands that should be run after first boot
@@ -53,7 +67,7 @@ Commands that should be run after first boot
 Those commands will update your grub boot options to optimize the boot process for your intel Atom processor
 
     sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
-    sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 fbcon=rotate:1\"/" /etc/default/grub
+    sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1\"/" /etc/default/grub
 
     sudo update-grub
     
