@@ -18,10 +18,10 @@ touch /etc/pm/config.d/config
 echo "SUSPEND_MODULES=\"brcmfmac\"" >> /etc/pm/config.d/config
 
 # set audio output
-#pacmd set-default-sink "alsa_output.platform-cht-bsw-rt5645.HiFi__hw_chtrt5645__sink"
-sed -i "s/#set-default-sink output/set-default-sink 1/" /etc/pulse/default.pa
-sed -i "s/#set-default-source input/set-default-source 1/" /etc/pulse/default.pa
 echo "set-card-profile alsa_card.platform-cht-bsw-rt5645 HiFi" >> /etc/pulse/default.pa
+echo "set-default-sink 1" >> /etc/pulse/default.pa
+echo "set-default-source 1" >> /etc/pulse/default.pa
+echo "realtime-scheduling = no" >> /etc/pulse/daemon.conf
 
 # use sbin for gpdfand service
 sed -i "s/\/usr\/local\/bin\/gpdfand/\/usr\/local\/sbin\/gpdfand/" gpdfand.service
