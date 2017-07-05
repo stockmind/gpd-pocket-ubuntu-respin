@@ -7,9 +7,6 @@ echo "pwm-lpss" >> /etc/initramfs-tools/modules
 echo "pwm-lpss-platform" >> /etc/initramfs-tools/modules
 echo "btusb" >> /etc/initramfs-tools/modules
 
-# bluetooth enable
-cp 99-local-bluetooth.rules /etc/udev/rules.d/99-local-bluetooth.rules
-
 # update grub config
 echo "Update grub default..."
 sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
