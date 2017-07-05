@@ -7,19 +7,19 @@ ISOFILE=$1
 if [ ! -f linux-image* ]; then
     echo "Kernel image not found"
 
-    if [ ! -f chrisaw-kernel-files.zip ]; then
+    if [ ! -f gpd-pocket-kernel-files.zip ]; then
 	echo ""
 	echo ""
 	echo "###### WARNING KERNEL FILES MISSING! ######"
     	echo "Download kernel files zip from this link: "
-	echo "https://drive.google.com/uc?export=download&id=0B8-M0eiR7v8sRkZPOGxiUXpHMjQ"
+	echo "https://drive.google.com/open?id=0B8-M0eiR7v8sSVJZOWdOME5JOVk"
 	echo "And put it on the build.sh folder."
 	echo "###########################################"
 	exit 1;
     fi
 
     echo "Extracting kernel files..."
-    unzip -o chrisaw-kernel-files.zip
+    unzip -o gpd-pocket-kernel-files.zip
 fi
 
 if [ ! -d gpdfand ]; then
