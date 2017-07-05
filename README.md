@@ -57,7 +57,7 @@ Those commands will update your grub boot options to optimize the boot process f
 
     sudo update-grub
     
-## GPDFAND
+## GPDFAND ( ISO BUILT BEFORE 05/07/2017 ONLY [dd/mm/yyyy] )
 
 GPDFAND must be updated to point where *temp2_input, temp3_input, temp4_input, temp5_input* are located.
 Mine for example are inside */sys/class/hwmon/hwmon3/*.
