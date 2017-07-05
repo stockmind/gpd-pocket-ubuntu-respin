@@ -17,6 +17,9 @@ mkdir -p /etc/pm/config.d/
 touch /etc/pm/config.d/config
 echo "SUSPEND_MODULES=\"brcmfmac\"" >> /etc/pm/config.d/config
 
+-# bluetooth enable
+-cp 99-local-bluetooth.rules /etc/udev/rules.d/99-local-bluetooth.rules
+
 # set audio output
 echo "set-card-profile alsa_card.platform-cht-bsw-rt5645 HiFi" >> /etc/pulse/default.pa
 echo "set-default-sink 1" >> /etc/pulse/default.pa
