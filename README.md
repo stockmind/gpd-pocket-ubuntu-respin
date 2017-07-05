@@ -52,10 +52,12 @@ Build iso running this:
     git clone https://github.com/jwrdegoede/linux-sunxi.git
     cd linux-sunxi/
     make clean
-    make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-customK    
+    make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom   
 
 You can find the generated kernel .deb files in the parent folder where linux-sunxi repository have been cloned.
+
 Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository. Overwrite existing zip.
+
 Build.sh script will extract them and install during respin.
 
 # Post install
