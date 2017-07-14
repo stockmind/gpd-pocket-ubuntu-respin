@@ -48,7 +48,7 @@ Build iso running this:
 
 ## Debian based systems:
 
-    sudo apt-get install build-essential git libncurses5-dev libssl-dev
+    sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
     git clone https://github.com/jwrdegoede/linux-sunxi.git
     cd linux-sunxi/
     make clean
