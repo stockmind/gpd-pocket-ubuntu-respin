@@ -1,0 +1,10 @@
+[Unit]
+Description=GPD Display Rotation Service
+After=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=-/usr/local/sbin/gpdrotate
+
+[Install]
+WantedBy=multi-user.target
