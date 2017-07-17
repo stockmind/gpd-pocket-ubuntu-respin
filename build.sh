@@ -19,7 +19,7 @@ if [ ! -f linux-image* ]; then
     fi
 
     echo "Extracting kernel files..."
-    unzip -o gpd-pocket-kernel-files.zip
+    unzip -o chrisaw-kernel-files.zip
 fi
 
 if [ ! -d gpdfand ]; then
