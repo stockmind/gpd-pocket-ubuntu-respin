@@ -1,0 +1,13 @@
+[Unit]
+Description=GPD Fan Daemon
+DefaultDependencies=no
+After=sysinit.target local-fs.target
+Before=basic.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/gpdfand.conf
+ExecStart=/usr/local/sbin/gpdfand --time=${TIME} --min=${MIN} --med=${MED} --max=${MAX}
+
+[Install]
+WantedBy=basic.target
