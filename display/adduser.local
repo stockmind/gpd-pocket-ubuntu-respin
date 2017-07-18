@@ -1,0 +1,10 @@
+#!/bin/bash
+
+username=$1;
+uid=$2;
+gid=$3;
+homedir=$4;
+
+echo "exec /usr/local/sbin/gpdrotate &" >> $homedir/.xinitrc
+
+rm /usr/local/sbin/adduser.local

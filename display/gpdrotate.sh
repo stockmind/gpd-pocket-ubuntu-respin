@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sleep 5
+sleep 1
 
 export XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
 

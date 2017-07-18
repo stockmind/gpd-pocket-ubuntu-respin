@@ -34,9 +34,9 @@ def get_temp():
             with io.open(temp_input_dev, 'r') as core_temp:
                 temp = int(core_temp.read()) / 1000
                 temps.append(temp)
-    if(len(temps) > 0) 	
+    if(len(temps) > 0): 	
         return sum(temps) / float(len(temps))
-    else
+    else:
         return 0
 
 # Set fans function

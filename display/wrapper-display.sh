@@ -21,6 +21,9 @@ mkdir -p /etc/X11/xorg.conf.d/
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
 
+cp adduser.local /usr/local/sbin/adduser.local
+chmod +x /usr/local/sbin/adduser.local
+
 # patch SDDM / KDE DPI config if exist
 if [ -f /usr/share/sddm/scripts/Xsetup ]; then
   echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
