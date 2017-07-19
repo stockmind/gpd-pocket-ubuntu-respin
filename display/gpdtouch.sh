@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-$SEARCH="Goodix Capacitive Touchscreen"
+# determine necessary variables
+DISPLAY=:0
+XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
+export DISPLAY XAUTHORITY
+
+SEARCH="Goodix Capacitive TouchScreen"
 
 ids=$(xinput --list | awk -v search="$SEARCH" \
     '$0 ~ search {match($0, /id=[0-9]+/);\

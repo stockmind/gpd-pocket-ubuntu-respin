@@ -44,7 +44,6 @@ if [ -d /var/lib/gdm3 ]; then
   cp monitors.xml /var/lib/gdm3/.config/
   chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
   chown gdm:gdm /var/lib/gdm3/.config
-  sed -i "s|#WaylandEnable=false|WaylandEnable=false|" /etc/gdm3/custom.conf
 fi
 
 # patch MDM monitors config if folder exists
