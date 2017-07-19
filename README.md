@@ -32,18 +32,26 @@ To respin an existing Ubuntu ISO you will need to use a Linux machine with 'squa
 
     sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
     
-Build iso running this:
+Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 
     ./build.sh <iso filenamme>
     
+Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+
+    ./build.sh <iso filenamme> wayland
+        
 ## Arch based systems:
 
     sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 
-Build iso running this:
+Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 
     PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
     
+Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+
+    PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
+
 # Build latest kernel
 
 ## Debian based systems:
@@ -69,35 +77,31 @@ Commands that should be run after first boot
 Those commands will update your grub boot options to optimize the boot process for your intel Atom processor
 
     sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
-    sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1\"/" /etc/default/grub
+    sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/" /etc/default/grub
 
     sudo update-grub
     
-## GPDFAND ( ISO BUILT BEFORE 05/07/2017 ONLY [dd/mm/yyyy] )
+## GPDFAND 
 
-GPDFAND must be updated to point where *temp2_input, temp3_input, temp4_input, temp5_input* are located.
-Mine for example are inside */sys/class/hwmon/hwmon3/*.
-Use this command to let the system find requested files and update the service as needed:
+Latest GPD Fan control script is integrated into iso.
+You should update your installation using these commands:
 
-Custom built ISO:
-
-    HWMONPATH=$(for i in /sys/class/hwmon/hwmon*/; do [ "$(cat "$i"name)" = coretemp ] && break; done; echo "$i")
-    sudo sed -i 's|/sys/class/hwmon/hwmon4/|'$HWMONPATH'|' /usr/local/sbin/gpdfand
-
-Current ISO:
-
-    HWMONPATH=$(for i in /sys/class/hwmon/hwmon*/; do [ "$(cat "$i"name)" = coretemp ] && break; done; echo "$i")
-    sudo sed -i 's|/sys/class/hwmon/hwmon\*/|'$HWMONPATH'|' /usr/local/sbin/gpdfand
+    git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
+    cd gpd-pocket-ubuntu-respin/fan/
+    sudo cp gpdfand.service /etc/systemd/system/gpdfand.service
+    sudo cp gpdfand /lib/systemd/system-sleep/gpdfand
+    sudo cp gpdfand.conf /etc/gpdfand.conf
+    sudo cp gpdfand.py /usr/local/sbin/gpdfand
+    sudo chmod +x /lib/systemd/system-sleep/gpdfand /usr/local/sbin/gpdfand
+    sudo chmod 0644 /etc/gpdfand.conf
+    sudo chmod 0644 /etc/systemd/system/gpdfand.service
+    sudo systemctl enable gpdfand.service
+    sudo systemctl start gpdfand.service
     
-Then restart it
-
-    systemctl stop gpdfand.service
-    systemctl start gpdfand.service
-    
-Check status
+Check status using:
 
     systemctl status gpdfand.service
-    
+
 ## SDDM/KDE DPI and Rotate
 
 To let SDDM (The preferred display manager for KDE Plasma desktop) to scale correctly and be rotated you should put two xrandr arguments into his starting configuration file like this:
