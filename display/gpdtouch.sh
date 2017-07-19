@@ -5,7 +5,7 @@ DISPLAY=:${1}
 XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
 export DISPLAY XAUTHORITY
 
-$SEARCH="Goodix Capacitive Touchscreen"
+SEARCH="Goodix Capacitive Touchscreen"
 
 ids=$(xinput --list | awk -v search="$SEARCH" \
     '$0 ~ search {match($0, /id=[0-9]+/);\
