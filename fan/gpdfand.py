@@ -70,7 +70,7 @@ while True:
     temp = get_temp()
 
     # Set fan speed
-    if temp >= args.max:
+    if temp >= args.max or temp == 0:
         set_fans(1,1)
     elif temp >= args.med:
         set_fans(0,1)
