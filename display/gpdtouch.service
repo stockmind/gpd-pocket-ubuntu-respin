@@ -1,0 +1,10 @@
+[Unit]
+Description=GPD Touchscreen Rotation Service
+After=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=-/usr/local/sbin/gpdtouch
+
+[Install]
+WantedBy=multi-user.target
