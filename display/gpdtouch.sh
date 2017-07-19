@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # determine necessary variables
-DISPLAY=:${1}
+DISPLAY=:0
 XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
 export DISPLAY XAUTHORITY
 
