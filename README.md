@@ -96,7 +96,7 @@ You should update your installation using these commands:
     sudo chmod 0644 /etc/gpdfand.conf
     sudo chmod 0644 /etc/systemd/system/gpdfand.service
     sudo systemctl enable gpdfand.service
-    sudo systemctl start gpdfand.service
+    sudo systemctl restart gpdfand.service
     
 Check status using:
 
