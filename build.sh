@@ -1,6 +1,15 @@
 #!/bin/bash
 
 ISOFILE=$1
+WAYLAND=$2
+
+if [ -n "$WAYLAND" ]; then
+	echo "Display setting: Wayland"
+	mv display/monitors_wayland.xml display/monitors.xml
+else
+	echo "Display setting: Xorg"
+	mv display/monitors_xorg.xml display/monitors.xml
+fi
 
 ./clean.sh
 

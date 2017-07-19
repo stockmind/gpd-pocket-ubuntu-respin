@@ -39,6 +39,15 @@ if [ -d /var/lib/gdm3 ]; then
   cp monitors.xml /var/lib/gdm3/.config/
   chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
   chown gdm:gdm /var/lib/gdm3/.config
+  sed -i "s|#WaylandEnable=false|WaylandEnable=false|" /etc/gdm3/custom.conf
+fi
+
+# patch MDM monitors config if folder exists
+if [ -d /var/lib/mdm ]; then
+  mkdir -p /var/lib/mdm/.config/
+  cp monitors.xml /var/lib/mdm/.config/
+  chown gdm:gdm /var/lib/mdm/.config/monitors.xml
+  chown gdm:gdm /var/lib/mdm/.config
 fi
 
 rm -f adduser.local 20-intel.conf 30-monitor.conf 90-touch 90-scale wrapper-display.sh
