@@ -2,7 +2,7 @@
 
 cd /usr/local/bin
 cp 90-scale /etc/X11/Xsession.d/90-scale
-cp 90-scale /etc/X11/Xsession.d/90-touch
+cp 90-touch /etc/X11/Xsession.d/90-touch
 chmod 644 /etc/X11/Xsession.d/90-scale
 chmod 644 /etc/X11/Xsession.d/90-touch
 
