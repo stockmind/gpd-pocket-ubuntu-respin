@@ -7,7 +7,7 @@ Before=basic.target
 [Service]
 Type=simple
 EnvironmentFile=/etc/gpdfand.conf
-ExecStart=/usr/local/sbin/gpdfand --time=${TIME} --min=${MIN} --med=${MED} --max=${MAX}
+ExecStart=/usr/local/sbin/gpdfand --time=${TIME} --turbo=${TURBO} --min=${MIN} --med=${MED} --max=${MAX}
 
 [Install]
 WantedBy=basic.target

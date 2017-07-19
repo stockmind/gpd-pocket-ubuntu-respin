@@ -15,6 +15,7 @@ import sys
 # Parse command line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('--time', type=int, help='Time between temperature checks', default=10)
+parser.add_argument('--turbo', type=int, help='Maximum temperature before turbo boost is disabled', default=60)
 parser.add_argument('--min', type=int, help='Temperature required for minimum fan speed', default=45)
 parser.add_argument('--med', type=int, help='Temperature required for medium fan speed', default=55)
 parser.add_argument('--max', type=int, help='Temperature required for maximum fan speed', default=65)
@@ -46,7 +47,7 @@ def set_fans(a,b):
     with io.open('/sys/class/gpio/gpio398/value', 'w') as gpio:
         gpio.write(unicode(b))
 
-# Set no turbo boost function
+# Set no turbo boost function
 def set_no_turbo(state):
     with io.open('/sys/devices/system/cpu/intel_pstate/no_turbo', 'w') as no_turbo:
         no_turbo.write(unicode(state))
@@ -68,21 +69,20 @@ signal.signal(signal.SIGTERM, exit)
 while True:
     temp = get_temp()
 
-    if temp >= args.max or temp == 0:
-        print "Temperature: " + str(temp) + ", Fan Speed: Max, Turbo: Off"
+    # Set fan speed
+    if temp >= args.max:
         set_fans(1,1)
-        set_no_turbo(1)
     elif temp >= args.med:
-        print "Temperature: " + str(temp) + ", Fan Speed: Med, Turbo: On"
         set_fans(0,1)
-        set_no_turbo(0)
     elif temp >= args.min:
-        print "Temperature: " + str(temp) + ", Fan Speed: Min, Turbo: On"
         set_fans(1,0)
-        set_no_turbo(0)
     else:
-        print "Temperature: " + str(temp) + ", Fan Speed: Off, Turbo: On"
         set_fans(0,0)
+
+    # Set turbo boost state
+    if temp >= args.turbo:
+        set_no_turbo(1)
+    else:
         set_no_turbo(0)
 
-    sleep(args.time)
+sleep(args.time)
