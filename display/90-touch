@@ -1,5 +1,0 @@
-# X11 
-xinput set-prop 11 "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
-
-# Wayland
-#xinput set-prop 9 "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
