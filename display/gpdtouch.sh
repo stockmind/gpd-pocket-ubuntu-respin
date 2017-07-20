@@ -24,6 +24,9 @@ do
 	do
 	    xinput set-prop $i "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
 	done
+	
+	# try also to rotate display if monitors file gets ignored
+	xrandr --output DSI1 --rotate right
 
 	sleep 5
 	# wait for X loading on every try
