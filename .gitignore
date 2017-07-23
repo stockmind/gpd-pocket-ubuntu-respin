@@ -1,6 +1,8 @@
 isorespin.sh
 isorespin
 isorespin/*
+katoolin
+katoolin/*
 *.iso
 *.log
 *.deb

@@ -9,6 +9,9 @@ mkdir -p /etc/pm/config.d/
 touch /etc/pm/config.d/config
 echo "SUSPEND_MODULES=\"brcmfmac\"" >> /etc/pm/config.d/config
 
+# enforce brcmfmac load on boot
+echo "brcmfmac" >> /etc/modules
+
 # bluetooth enable
 cp 99-local-bluetooth.rules /etc/udev/rules.d/99-local-bluetooth.rules
 
