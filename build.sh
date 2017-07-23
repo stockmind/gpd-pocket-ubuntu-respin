@@ -46,19 +46,19 @@ fi
 if [ ! -f linux-image* ]; then
     echo "Kernel image not found"
 
-    if [ ! -f gpdpocket-kernel-files-17072017.zip ]; then
+    if [ ! -f gpdpocket-kernel-files-20170722.zip ]; then
 	echo ""
 	echo ""
 	echo "###### WARNING KERNEL FILES MISSING! ######"
     	echo "Download kernel files zip from this link: "
-	echo "http://ge.tt/85TkCpl2"
+	echo "http://ge.tt/4n1BLul2"
 	echo "And put it on the build.sh folder."
 	echo "###########################################"
 	exit 1;
     fi
 
     echo "Extracting kernel files..."
-    unzip -o gpdpocket-kernel-files-17072017.zip
+    unzip -o gpdpocket-kernel-files-20170722.zip
 fi
 
 if [ ! -f isorespin.sh ]; then
