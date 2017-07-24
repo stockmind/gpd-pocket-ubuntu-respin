@@ -23,6 +23,7 @@ do
 	for i in $ids
 	do
 	    xinput set-prop $i "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
+	    break # Take only first match
 	done
 	
 	# try also to rotate display if monitors file gets ignored
