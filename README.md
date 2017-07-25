@@ -117,6 +117,16 @@ https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
 # Troubleshooting
 
+## Blank screen on Live USB boot and white power led on
+
+Press power button to let usual desktop loading and look at issue below.
+
+## Sleep on plug of charger
+
+Some sort of Unity daemon or watcher seems to read bad values from battery or charge and put system on sleep when charger is plugged in. This seems to happen also on boot of Live USB.
+Press any key or power button to wake.
+It only happens on Unity as far as i know.
+
 ## Screen keep spamming errors regarding squashfs after power button press or close/open lid
 
 Try to burn image on smaller usb device or try another one.
