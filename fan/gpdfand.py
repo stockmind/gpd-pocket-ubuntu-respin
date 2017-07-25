@@ -85,4 +85,4 @@ while True:
     else:
         set_no_turbo(0)
 
-sleep(args.time)
+    sleep(args.time)
