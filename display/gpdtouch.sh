@@ -19,7 +19,6 @@ do
 	
 	# try also to rotate display if monitors file gets ignored
 	xrandr --output DSI1 --rotate right
-	xrandr --output DSI-1 --rotate right
 
 	sleep 5
 	# wait for X loading on every try
