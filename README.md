@@ -191,11 +191,12 @@ To restore to native pixel resolution you have to edit the scale configuration
 sudo nano /etc/X11/Xsession.d/90-scale
 ```
 You have to edit all the values to their default:
-gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 1, 'DSI1': 1}" // Unity
-gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
-gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
-gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
-gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
+
+    gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 1, 'DSI1': 1}" // Unity
+    gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
+    gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
+    gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
+    gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
 
 This will affect all the different DE. This might require a log-out log-in or reboot to take effect. Restart the dm service will also work.
 This way you can still read fine (if you have good 👀 ) and have all your pixels back.
