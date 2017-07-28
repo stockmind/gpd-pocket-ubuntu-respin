@@ -46,11 +46,11 @@ To respin an existing Ubuntu ISO you will need to use a Linux machine with 'squa
     
  5a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 
-        ./build.sh <iso filenamme>
+     ./build.sh <iso filenamme>
     
  5b. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 
-        ./build.sh <iso filenamme> wayland
+     ./build.sh <iso filenamme> wayland
         
 ## Arch based systems:
 
@@ -66,11 +66,11 @@ To respin an existing Ubuntu ISO you will need to use a Linux machine with 'squa
 
  5a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 
-        PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
+     PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
     
  5b. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 
-        PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
+     PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 
 # Build latest kernel
 
