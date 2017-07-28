@@ -34,27 +34,43 @@ To respin an existing Ubuntu ISO you will need to use a Linux machine with 'squa
 
 ## Debian based systems:
 
-    sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
-    
-Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+ 1. Install required packages:
 
-    ./build.sh <iso filenamme>
+        sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
     
-Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+ 2. Download your favourite distribution ISO and copy it in this repository cloned folder.
 
-    ./build.sh <iso filenamme> wayland
+ 3. Run `./build.sh` on terminal for the first time to get kernel files download link.
+
+ 4. Download zip file from link provided and put it in this repository cloned folder.
+    
+ 5a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+
+        ./build.sh <iso filenamme>
+    
+ 5b. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+
+        ./build.sh <iso filenamme> wayland
         
 ## Arch based systems:
 
-    sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
-
-Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
-
-    PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
+ 1. Install required packages:
+ 
+        sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
     
-Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+ 2. Download your favourite distribution ISO and copy it in this repository cloned folder.
 
-    PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
+ 3. Run `./build.sh` on terminal for the first time to get kernel files download link.
+
+ 4. Download zip file from link provided and put it in this repository cloned folder.    
+
+ 5a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+
+        PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
+    
+ 5b. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+
+        PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 
 # Build latest kernel
 
