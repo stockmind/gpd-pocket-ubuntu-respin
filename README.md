@@ -88,6 +88,13 @@ Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.
 
 Build.sh script will extract them and install during respin.
 
+# Boot ISO from USB device
+
+I sugget [Etcher]https://etcher.io/ to write ISO on usb flash drives.
+It's fast, reliable and multi-platform.
+
+Boot system using one time boot menu: Press during GPD logo Fn + F7 keys.
+
 # Post install
 
 Commands that should be run after first boot
