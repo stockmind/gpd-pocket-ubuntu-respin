@@ -163,7 +163,13 @@ http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
 BIOS versions:
 
  - Customary BIOS: Original BIOS shipped with first batch of production.
- - 07/05 BIOS: Second BIOS released, it seems to be affected by a bug that turn on fan while charging when device is powered off.
+ - 2017/06/28 BIOS Ubuntu: BIOS released for Ubuntu beta firmware. http://pan.baidu.com/s/1ge3CTiV#list/path=%2F 
+          
+       Changelog:
+          1 - All settings are enabled so you can customize all the option of the BIOS.
+          2 - Should have the fan working on boot
+          
+ - 2017/07/05 BIOS: Second BIOS officially released, it seems to be affected by a bug that turn on fan while charging when device is powered off.
 
        Changelog (Google translate):
            1 - boot on the fan ( Probably to support GPD official Ubuntu firmware that doesn't seems to handle fan directly )
