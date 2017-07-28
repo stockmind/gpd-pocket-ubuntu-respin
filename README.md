@@ -164,6 +164,9 @@ BIOS versions:
 
  - Customary BIOS: Original BIOS shipped with first batch of production.
  - 07/05 BIOS: Second BIOS released, it seems to be affected by a bug that turn on fan while charging when device is powered off.
+       Changelog (Google translate):
+           1 - boot on the fan ( Probably to support GPD official Ubuntu firmware that doesn't seems to handle fan directly )
+           2 - improve the DPTF temperature, before the limit for the CPU temperature higher than 85 degrees or the battery temperature is higher than 58 degrees will CPU down.
 
 # Troubleshooting
 
