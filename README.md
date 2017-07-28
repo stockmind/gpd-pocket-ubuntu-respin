@@ -1,4 +1,5 @@
 # Respin ISO for GPD Pocket
+## Overview
 Collection of scripts and tweaks to adapt Debian, Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
 
 All informations, tips and tricks was gathered from:
@@ -9,7 +10,7 @@ All informations, tips and tricks was gathered from:
  
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
-# What works out of the box
+### What works out of the box
 
  - ✔ Display already rotated in terminal buffer and desktop/login
  - ✔ Scaling already set to 175%
@@ -23,7 +24,7 @@ All informations, tips and tricks was gathered from:
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
  
-# What doesn't work at the moment
+### What doesn't work at the moment
 
  - Charging at full speed ( Charging will be slow and will keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels. Shutdown device to get full speed charge. )
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
