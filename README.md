@@ -72,7 +72,19 @@ Build.sh script will extract them and install during respin.
 
 Commands that should be run after first boot
 
-## GRUB
+## UPDATE SCRIPT
+
+You can run my update script to update your installation and grub options, and to setup everything after an install or after a Desktop Environment change.
+
+    sudo apt-get install -y git
+    git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
+    cd gpd-pocket-ubuntu-respin/
+    chmod +x update.sh
+    sudo ./update.sh
+
+## Manual update
+
+### GRUB
 
 Those commands will update your grub boot options to optimize the boot process for your intel Atom processor
 
@@ -81,7 +93,7 @@ Those commands will update your grub boot options to optimize the boot process f
 
     sudo update-grub
     
-## GPDFAND 
+### GPDFAND 
 
 Latest GPD Fan control script is integrated into iso.
 You should update your installation using these commands:
@@ -102,7 +114,7 @@ Check status using:
 
     systemctl status gpdfand.service
 
-## SDDM/KDE DPI and Rotate
+### SDDM/KDE DPI and Rotate
 
 To let SDDM (The preferred display manager for KDE Plasma desktop) to scale correctly and be rotated you should put two xrandr arguments into his starting configuration file like this:
 
@@ -114,6 +126,17 @@ To let SDDM (The preferred display manager for KDE Plasma desktop) to scale corr
 Download an already respinned ISO for GPD Pocket
 
 https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
+
+# BIOS updates and original firmwares
+
+You can find BIOS updates for GPD Pocket and original firmware files on this page:
+
+http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
+
+BIOS versions:
+
+ - Customary BIOS: Original BIOS shipped with first batch of production.
+ - 07/05 BIOS: Second BIOS released, it seems to be affected by a bug that turn on fan while charging when device is powered off.
 
 # Troubleshooting
 
