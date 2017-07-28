@@ -182,13 +182,20 @@ It's fast, reliable and multi-platform.
 Check that the correct sound output device is selected in System Settings. 
 It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt5645" for the audio jack output.
 
-## Why is my screen resolution half of real screen size in pixels ?
+## Why system UI is so big ?
 
-The scalling ratio is set to `2` to be able to read on the screen but it sure takes of a lot of pixels out of the FullHD screen.
-To get all your pixel back you have to edit the scale configuration
+The scaling ratio is set to `2` to be able to read on the screen but it sure takes of a lot of space out of the FullHD screen.
+Things will be more aliased and have better edge but take more space on screen.
+To restore to native pixel resolution you have to edit the scale configuration
 ```sh
 sudo nano /etc/X11/Xsession.d/90-scale
 ```
-And in this file set the `scaling-factor` to `1` (instead of `2`) and `text-scaling-factor` to `2` (instead of `1`).
-You might have to do it for Unity and Cinnamon. And it require a log-out log-in or reboot to take effect.
+You have to edit all the values to their default:
+gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 1, 'DSI1': 1}" // Unity
+gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
+gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
+gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
+gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
+
+This will affect all the different DE. This might require a log-out log-in or reboot to take effect. Restart the dm service will also work.
 This way you can still read fine (if you have good 👀 ) and have all your pixels back.
