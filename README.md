@@ -5,10 +5,9 @@ All informations, tips and tricks was gathered from:
  - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Base project files and amazing collection of tips and tricks to get all up and running
  - http://linuxiumcomau.blogspot.com/ - Respin script and info
  - http://hansdegoede.livejournal.com/ - Kernel patches and amazing work on Bay Trail and Cherry Trail devices
+ - https://www.indiegogo.com/projects/gpd-pocket-7-0-umpc-laptop-ubuntu-or-win-10-os-laptop--2/x/16403171#/ - GPD Pocket Indiegogo Campaign page 
  
- Kudos and all the credits go to them! 
- 
- Repository need a lot of refactoring to naming scripts better and documenting things. I'll do it in the next days.
+ Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
 # What works out of the box
 
@@ -16,14 +15,19 @@ All informations, tips and tricks was gathered from:
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
  - ✔ Wifi
- - ✔ Sound (Must select "Speakers" in audio output devices if no sound output)
+ - ✔ Sound ( Must select "Speakers" in audio output devices if no sound output )
  - ✔ Battery manager
  - ✔ Screen brightness ( Only after install at the moment )
  - ✔ Cooling fan ( Amazing ErikaFluff work! Check post installation section of this readme to optimize it )
  - ✔ Bluetooth ( Credits to Reddit user dveeden )
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
+ 
+# What doesn't work at the moment
 
+ - Charging at full speed ( Charging will be slow and will keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels. Shutdown device to get full speed charge. )
+ - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
+ 
 # Build iso image with tweaks
 
 To respin an existing Ubuntu ISO you will need to use a Linux machine with 'squashfs-tools' and 'xorriso' installed (e.g. 'sudo apt install -y squashfs-tools xorriso') and a working internet connection with at least 10GB of free space.
@@ -72,7 +76,7 @@ Build.sh script will extract them and install during respin.
 
 Commands that should be run after first boot
 
-## UPDATE SCRIPT
+## Update script
 
 You can run my update script to update your installation and grub options, and to setup everything after an install or after a Desktop Environment change.
 
