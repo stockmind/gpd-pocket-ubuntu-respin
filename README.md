@@ -139,11 +139,11 @@ You can run my update script to update your installation and grub options, and t
     
 1. Unity, KDE, XFCE as Desktop Environment:    
     
-    sudo ./update.sh
+       sudo ./update.sh
     
 1. GNOME, Pantheon (Elementary OS) as Desktop Environment:
 
-    sudo ./update.sh wayland
+       sudo ./update.sh wayland
 
 #### Manual update
 
