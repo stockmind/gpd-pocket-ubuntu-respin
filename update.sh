@@ -55,6 +55,12 @@ if [ -d /var/lib/mdm ]; then
   chown gdm:gdm /var/lib/mdm/.config
 fi
 
+# patch GNOME 3 based distros monitors config if folder exists
+if [ -d /etc/gnome/ ]; then
+  mkdir -p /etc/gnome-settings-daemon/xrandr/
+  cp monitors.xml /etc/gnome-settings-daemon/xrandr/
+fi
+
 # patch SDDM / KDE config if exist
 if [ -f /usr/share/sddm/scripts/Xsetup ]; then
   echo "Patching SDDM/KDE files..."
