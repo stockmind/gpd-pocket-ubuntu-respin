@@ -1,0 +1,2 @@
+gsettings set org.gnome.settings-daemon.plugins.xsettings rgba-order "vbgr"
+
