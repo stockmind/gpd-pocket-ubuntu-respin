@@ -10,7 +10,7 @@ All informations, tips and tricks was gathered from:
  
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
-### What Works Out-of-the-Oox
+### What Works Out-of-the-Box
 
  - ✔ Display already rotated in terminal buffer and desktop/login
  - ✔ Scaling already set to 175%
@@ -30,11 +30,11 @@ All informations, tips and tricks was gathered from:
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
  
 ### Overview for Building and respinning an ISO
-1. Clone the repo
-1. Install necessary tools and download the ISO
-1. Download OR build the latest kernel
-1. Run the build.sh (it many take a about 30 minutes or even longer)
-1. Write ISO on USB drive and boot from it
+
+1. Clone the repo and install necessary tools
+1. Download your ISO of choice
+1. Download or build the latest kernel
+1. Respin the ISO (it many take a about 30 minutes or even longer)
 1. Install OS and run post-install update
 
 ### Download an already respinned ISO
@@ -42,80 +42,71 @@ All informations, tips and tricks was gathered from:
 [Click here for downloads section.](#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
-### Overview
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
 
 The first step is to clone this repo: 
- ```
- git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin/
- cd gpd-pocket-ubuntu-respin/
- ```
-       
+```
+git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin/
+cd gpd-pocket-ubuntu-respin/
+```
+### Debian-based systems:
+Install required packages:
+```
+sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
+```
+## Arch-Based Systems:
+1. Install required packages:
+``` 
+sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
+```
 
 ## Step 2: Download your ISO of Choice
-### Debian based systems:
- 1. install required packages:
 
-        sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
-    
- 1. Download your favourite distribution ISO and copy it in this repository cloned folder.
+Download your favourite distribution ISO and copy it in this repository cloned folder.
 
- 1. Run `./build.sh` on terminal for the first time to get kernel files download link.
+## Step 3: Download or Build a Kernel for the Respin
 
- 1. Download zip file from link provided and put it in this repository cloned folder.
-    
- 1. Build ISO
+### Option 1: Download the latest kernel
+1. Run `./build.sh` in the terminal for the first time to get the most recent download link.
+1. Download the zipped kernel file from the link generated with `./build.sh` and place it in the cloned repo's root directory.
+
+### Option 2: Build your own kernel
  
-     - Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+#### Debian based systems:
 
-           ./build.sh <iso filenamme>
-    
-     - Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
-        
-           ./build.sh <iso filenamme> wayland
-        
-## Arch based systems:
-
- 1. Install required packages:
- 
-        sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
-    
- 1. Download your favourite distribution ISO and copy it in this repository cloned folder.
-
- 1. Run `./build.sh` on terminal for the first time to get kernel files download link.
-
- 1. Download zip file from link provided and put it in this repository cloned folder.  
- 
- 1. Build ISO
-
-      - Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
-
-            PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
-    
-      - Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
-
-            PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
-
-# Step 3: Build the Latest Kernel
-## Debian based systems:
-
-    sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
-    git clone https://github.com/jwrdegoede/linux-sunxi.git
-    cd linux-sunxi/
-    make clean
-    make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom   
-
+```
+sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
+git clone https://github.com/jwrdegoede/linux-sunxi.git
+cd linux-sunxi/
+make clean
+make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom   
+```
 You can find the generated kernel .deb files in the parent folder where linux-sunxi repository have been cloned.
 
-Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository. Overwrite existing zip.
+Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository.
 
 # Step 4: Build Your Respun ISO
-1. Run ./build.sh script as specified for your desired distro.
-1. The build script wiill extract the kernels you zipped and install during respin.
 
+Run `./build.sh` script as specified for your desired distro. If you built your own kernel, the build script wiill extract the kernels you zipped and install during respin.
+
+## Build Debian-based ISO
+
+1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+`./build.sh <iso filenamme>`
+1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+`./build.sh <iso filenamme> wayland`
+
+## Arch-based systems:
+1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+```
+PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
+```  
+1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+```
+PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
+```
 # Steps 5: Install and Update
 ## Boot ISO from USB device
-
 I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
@@ -140,40 +131,39 @@ You can run my update script to update your installation and grub options, and t
 #### GRUB
 
 Those commands will update your grub boot options to optimize the boot process for your intel Atom processor
-
-    sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
-    sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/" /etc/default/grub
-
-    sudo update-grub
-    
+```
+sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
+sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/" /etc/default/grub
+sudo update-grub
+```    
 #### GPDFAND 
 
 Latest GPD Fan control script is integrated into iso.
 You should update your installation using these commands:
-
-    git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
-    cd gpd-pocket-ubuntu-respin/fan/
-    sudo cp gpdfand.service /etc/systemd/system/gpdfand.service
-    sudo cp gpdfand /lib/systemd/system-sleep/gpdfand
-    sudo cp gpdfand.conf /etc/gpdfand.conf
-    sudo cp gpdfand.py /usr/local/sbin/gpdfand
-    sudo chmod +x /lib/systemd/system-sleep/gpdfand /usr/local/sbin/gpdfand
-    sudo chmod 0644 /etc/gpdfand.conf
-    sudo chmod 0644 /etc/systemd/system/gpdfand.service
-    sudo systemctl enable gpdfand.service
-    sudo systemctl restart gpdfand.service
-    
+```
+git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
+cd gpd-pocket-ubuntu-respin/fan/
+sudo cp gpdfand.service /etc/systemd/system/gpdfand.service
+sudo cp gpdfand /lib/systemd/system-sleep/gpdfand
+sudo cp gpdfand.conf /etc/gpdfand.conf
+sudo cp gpdfand.py /usr/local/sbin/gpdfand
+sudo chmod +x /lib/systemd/system-sleep/gpdfand /usr/local/sbin/gpdfand
+sudo chmod 0644 /etc/gpdfand.conf
+sudo chmod 0644 /etc/systemd/system/gpdfand.service
+sudo systemctl enable gpdfand.service
+sudo systemctl restart gpdfand.service
+```   
 Check status using:
-
-    systemctl status gpdfand.service
-
+```
+systemctl status gpdfand.service
+```
 #### SDDM/KDE DPI and Rotate
 
 To let SDDM (The preferred display manager for KDE Plasma desktop) to scale correctly and be rotated you should put two xrandr arguments into his starting configuration file like this:
-
-    echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
-    echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
-
+```
+echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
+echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
+```
 # Additional Notes
 ## Downloading Existing ISO's
 
