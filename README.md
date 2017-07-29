@@ -30,11 +30,16 @@ All informations, tips and tricks was gathered from:
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
  
 ### Overview for Building and respinning an ISO
+
 1. Clone the repo and install necessary tools
 1. Download your ISO of choice
 1. Download or build the latest kernel
 1. Respin the ISO (it many take a about 30 minutes or even longer)
 1. Install OS and run post-install update
+
+### Download an already respinned ISO
+
+[Click here for downloads section.](#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
@@ -56,17 +61,19 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 ```
 
 ## Step 2: Download your ISO of Choice
+
 Download your favourite distribution ISO and copy it in this repository cloned folder.
 
 ## Step 3: Download or Build a Kernel for the Respin
+
 ### Option 1: Download the latest kernel
 1. Run `./build.sh` in the terminal for the first time to get the most recent download link.
-1.Download the zipped kernel file from the link generated with `./build.sh` and place it in the cloned repo's root directory.
-### Option 2: Download the latest kernel
- * Run `./build.sh` in the terminal for the first time to get the most recent download link.
- * Download the zipped kernel file from the link generated with `./build.sh` and place it in the cloned repo's root directory.
-* Option 2: Build your own kernel
- * Debian based systems:
+1. Download the zipped kernel file from the link generated with `./build.sh` and place it in the cloned repo's root directory.
+
+### Option 2: Build your own kernel
+ 
+#### Debian based systems:
+
 ```
 sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
 git clone https://github.com/jwrdegoede/linux-sunxi.git
@@ -79,8 +86,11 @@ You can find the generated kernel .deb files in the parent folder where linux-su
 Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository.
 
 # Step 4: Build Your Respun ISO
+
 Run `./build.sh` script as specified for your desired distro. If you built your own kernel, the build script wiill extract the kernels you zipped and install during respin.
-##Build Debian-based ISO
+
+## Build Debian-based ISO
+
 1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 `./build.sh <iso filenamme>`
 1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
@@ -198,7 +208,7 @@ It only happens on Unity as far as i know.
 
 Try to burn image on smaller usb device or try another one.
 
-I sugget [Etcher]https://etcher.io/ to write ISO on usb flash drives.
+I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
 ## No sound / streaming video crashing/not playing
