@@ -11,6 +11,7 @@ All informations, tips and tricks was gathered from:
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
 ### What Works Out-of-the-Box
+
  - ✔ Display already rotated in terminal buffer and desktop/login
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
@@ -103,8 +104,6 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 ```
 
 ### Build on Arch-based systems:
-
-## Build an Arch-based ISO:
 
 1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
