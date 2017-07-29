@@ -32,9 +32,14 @@ All informations, tips and tricks was gathered from:
 ### Overview for Building and respinning an ISO
 1. Clone the repo
 1. Install necessary tools and download the ISO
-1. Download and build the latest kernel
+1. Download OR build the latest kernel
 1. Run the build.sh (it many take a about 30 minutes or even longer)
+1. Write ISO on USB drive and boot from it
 1. Install OS and run post-install update
+
+### Download an already respinned ISO
+
+[https://github.com/stockmind/gpd-pocket-ubuntu-respin#downloading-existing-isos](Click here for downloads section.)
  
 ## Step 1: Cloning the Repo and Installing Tools
 ### Overview
