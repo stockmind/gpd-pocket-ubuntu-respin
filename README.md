@@ -1,5 +1,6 @@
-# Respin ISO for GPD Pocket
-Collection of scripts and tweaks to adapt Debian, Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
+# How to Respin an ISO for GPD Pocket
+## Overview
+This is a collection of scripts and tweaks to adapt Debian, Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
 
 All informations, tips and tricks was gathered from:
  - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Base project files and amazing collection of tips and tricks to get all up and running
@@ -9,7 +10,7 @@ All informations, tips and tricks was gathered from:
  
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
-# What works out of the box
+### What Works Out-of-the-Oox
 
  - ✔ Display already rotated in terminal buffer and desktop/login
  - ✔ Scaling already set to 175%
@@ -23,18 +24,32 @@ All informations, tips and tricks was gathered from:
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
  
-# What doesn't work at the moment
+### What Doesn't Work at the Moment
 
  - Charging at full speed ( Charging will be slow and will keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels. Shutdown device to get full speed charge. )
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
  
-# Build iso image with tweaks
+### Overview for Building and respinning an ISO
+1. Clone the repo
+1. Install necessary tools and download the ISO
+1. Download and build the latest kernel
+1. Run the build.sh (it many take a about 30 minutes or even longer)
+1. Install OS and run post-install update
+ 
+## Step 1: Cloning the Repo and Installing Tools
+### Overview
+To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
 
-To respin an existing Ubuntu ISO you will need to use a Linux machine with 'squashfs-tools' and 'xorriso' installed (e.g. 'sudo apt install -y squashfs-tools xorriso') and a working internet connection with at least 10GB of free space.
+The first step is to clone this repo: 
+ ```
+ git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin/
+ cd gpd-pocket-ubuntu-respin/
+ ```
+       
 
-## Debian based systems:
-
- 1. Install required packages:
+## Step 2: Download your ISO of Choice
+### Debian based systems:
+ 1. install required packages:
 
         sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
     
@@ -72,8 +87,7 @@ To respin an existing Ubuntu ISO you will need to use a Linux machine with 'squa
 
      PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 
-# Build latest kernel
-
+# Step 3: Build the Latest Kernel
 ## Debian based systems:
 
     sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
@@ -86,20 +100,23 @@ You can find the generated kernel .deb files in the parent folder where linux-su
 
 Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository. Overwrite existing zip.
 
-Build.sh script will extract them and install during respin.
+# Step 4: Build Your Respun ISO
+1. Run ./build.sh script as specified for your desired distro.
+1. The build script wiill extract the kernels you zipped and install during respin.
 
-# Boot ISO from USB device
+# Steps 5: Install and Update
+## Boot ISO from USB device
 
 I sugget [Etcher]https://etcher.io/ to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
 Boot system using one time boot menu: Press during GPD logo Fn + F7 keys.
 
-# Post install
+## Post-install
 
-Commands that should be run after first boot
+These commands should be run after the first boot. There is an update script that will do it automatically, or you can run the necessary commands manually.
 
-## Update script
+### Update script
 
 You can run my update script to update your installation and grub options, and to setup everything after an install or after a Desktop Environment change.
 
@@ -109,9 +126,9 @@ You can run my update script to update your installation and grub options, and t
     chmod +x update.sh
     sudo ./update.sh
 
-## Manual update
+### Manual update
 
-### GRUB
+#### GRUB
 
 Those commands will update your grub boot options to optimize the boot process for your intel Atom processor
 
@@ -120,7 +137,7 @@ Those commands will update your grub boot options to optimize the boot process f
 
     sudo update-grub
     
-### GPDFAND 
+#### GPDFAND 
 
 Latest GPD Fan control script is integrated into iso.
 You should update your installation using these commands:
@@ -141,20 +158,21 @@ Check status using:
 
     systemctl status gpdfand.service
 
-### SDDM/KDE DPI and Rotate
+#### SDDM/KDE DPI and Rotate
 
 To let SDDM (The preferred display manager for KDE Plasma desktop) to scale correctly and be rotated you should put two xrandr arguments into his starting configuration file like this:
 
     echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
     echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
 
-# Download ISO
+# Additional Notes
+## Downloading Existing ISO's
 
-Download an already respinned ISO for GPD Pocket
+Here is an already respinned Ubuntu ISO for GPD Pocket
 
 https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
-# BIOS updates and original firmwares
+## BIOS updates and original firmwares
 
 You can find BIOS updates for GPD Pocket and original firmware files on this page:
 
