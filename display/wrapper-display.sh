@@ -54,6 +54,12 @@ if [ -d /var/lib/gdm3 ]; then
   chown gdm:gdm /var/lib/gdm3/.config
 fi
 
+# patch GNOME 3 based distros monitors config if folder exists
+if [ -d /etc/gnome/ ]; then
+  mkdir -p /etc/gnome-settings-daemon/xrandr/
+  cp monitors.xml /etc/gnome-settings-daemon/xrandr/
+fi
+
 # patch MDM monitors config if folder exists
 if [ -d /var/lib/mdm ]; then
   mkdir -p /var/lib/mdm/.config/
