@@ -5,6 +5,23 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
+# Check arguments
+for i in "$@" ; do
+    if [[ $i == "wayland" ]] ; then
+        echo "Setting wayland monitors..."
+        WAYLAND=$i
+        break
+    fi
+done
+
+if [ -n "$WAYLAND" ]; then
+	echo "Display setting: Wayland"
+	cp display/monitors_wayland.xml display/monitors.xml
+else
+	echo "Display setting: Xorg"
+	cp display/monitors_xorg.xml display/monitors.xml
+fi
+
 # remove conflicting packages
 echo "Remove conflicting packages..."
 apt-get -y purge bcmwl-kernel-source
@@ -23,8 +40,10 @@ echo "Update display files..."
 cd display
 cp 90-scale /etc/X11/Xsession.d/90-scale
 cp 90-touch /etc/X11/Xsession.d/90-touch
+cp 90-interface /etc/X11/Xsession.d/90-interface
 chmod 644 /etc/X11/Xsession.d/90-scale
 chmod 644 /etc/X11/Xsession.d/90-touch
+chmod 644 /etc/X11/Xsession.d/90-interface
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
 
@@ -53,6 +72,13 @@ if [ -d /var/lib/mdm ]; then
   cp monitors.xml /var/lib/mdm/.config/
   chown gdm:gdm /var/lib/mdm/.config/monitors.xml
   chown gdm:gdm /var/lib/mdm/.config
+fi
+
+# patch GNOME 3 based distros monitors config if folder exists
+if [ -d /etc/gnome/ ]; then
+  echo "Patching default gnome 3 xrandr files..."
+  mkdir -p /etc/gnome-settings-daemon/xrandr/
+  cp monitors.xml /etc/gnome-settings-daemon/xrandr/
 fi
 
 # patch SDDM / KDE config if exist

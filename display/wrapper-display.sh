@@ -3,8 +3,10 @@
 cd /usr/local/bin
 cp 90-scale /etc/X11/Xsession.d/90-scale
 cp 90-touch /etc/X11/Xsession.d/90-touch
+cp 90-interface /etc/X11/Xsession.d/90-interface
 chmod 644 /etc/X11/Xsession.d/90-scale
 chmod 644 /etc/X11/Xsession.d/90-touch
+chmod 644 /etc/X11/Xsession.d/90-interface
 
 # Add touchscreen rotation daemon for login screens and wayland
 cp gpdtouch.sh /usr/local/sbin/gpdtouch
@@ -52,6 +54,12 @@ if [ -d /var/lib/gdm3 ]; then
   cp monitors.xml /var/lib/gdm3/.config/
   chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
   chown gdm:gdm /var/lib/gdm3/.config
+fi
+
+# patch GNOME 3 based distros monitors config if folder exists
+if [ -d /etc/gnome/ ]; then
+  mkdir -p /etc/gnome-settings-daemon/xrandr/
+  cp monitors.xml /etc/gnome-settings-daemon/xrandr/
 fi
 
 # patch MDM monitors config if folder exists

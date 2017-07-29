@@ -1,0 +1,4 @@
+gsettings set org.gnome.settings-daemon.plugins.xsettings rgba-order vbgr
+gsettings set org.gnome.desktop.interface enable-animations false
+gsettings set org.cinnamon.desktop.interface enable-animations false
+
