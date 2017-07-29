@@ -41,8 +41,8 @@ All informations, tips and tricks was gathered from:
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with 'squashfs-tools' and 'xorriso' installed (e.g. 'sudo apt install -y squashfs-tools xorriso') and a working internet connection with at least 10GB of free space.
 
 The first step is to clone this repo: 
-       git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin/
-       cd gpd-pocket-ubuntu-respin/
+ ```git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin/
+ cd gpd-pocket-ubuntu-respin/```
        
 
 ## Step 2: Download your ISO of Choice
