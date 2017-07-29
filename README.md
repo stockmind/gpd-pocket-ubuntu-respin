@@ -39,7 +39,7 @@ All informations, tips and tricks was gathered from:
 
 ### Download an already respinned ISO
 
-[https://github.com/stockmind/gpd-pocket-ubuntu-respin#downloading-existing-isos](Click here for downloads section.)
+[Click here for downloads section.](https://github.com/stockmind/gpd-pocket-ubuntu-respin#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
 ### Overview
