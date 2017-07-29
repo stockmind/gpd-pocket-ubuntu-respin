@@ -31,22 +31,23 @@ All informations, tips and tricks was gathered from:
  
 ### Overview for Building and respinning an ISO
 1. Clone the repo
-1. Download the ISO of your distro of choice and put into the repo directory
-1. Download the latest kernel then put into the repo's root directory
-1. Now run the build.sh (it many take a about 30 minutes or even longer)
+1. Install necessary tools and download the ISO
+1. Download and build the latest kernel
+1. Run the build.sh (it many take a about 30 minutes or even longer)
 1. Install OS and run post-install update
  
-## Step 1: Cloning the Repo
+## Step 1: Cloning the Repo and Installing Tools
 ### Overview
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with 'squashfs-tools' and 'xorriso' installed (e.g. 'sudo apt install -y squashfs-tools xorriso') and a working internet connection with at least 10GB of free space.
 
 The first step is to clone this repo: 
        git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin/
        cd gpd-pocket-ubuntu-respin/
+       
 
 ## Step 2: Download your ISO of Choice
 ### Debian based systems:
- 1. Install required packages:
+ 1. install required packages:
 
         sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
     
