@@ -114,7 +114,7 @@ PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 ```
 
-## Steps 5: Install and Update
+## Step 5: Install and Update
 
 ### Boot ISO from USB device
 
