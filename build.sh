@@ -44,21 +44,25 @@ fi
 ./clean.sh
 
 if [ ! -f linux-image* ]; then
-    echo "Kernel image not found"
-
-    if [ ! -f gpdpocket-20170728-kernel-files.zip ]; then
-	echo ""
-	echo ""
-	echo "###### WARNING KERNEL FILES MISSING! ######"
-    	echo "Download kernel files zip from this link: "
-	echo "http://ge.tt/3y4Kpxl2"
-	echo "And put it on the build.sh folder."
-	echo "###########################################"
-	exit 1;
-    fi
-
-    echo "Extracting kernel files..."
-    unzip -o gpdpocket-20170728-kernel-files.zip
+    echo "Looking for kernel image..."
+    if [ ! -f gpd-pocket-kernel-files.zip]; then
+	 if [ ! -f gpdpocket-20170728-kernel-files.zip ]; then
+	    echo ""
+	    echo ""
+	    echo "###### WARNING KERNEL FILES MISSING! ######"
+	    echo "Download kernel files zip from this link: "
+	    echo "http://ge.tt/3y4Kpxl2"
+	    echo "And put it on the build.sh folder.
+	    echo "Or check README to build kernel from source."
+	    echo "###########################################"
+	    exit 1;
+	fi
+	echo "Extracting kernel files..."
+    	unzip -o gpdpocket-20170728-kernel-files.zip
+    else	    
+        echo "Extracting custom kernel files..."
+        unzip -o gpd-pocket-kernel-files.zip
+    fi	
 fi
 
 if [ ! -f isorespin.sh ]; then

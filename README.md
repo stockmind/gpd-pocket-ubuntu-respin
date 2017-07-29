@@ -41,6 +41,7 @@ All informations, tips and tricks was gathered from:
 [Click here for the downloads section.](#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
+
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
 
 The first step is to clone this repo: 
@@ -49,11 +50,13 @@ git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin/
 cd gpd-pocket-ubuntu-respin/
 ```
 ### Debian-based systems:
-Install required packages:
+
+1. Install required packages:
 ```
 sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
 ```
-## Arch-based Systems:
+### Arch-Based Systems:
+
 1. Install required packages:
 ``` 
 sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
@@ -61,11 +64,12 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 
 ## Step 2: Download your ISO of Choice
 
-Download your favourite distribution ISO and copy it in this repository cloned folder.
+1. Download your favourite distribution ISO and copy it in this repository cloned folder.
 
 ## Step 3: Download or Build a Kernel for the Respin
 
 ### Option 1: Download the Latest Kernel
+
 1. Run `./build.sh` in the terminal for the first time to get the most recent download link.
 1. Download the zipped kernel file from the link generated with `./build.sh` and place it in the cloned repo's root directory.
 
@@ -83,37 +87,48 @@ You can find the generated kernel .deb files in the parent folder where linux-su
 
 Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository.
 
-# Step 4: Build Your Respun ISO
+## Step 4: Build Your Respun ISO
 
 Run `./build.sh` script as specified for your desired distro. If you built your own kernel, the build script wiill extract the kernels you zipped and install during respin.
 
-## Build a Debian-based ISO:
+### Build on Debian-based systems:
+
 1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
-`./build.sh <iso filenamme>`
+```
+./build.sh <iso filenamme>
+```
 1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
-`./build.sh <iso filenamme> wayland`
+```
+./build.sh <iso filenamme> wayland
+```
+
+### Build on Arch-based systems:
 
 ## Build an Arch-based ISO:
+
 1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 ```  
-1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 ```
-# Step 5: Install and Update
-## Boot ISO from USB Device
+
+## Steps 5: Install and Update
+
+### Boot ISO from USB device
+
 I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
 Boot system using one time boot menu: Press during GPD logo Fn + F7 keys.
 
-## Post-install
+### Post-install
 
 These commands should be run after the first boot. There is an update script that will do it automatically, or you can run the necessary commands manually.
 
-### Update Script
+#### Update script
 
 You can run my update script to update your installation and grub options, and to setup everything after an install or after a Desktop Environment change.
 
@@ -121,11 +136,18 @@ You can run my update script to update your installation and grub options, and t
     git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
     cd gpd-pocket-ubuntu-respin/
     chmod +x update.sh
-    sudo ./update.sh
+    
+1. Unity, KDE, XFCE as Desktop Environment:    
+    
+       sudo ./update.sh
+    
+1. GNOME, Pantheon (Elementary OS) as Desktop Environment:
 
-### Manual Update
+       sudo ./update.sh wayland
 
-#### GRUB
+#### Manual update
+
+##### GRUB
 
 Those commands will update your grub boot options to optimize the boot process for your Intel Atom processor
 ```
@@ -133,7 +155,7 @@ sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DE
 sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/" /etc/default/grub
 sudo update-grub
 ```    
-#### GPDFAND 
+##### GPDFAND 
 
 Latest GPD Fan control script is integrated into ISO.
 You should update your installation using these commands:
@@ -154,13 +176,14 @@ Check status using:
 ```
 systemctl status gpdfand.service
 ```
-#### SDDM/KDE DPI and Rotate
+##### SDDM/KDE DPI and Rotate
 
 To let SDDM (The preferred display manager for KDE Plasma desktop) to scale correctly and be rotated you should put two xrandr arguments into his starting configuration file like this:
 ```
 echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
 echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
 ```
+
 # Additional Notes
 ## Downloading Existing ISO's
 
