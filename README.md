@@ -10,7 +10,7 @@ All informations, tips and tricks was gathered from:
  
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
-### What works out of the box
+### What Works Out-of-the-Oox
 
  - ✔ Display already rotated in terminal buffer and desktop/login
  - ✔ Scaling already set to 175%
@@ -24,12 +24,12 @@ All informations, tips and tricks was gathered from:
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
  
-### What doesn't work at the moment
+### What Doesn't Work at the Moment
 
  - Charging at full speed ( Charging will be slow and will keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels. Shutdown device to get full speed charge. )
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
  
-### Overview for building and respinning an ISO
+### Overview for Building and respinning an ISO
 1. Clone the repo
 1. Download the ISO of your distro of choice and put into the repo directory
 1. Download the latest kernel then put into the repo's root directory
