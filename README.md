@@ -39,7 +39,7 @@ All informations, tips and tricks was gathered from:
 
 ### Download an already respinned ISO
 
-[Click here for downloads section.](https://github.com/stockmind/gpd-pocket-ubuntu-respin#downloading-existing-isos)
+[Click here for downloads section.](#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
 ### Overview
@@ -214,7 +214,7 @@ It only happens on Unity as far as i know.
 
 Try to burn image on smaller usb device or try another one.
 
-I sugget [Etcher]https://etcher.io/ to write ISO on usb flash drives.
+I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
 ## No sound / streaming video crashing/not playing
