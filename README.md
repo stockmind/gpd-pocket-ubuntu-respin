@@ -58,19 +58,21 @@ The first step is to clone this repo:
 
         sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
     
- 2. Download your favourite distribution ISO and copy it in this repository cloned folder.
+ 1. Download your favourite distribution ISO and copy it in this repository cloned folder.
 
- 3. Run `./build.sh` on terminal for the first time to get kernel files download link.
+ 1. Run `./build.sh` on terminal for the first time to get kernel files download link.
 
- 4. Download zip file from link provided and put it in this repository cloned folder.
+ 1. Download zip file from link provided and put it in this repository cloned folder.
     
- 5a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+ 1. Build ISO
+ 
+     a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 
-        ./build.sh <iso filenamme>
+            ./build.sh <iso filenamme>
     
- 5b. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+     a. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
         
-        ./build.sh <iso filenamme> wayland
+            ./build.sh <iso filenamme> wayland
         
 ## Arch based systems:
 
@@ -78,19 +80,21 @@ The first step is to clone this repo:
  
         sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
     
- 2. Download your favourite distribution ISO and copy it in this repository cloned folder.
+ 1. Download your favourite distribution ISO and copy it in this repository cloned folder.
 
- 3. Run `./build.sh` on terminal for the first time to get kernel files download link.
+ 1. Run `./build.sh` on terminal for the first time to get kernel files download link.
 
- 4. Download zip file from link provided and put it in this repository cloned folder.    
+ 1. Download zip file from link provided and put it in this repository cloned folder.  
+ 
+ 1. Build ISO
 
- 5a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+      a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 
-        PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
+            PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
     
- 5b. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+      5b. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 
-        PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
+            PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 
 # Step 3: Build the Latest Kernel
 ## Debian based systems:
