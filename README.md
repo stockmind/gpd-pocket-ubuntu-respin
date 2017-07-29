@@ -11,7 +11,6 @@ All informations, tips and tricks was gathered from:
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
 ### What Works Out-of-the-Box
-
  - ✔ Display already rotated in terminal buffer and desktop/login
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
@@ -29,7 +28,7 @@ All informations, tips and tricks was gathered from:
  - Charging at full speed ( Charging will be slow and will keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels. Shutdown device to get full speed charge. )
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
  
-### Overview for Building and respinning an ISO
+### Overview for Building and Respinning an ISO
 
 1. Clone the repo and install necessary tools
 1. Download your ISO of choice
@@ -37,7 +36,7 @@ All informations, tips and tricks was gathered from:
 1. Respin the ISO (it many take a about 30 minutes or even longer)
 1. Install OS and run post-install update
 
-### Download an already respinned ISO
+### Download an Slready Respinned ISO
 
 [Click here for downloads section.](#downloading-existing-isos)
  
