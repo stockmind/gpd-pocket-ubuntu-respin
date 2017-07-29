@@ -66,13 +66,13 @@ The first step is to clone this repo:
     
  1. Build ISO
  
-     a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+     - Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 
-            ./build.sh <iso filenamme>
+           ./build.sh <iso filenamme>
     
-     a. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+     - Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
         
-            ./build.sh <iso filenamme> wayland
+           ./build.sh <iso filenamme> wayland
         
 ## Arch based systems:
 
@@ -88,11 +88,11 @@ The first step is to clone this repo:
  
  1. Build ISO
 
-      a. Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+      - Build Xorg iso (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 
             PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
     
-      5b. Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+      - Build Wayland iso (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 
             PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 
