@@ -39,9 +39,10 @@ All informations, tips and tricks was gathered from:
 
 ### Download an already respinned ISO
 
-[Click here for downloads section.](#downloading-existing-isos)
+1. [Click here for downloads section.](#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
+
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
 
 The first step is to clone this repo: 
@@ -50,11 +51,13 @@ git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin/
 cd gpd-pocket-ubuntu-respin/
 ```
 ### Debian-based systems:
+
 1. Install required packages:
 ```
 sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
 ```
 ### Arch-Based Systems:
+
 1. Install required packages:
 ``` 
 sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
@@ -67,6 +70,7 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 ## Step 3: Download or Build a Kernel for the Respin
 
 ### Option 1: Download the latest kernel
+
 1. Run `./build.sh` in the terminal for the first time to get the most recent download link.
 1. Download the zipped kernel file from the link generated with `./build.sh` and place it in the cloned repo's root directory.
 
@@ -92,9 +96,13 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 ### Build on Debian-based systems:
 
 1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
-`./build.sh <iso filenamme>`
+```
+./build.sh <iso filenamme>
+```
 1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
-`./build.sh <iso filenamme> wayland`
+```
+./build.sh <iso filenamme> wayland
+```
 
 ### Build on Arch-based systems:
 
@@ -106,8 +114,11 @@ PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 ```
+
 ## Steps 5: Install and Update
+
 ### Boot ISO from USB device
+
 I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
@@ -125,7 +136,14 @@ You can run my update script to update your installation and grub options, and t
     git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
     cd gpd-pocket-ubuntu-respin/
     chmod +x update.sh
+    
+1. Unity, KDE, XFCE as Desktop Environment:    
+    
     sudo ./update.sh
+    
+1. GNOME, Pantheon (Elementary OS) as Desktop Environment:
+
+    sudo ./update.sh wayland
 
 #### Manual update
 
@@ -165,6 +183,7 @@ To let SDDM (The preferred display manager for KDE Plasma desktop) to scale corr
 echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
 echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
 ```
+
 # Additional Notes
 ## Downloading Existing ISO's
 
