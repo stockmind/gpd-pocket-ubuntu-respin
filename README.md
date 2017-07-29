@@ -38,7 +38,7 @@ All informations, tips and tricks was gathered from:
 
 ### Download an Already Respinned ISO
 
-[Click here for downloads section.](#downloading-existing-isos)
+[Click here for the downloads section.](#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
