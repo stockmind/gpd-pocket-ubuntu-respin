@@ -213,7 +213,7 @@ It's fast, reliable and multi-platform.
 Check that the correct sound output device is selected in System Settings. 
 It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt5645" for the audio jack output.
 
-## Why is system UI so big ?
+## Why is system UI so big?
 
 The scaling ratio is set to `2` to be able to read on the screen but it sure takes of a lot of space out of the FullHD screen.
 Things will be more aliased and have better edge but take more space on screen.
