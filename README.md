@@ -37,9 +37,9 @@ All informations, tips and tricks was gathered from:
 1. [Respin the ISO (it many take a about 30 minutes or even longer)](#step-4-build-your-respun-iso)
 1. [Install OS and run post-install update](#step-5-install-and-update)
 
-### Download an Already Respinned ISO
+### Download an Already Respun ISO
 
-[Click here for the downloads section.](#downloading-existing-isos)
+[Click here for the downloads section](#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
 
@@ -52,13 +52,13 @@ cd gpd-pocket-ubuntu-respin/
 ```
 ### Debian-based systems:
 
-1. Install required packages:
+Install required packages:
 ```
 sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
 ```
 ### Arch-Based Systems:
 
-1. Install required packages:
+Install required packages:
 ``` 
 sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 ```
@@ -71,8 +71,9 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 
 ### Option 1: Download the Latest Kernel
 
-1. Run `./build.sh` in the terminal for the first time to get the most recent download link.
-1. Download the zipped kernel file from the link generated with `./build.sh` and place it in the cloned repo's root directory.
+1. Run `./build.sh` in the terminal to get the most recent download link
+1. Download the zipped kernel file from the link generated in the terminal.
+1. Place the downloaded kernel in the cloned repo's root directory. 
 
 ### Option 2: Build Your Own Kernel
  
@@ -130,20 +131,20 @@ These commands should be run after the first boot. There is an update script tha
 #### Update script
 
 You can run my update script to update your installation and grub options, and to setup everything after an install or after a Desktop Environment change.
-
-    sudo apt-get install -y git
-    git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
-    cd gpd-pocket-ubuntu-respin/
-    chmod +x update.sh
-    
+```
+sudo apt-get install -y git
+git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
+cd gpd-pocket-ubuntu-respin/
+chmod +x update.sh
+```
 1. Unity, KDE, XFCE as Desktop Environment:    
-    
-       sudo ./update.sh
-    
+```    
+sudo ./update.sh
+```
 1. GNOME, Pantheon (Elementary OS) as Desktop Environment:
-
-       sudo ./update.sh wayland
-
+```
+sudo ./update.sh wayland
+```
 #### Manual update
 
 ##### GRUB
@@ -239,17 +240,17 @@ It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt564
 
 The scaling ratio is set to `2` to be able to read on the screen but it sure takes of a lot of space out of the FullHD screen.
 Things will be more aliased and have better edge but take more space on screen.
-To restore to native pixel resolution you have to edit the scale configuration
-```sh
+To restore to native pixel resolution you have to edit the scale configuration:
+```
 sudo nano /etc/X11/Xsession.d/90-scale
 ```
 You have to edit all the values to their default:
-
-    gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 1, 'DSI1': 1}" // Unity
-    gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
-    gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
-    gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
-    gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
-
-This will affect all the different DE. This might require a log-out log-in or reboot to take effect. Restart the dm service will also work.
+```
+gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 1, 'DSI1': 1}" // Unity
+gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
+gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
+gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
+gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
+```
+This will affect all the different desktop environments. This might require a log-out, log-in, or reboot to take effect. Restarting the display manager service will also work.
 This way you can still read fine (if you have good 👀 ) and have all your pixels back.
