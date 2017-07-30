@@ -29,17 +29,17 @@ All informations, tips and tricks was gathered from:
  - Charging at full speed ( Charging will be slow and will keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels. Shutdown device to get full speed charge. )
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
  
-### Overview for Building and respinning an ISO
+### Overview for Building and Respinning an ISO
 
-1. Clone the repo and install necessary tools
-1. Download your ISO of choice
-1. Download or build the latest kernel
-1. Respin the ISO (it many take a about 30 minutes or even longer)
-1. Install OS and run post-install update
+1. [Clone the repo and install necessary tools](#step-1-cloning-the-repo-and-installing-tools)
+1. [Download your ISO of choice](#step-2-download-your-iso-of-choice)
+1. [Download or build the latest kernel](#step-3-download-or-build-a-kernel-for-the-respin)
+1. [Respin the ISO (it many take a about 30 minutes or even longer)](#step-4-build-your-respun-iso)
+1. [Install OS and run post-install update](#step-5-install-and-update)
 
-### Download an already respinned ISO
+### Download an Already Respinned ISO
 
-1. [Click here for downloads section.](#downloading-existing-isos)
+[Click here for the downloads section.](#downloading-existing-isos)
  
 ## Step 1: Cloning the Repo and Installing Tools
 
@@ -69,15 +69,14 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 
 ## Step 3: Download or Build a Kernel for the Respin
 
-### Option 1: Download the latest kernel
+### Option 1: Download the Latest Kernel
 
 1. Run `./build.sh` in the terminal for the first time to get the most recent download link.
 1. Download the zipped kernel file from the link generated with `./build.sh` and place it in the cloned repo's root directory.
 
-### Option 2: Build your own kernel
+### Option 2: Build Your Own Kernel
  
-#### Debian based systems:
-
+#### Debian Based Systems:
 ```
 sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
 git clone https://github.com/jwrdegoede/linux-sunxi.git
@@ -110,12 +109,12 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 ```  
-1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 ```
 
-## Steps 5: Install and Update
+## Step 5: Install and Update
 
 ### Boot ISO from USB device
 
@@ -149,7 +148,7 @@ You can run my update script to update your installation and grub options, and t
 
 ##### GRUB
 
-Those commands will update your grub boot options to optimize the boot process for your intel Atom processor
+Those commands will update your grub boot options to optimize the boot process for your Intel Atom processor
 ```
 sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
 sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/" /etc/default/grub
@@ -157,7 +156,7 @@ sudo update-grub
 ```    
 ##### GPDFAND 
 
-Latest GPD Fan control script is integrated into iso.
+Latest GPD Fan control script is integrated into ISO.
 You should update your installation using these commands:
 ```
 git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
@@ -191,7 +190,7 @@ Here is an already respinned Ubuntu ISO for GPD Pocket
 
 https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
-## BIOS updates and original firmwares
+## BIOS Updates and Original Firmwares
 
 You can find BIOS updates for GPD Pocket and original firmware files on this page:
 
@@ -216,17 +215,17 @@ BIOS versions:
 
 ## Blank screen on Live USB boot and white power led on
 
-Press power button to let usual desktop loading and look at issue below.
+Press the power button to let the desktop load and look at issues below.
 
-## Sleep on plug of charger
+## Sleep when plugging in charger
 
 Some sort of Unity daemon or watcher seems to read bad values from battery or charge and put system on sleep when charger is plugged in. This seems to happen also on boot of Live USB.
 Press any key or power button to wake.
 It only happens on Unity as far as i know.
 
-## Screen keep spamming errors regarding squashfs after power button press or close/open lid
+## Screen keeps spamming errors regarding squashfs after power button press or close/open lid
 
-Try to burn image on smaller usb device or try another one.
+Try to burn the image on a smaller usb device or try another image.
 
 I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
@@ -236,7 +235,7 @@ It's fast, reliable and multi-platform.
 Check that the correct sound output device is selected in System Settings. 
 It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt5645" for the audio jack output.
 
-## Why system UI is so big ?
+## Why is system UI so big?
 
 The scaling ratio is set to `2` to be able to read on the screen but it sure takes of a lot of space out of the FullHD screen.
 Things will be more aliased and have better edge but take more space on screen.
