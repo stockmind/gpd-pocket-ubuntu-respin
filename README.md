@@ -67,7 +67,7 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 
 ## Step 2: Download your ISO of Choice
 
-1. Download your favourite distribution ISO and copy it in this repository cloned folder.
+Download your favourite distribution ISO and copy it in this repository cloned folder.
 
 ## Step 3: Download or Build a Kernel for the Respin
 
