@@ -113,9 +113,14 @@ fi
 echo "Update/Install touchscreen and display rotation daemon..."
 cp gpdtouch.sh /usr/local/sbin/gpdtouch
 chmod +x /usr/local/sbin/gpdtouch
+cp gpdtouch /lib/systemd/system-sleep/gpdtouch
+chmod +x /lib/systemd/system-sleep/gpdtouch
 cp gpdtouch.service /etc/systemd/system/gpdtouch.service
+cp gpdtouch-wake.service /etc/systemd/system/gpdtouch-wake.service
 chmod 0644 /etc/systemd/system/gpdtouch.service
+chmod 0644 /etc/systemd/system/gpdtouch-wake.service
 systemctl enable gpdtouch.service
+systemctl enable gpdtouch-wake.service
 
 # update GPD Fan daemon
 echo "Update GPD Fan daemon"
