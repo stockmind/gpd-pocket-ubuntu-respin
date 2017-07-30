@@ -52,7 +52,7 @@ if [ ! -f linux-image* ]; then
 	    echo "###### WARNING KERNEL FILES MISSING! ######"
 	    echo "Download kernel files zip from this link: "
 	    echo "http://ge.tt/3y4Kpxl2"
-	    echo "And put it on the build.sh folder.
+	    echo "And put it on the build.sh folder."
 	    echo "Or check README to build kernel from source."
 	    echo "###########################################"
 	    exit 1;
