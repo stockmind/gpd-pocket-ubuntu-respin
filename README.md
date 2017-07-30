@@ -216,20 +216,20 @@ http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
            
 ### Updating the BIOS
 1. Download the latest BIOS
-1. Install the flashing utility
+2. Install the flashing utility
 ```
 sudo apt install flashrom
 ```
-1. Use `cd` to enter the directory where you downloaded the BIOS
-1. Backup the current BIOS
+3. Use `cd` to enter the directory where you downloaded the BIOS
+4. Backup the current BIOS
 ```
 sudo flashrom -p internal -r backup.bin
 ```
-1. Flash the new BIOS
+5. Flash the new BIOS
 ```
 sudo flashrom -p internal -w Rom_8MB_Tablet.bin
 ```
-1. Reboot Your Computer
+6. Reboot Your Computer
 
 Notes: You may need to restore BIOS setting to their default in order to get everything running smoothly.
 
