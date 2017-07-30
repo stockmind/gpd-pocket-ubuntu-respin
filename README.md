@@ -40,8 +40,8 @@ All informations, tips and tricks was gathered from:
 
 [Click here for the downloads section](#downloading-existing-isos)
 
-## Updating the BIOS
-To update the BIOS, please go [here](#BIOS-updates-and-original-firmwares)
+### Updating the BIOS
+To update the BIOS, please go [here](#bios-updates-and-original-firmwares)
  
 ## Step 1: Cloning the Repo and Installing Tools
 
@@ -107,8 +107,6 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 ```
 
 ### Build on Arch-based systems:
-
-## Build an Arch-based ISO:
 
 1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
