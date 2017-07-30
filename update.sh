@@ -113,9 +113,14 @@ fi
 echo "Update/Install touchscreen and display rotation daemon..."
 cp gpdtouch.sh /usr/local/sbin/gpdtouch
 chmod +x /usr/local/sbin/gpdtouch
+cp gpdtouch /lib/systemd/system-sleep/gpdtouch
+chmod +x /lib/systemd/system-sleep/gpdtouch
 cp gpdtouch.service /etc/systemd/system/gpdtouch.service
+cp gpdtouch-wake.service /etc/systemd/system/gpdtouch-wake.service
 chmod 0644 /etc/systemd/system/gpdtouch.service
+chmod 0644 /etc/systemd/system/gpdtouch-wake.service
 systemctl enable gpdtouch.service
+systemctl enable gpdtouch-wake.service
 
 # update GPD Fan daemon
 echo "Update GPD Fan daemon"
@@ -196,5 +201,6 @@ fi
 
 # update grub
 sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
-sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/" /etc/default/grub
+sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1\"/" /etc/default/grub
+sudo sed -i "s/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1\"/" /etc/default/grub
 sudo update-grub

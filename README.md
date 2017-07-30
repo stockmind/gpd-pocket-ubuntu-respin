@@ -11,6 +11,7 @@ All informations, tips and tricks was gathered from:
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
 ### What Works Out-of-the-Box
+
  - ✔ Display already rotated in terminal buffer and desktop/login
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
@@ -117,7 +118,7 @@ PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 ```
 
-## Steps 5: Install and Update
+## Step 5: Install and Update
 
 ### Boot ISO from USB device
 
