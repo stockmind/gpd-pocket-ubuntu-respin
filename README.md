@@ -40,6 +40,9 @@ All informations, tips and tricks was gathered from:
 ### Download an Already Respun ISO
 
 [Click here for the downloads section](#downloading-existing-isos)
+
+### Updating the BIOS
+To update the BIOS, please go [here](#bios-updates-and-original-firmwares)
  
 ## Step 1: Cloning the Repo and Installing Tools
 
@@ -65,7 +68,7 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 
 ## Step 2: Download your ISO of Choice
 
-1. Download your favourite distribution ISO and copy it in this repository cloned folder.
+Download your favourite distribution ISO and copy it in this repository cloned folder.
 
 ## Step 3: Download or Build a Kernel for the Respin
 
@@ -95,22 +98,22 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 
 ### Build on Debian-based systems:
 
-1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
 ./build.sh <iso filenamme>
 ```
-1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+* Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 ```
 ./build.sh <iso filenamme> wayland
 ```
 
 ### Build on Arch-based systems:
 
-1. Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 ```  
-1. Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
+* Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
 ```
@@ -197,20 +200,39 @@ You can find BIOS updates for GPD Pocket and original firmware files on this pag
 
 http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
 
-BIOS versions:
+### BIOS versions:
 
- - Customary BIOS: Original BIOS shipped with first batch of production.
- - 2017/06/28 BIOS Ubuntu: BIOS released for Ubuntu beta firmware. http://pan.baidu.com/s/1ge3CTiV#list/path=%2F 
+ - [Customary BIOS](https://mega.nz/#!kYRXzCYQ!3DJERs4tAV-Il_jbvkejcxLC4iOl_RjAj54e4dNIOAg): Original BIOS shipped with first batch of production.
+ - [2017/06/28 BIOS for Ubuntu](https://www.dropbox.com/s/826snv05ix8tmfw/P7-20170628-Ubuntu-BIOS.zip?dl=0#): BIOS released for Ubuntu beta firmware.
           
        Changelog:
           1 - All settings are enabled so you can customize all the option of the BIOS.
           2 - Should have the fan working on boot
           
- - 2017/07/05 BIOS: Second BIOS officially released, it seems to be affected by a bug that turn on fan while charging when device is powered off.
+ - [2017/07/05 BIOS](https://mega.nz/#!EZoCmZhJ!s6VNjC6SOWuUhDZvxKf0jAYcs8rpuHeSo8Y0Ruzk3zM): Second BIOS officially released, it seems to be affected by a bug that turn on fan while charging when device is powered off.
 
        Changelog (Google translate):
            1 - boot on the fan ( Probably to support GPD official Ubuntu firmware that doesn't seems to handle fan directly )
            2 - improve the DPTF temperature, before the limit for the CPU temperature higher than 85 degrees or the battery temperature is higher than 58 degrees will CPU down.
+           
+### Updating the BIOS
+1. Download the latest BIOS
+2. Install the flashing utility
+```
+sudo apt install flashrom
+```
+3. Use `cd` to enter the directory where you downloaded the BIOS
+4. Backup the current BIOS
+```
+sudo flashrom -p internal -r backup.bin
+```
+5. Flash the new BIOS
+```
+sudo flashrom -p internal -w Rom_8MB_Tablet.bin
+```
+6. Reboot Your Computer
+
+Notes: You may need to restore BIOS setting to their default in order to get everything running smoothly.
 
 # Troubleshooting
 
