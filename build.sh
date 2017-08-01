@@ -45,7 +45,7 @@ fi
 
 if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
-    if [ ! -f gpd-pocket-kernel-files.zip]; then
+    if [ ! -f gpd-pocket-kernel-files.zip ]; then
 	 if [ ! -f chrisaw-kernel-files.zip ]; then
 	    echo ""
 	    echo ""
