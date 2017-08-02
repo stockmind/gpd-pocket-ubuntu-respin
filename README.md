@@ -1,6 +1,6 @@
 # How to Respin an ISO for GPD Pocket
 ## Overview
-This is a collection of scripts and tweaks to adapt Debian, Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
+This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
 
 All informations, tips and tricks was gathered from:
  - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Base project files and amazing collection of tips and tricks to get all up and running
