@@ -92,6 +92,12 @@ if [ -f /usr/share/sddm/scripts/Xsetup ]; then
     echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
     echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
   fi
+  if grep -Fxq "GDK_SCALE=2" /etc/environment
+  then
+    echo "Environment variable GDK_SCALE already set"
+  else
+    echo "GDK_SCALE=2" >> /etc/environment   
+  fi
 fi
 
 # check that environment variable exists
@@ -108,12 +114,7 @@ then
 else
   echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment   
 fi
-if grep -Fxq "GDK_SCALE=2" /etc/environment
-then
-  echo "Environment variable GDK_SCALE already set"
-else
-  echo "GDK_SCALE=2" >> /etc/environment   
-fi
+
 
 # Add touchscreen rotation daemon for login screens and wayland
 echo "Update/Install touchscreen and display rotation daemon..."
