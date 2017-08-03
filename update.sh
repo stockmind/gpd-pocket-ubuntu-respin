@@ -108,6 +108,12 @@ then
 else
   echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment   
 fi
+if grep -Fxq "GDK_SCALE=2" /etc/environment
+then
+  echo "Environment variable GDK_SCALE already set"
+else
+  echo "GDK_SCALE=2" >> /etc/environment   
+fi
 
 # Add touchscreen rotation daemon for login screens and wayland
 echo "Update/Install touchscreen and display rotation daemon..."
