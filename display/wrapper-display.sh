@@ -37,6 +37,7 @@ chmod +x /usr/local/sbin/adduser.local
 # fix missing glyphs and graphic glitches on resume
 echo "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" >> /etc/environment
 echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment
+echo "GDK_SCALE=2" >> /etc/environment
 
 
 # patch lightdm monitors config if folder exists
