@@ -274,5 +274,14 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
 gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
 ```
+
+```
+sudo nano /etc/environment
+```
+You have to edit the value to its default or comment out this line:
+```
+GDK_SCALE=2
+```
+
 This will affect all the different desktop environments. This might require a log-out, log-in, or reboot to take effect. Restarting the display manager service will also work.
 This way you can still read fine (if you have good 👀 ) and have all your pixels back.
