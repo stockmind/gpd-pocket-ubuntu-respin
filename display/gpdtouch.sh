@@ -50,6 +50,6 @@ do
 		xrandr --output DSI1 --rotate right
 	fi
 
-	sleep 1	
+	sleep 3	
 	# wait for X loading on every try
 done  
