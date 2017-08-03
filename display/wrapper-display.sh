@@ -37,7 +37,6 @@ chmod +x /usr/local/sbin/adduser.local
 # fix missing glyphs and graphic glitches on resume
 echo "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" >> /etc/environment
 echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment
-echo "GDK_SCALE=2" >> /etc/environment
 
 
 # patch lightdm monitors config if folder exists
@@ -53,6 +52,7 @@ if [ -f /usr/share/sddm/scripts/Xsetup ]; then
   echo "xrandr --output DSI-1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
   echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
   echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
+  echo "GDK_SCALE=2" >> /etc/environment
 fi
 
 # patch GNOME 3 monitors config if folder exists
