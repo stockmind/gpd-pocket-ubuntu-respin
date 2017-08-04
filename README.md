@@ -100,22 +100,22 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 
 * Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
-./build.sh <iso filenamme>
+./build.sh <iso filename>
 ```
 * Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 ```
-./build.sh <iso filenamme> wayland
+./build.sh <iso filename> wayland
 ```
 
 ### Build on Arch-based systems:
 
 * Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
-PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
+PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename>
 ```  
 * Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
 ```
-PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
+PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename> wayland
 ```
 
 ## Step 5: Install and Update

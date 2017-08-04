@@ -12,8 +12,4 @@ echo "SUSPEND_MODULES=\"brcmfmac\"" >> /etc/pm/config.d/config
 # enforce brcmfmac load on boot
 echo "brcmfmac" >> /etc/modules
 
-# bluetooth enable
-cp 99-local-bluetooth.rules /etc/udev/rules.d/99-local-bluetooth.rules
-
-
-rm -f 99-local-bluetooth.rules brcmfmac4356-pcie.txt wrapper-network.sh
+rm -f brcmfmac4356-pcie.txt wrapper-network.sh
