@@ -176,9 +176,6 @@ else
   echo "SUSPEND_MODULES=\"brcmfmac\"" >> /etc/pm/config.d/config
 fi
 
-# bluetooth enable
-cp 99-local-bluetooth.rules /etc/udev/rules.d/99-local-bluetooth.rules
-
 # update audio files
 echo "Update/Install audio files..."
 cd ../audio

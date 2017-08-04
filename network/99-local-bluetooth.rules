@@ -1,1 +1,0 @@
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0000", ATTRS{idProduct}=="0000", RUN+="/bin/sh -c 'modprobe btusb; echo 0000 0000 > /sys/bus/usb/drivers/btusb/new_id'"
