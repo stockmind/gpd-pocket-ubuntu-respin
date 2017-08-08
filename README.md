@@ -29,11 +29,12 @@ All informations, tips and tricks was gathered from:
  - ✔ Bluetooth ( Credits to Reddit user dveeden )
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
+ - ✔ Charging at full speed ([Check charging info for more information](#charging-info)
  
 ### What Doesn't Work at the Moment
 
- - Charging at full speed ( Charging will be slow and will keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels. Shutdown device to get full speed charge. )
- - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
+ - USB-C Data
+ - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash ) 
  
 ### Overview for Building and Respinning an ISO
 
@@ -239,6 +240,30 @@ sudo flashrom -p internal -w Rom_8MB_Tablet.bin
 6. Reboot Your Computer
 
 Notes: You may need to restore BIOS setting to their default in order to get everything running smoothly.
+
+## Charging info
+
+To get charging working correctly a different Power Delivery 2.0 charger may be required, based on kernel used, otherwise charging will be slow and will just keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels, but won't charge device more than when connected to power.
+
+Follow some data recorded with several chargers and systems regarding the charge delivered and perceived by the system:
+
+| Charger           | System                                   | Volts (Avg.) | Ampere (Avg.) |
+|-------------------|------------------------------------------|--------------|---------------|
+| Stock GPD charger | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
+| Anker charger     | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
+| Stock GPD charger | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 0.5a          |
+| Anker charger     | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 2a            |
+| Stock GPD charger | 4.13-rc3 kernel (HansDeGoede kernel)     | 11.8v        | 1.5a          |
+| Anker charger     | 4.13-rc3 kernel (HansDeGoede kernel)     | 9.20v        | 0.5a          |
+| Stock GPD charger | Windows 10                               | 11.70v       | 1.7a          |
+| Anker charger     | Windows 10                               | 8.90v        | 2a            |
+
+The tests have been performed using this [Jokitech USB-C Power Meter Tester Multimeter](https://www.amazon.it/gp/product/B06XJNHFFX/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) 
+
+Follow link of Anker charger used.
+
+[Amazon UK - AUKEY USB C 29W PD 2.0](https://www.amazon.co.uk/gp/product/B01MYVJELP/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1)
+[Amazon IT - AUKEY USB C 29W PD 2.0](https://www.amazon.it/gp/product/B01N6536VP/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 
 # Troubleshooting
 
