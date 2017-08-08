@@ -29,7 +29,7 @@ All informations, tips and tricks was gathered from:
  - ✔ Bluetooth ( Credits to Reddit user dveeden )
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
- - ✔ Charging at full speed ([Check charging info for more information](#charging-info)
+ - ✔ Charging at full speed ([Check charging info for more information](#charging-info))
  
 ### What Doesn't Work at the Moment
 
@@ -251,12 +251,14 @@ Follow some data recorded with several chargers and systems regarding the charge
 |-------------------|------------------------------------------|--------------|---------------|
 | Stock GPD charger | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
 | Anker charger     | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
-| Stock GPD charger | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 0.5a          |
+| Stock GPD charger | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 0.5a *        |
 | Anker charger     | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 2a            |
 | Stock GPD charger | 4.13-rc3 kernel (HansDeGoede kernel)     | 11.8v        | 1.5a          |
 | Anker charger     | 4.13-rc3 kernel (HansDeGoede kernel)     | 9.20v        | 0.5a          |
 | Stock GPD charger | Windows 10                               | 11.70v       | 1.7a          |
 | Anker charger     | Windows 10                               | 8.90v        | 2a            |
+
+\* Charging will not drain battery but won't charge device more than when connected to power
 
 The tests have been performed using this [Jokitech USB-C Power Meter Tester Multimeter](https://www.amazon.it/gp/product/B06XJNHFFX/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) 
 
