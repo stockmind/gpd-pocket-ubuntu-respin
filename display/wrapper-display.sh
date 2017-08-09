@@ -52,7 +52,6 @@ if [ -f /usr/share/sddm/scripts/Xsetup ]; then
   echo "xrandr --output DSI-1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
   echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
   echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
-  echo "GDK_SCALE=2" >> /etc/environment
 fi
 
 # patch GNOME 3 monitors config if folder exists
