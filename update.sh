@@ -94,9 +94,8 @@ if [ -f /usr/share/sddm/scripts/Xsetup ]; then
   fi
   if grep -Fxq "GDK_SCALE=2" /etc/environment
   then
-    echo "Environment variable GDK_SCALE already set"
-  else
-    echo "GDK_SCALE=2" >> /etc/environment   
+    echo "Remove environment variable GDK_SCALE"
+    sed -i "s|GDK_SCALE=2||" /etc/environment 
   fi
 fi
 
