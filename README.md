@@ -22,7 +22,8 @@ All informations, tips and tricks was gathered from:
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
  - ✔ Wifi
- - ✔ Sound ( Must select "Speakers" in audio output devices if no sound output )
+ - ✔ Speaker ( Must select "Speakers" in audio output devices if no sound output )
+ - ✔ Headphones ( Must select "Headphones" in audio output devices, works only on kernel 4.13+ )
  - ✔ Battery manager
  - ✔ Screen brightness ( Only after install at the moment )
  - ✔ Cooling fan ( Amazing ErikaFluff work! Check post installation section of this readme to optimize it )
