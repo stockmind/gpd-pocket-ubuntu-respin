@@ -208,9 +208,10 @@ You can find BIOS updates for GPD Pocket and original firmware files on this pag
 
 http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
 
-## Official GPD Pocket Ubuntu ISO
+### Official GPD Pocket Ubuntu ISO
 
 [Second version](https://mega.nz/#!SsNiQIKI!NyiD2EnKD-GguGmBfvdsD1nFoutvABcLEb0uUuXtjOA) - [Chinese Mirror](https://pan.baidu.com/s/1jIBV13K?fref=gc) - [My mirror](https://mega.nz/#!caAjUAKR!fwR0Mf9qBqSS4D43U5Ds8Wjj-3a1qc44LIR01cMGkx8)
+
 [First version](https://mega.nz/#!ZaoCDSqA!tbFx0Pev2dU0al8iVdmvNNiEA9RuL2jLZQV9md1S-iI) (Working iso, GPD one uploaded on indiegogo was corrupt)
 
 ### BIOS versions:
