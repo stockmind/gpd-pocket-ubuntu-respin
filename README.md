@@ -18,7 +18,7 @@ All informations, tips and tricks was gathered from:
  
 ### What Works Out-of-the-Box
 
- - ✔ Display already rotated in terminal buffer and desktop/login
+ - ✔ Display already rotated in terminal buffer and desktop/login ( Hans de Goede kernel patch, monitors.xml file and rotation daemon based on initial work of *Chrisawcom* )
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
  - ✔ Wifi
@@ -26,8 +26,8 @@ All informations, tips and tricks was gathered from:
  - ✔ Headphones ( Must select "Headphones" in audio output devices, works only on kernel 4.13+ )
  - ✔ Battery manager
  - ✔ Screen brightness ( Only after install at the moment )
- - ✔ Cooling fan ( Amazing ErikaFluff work! Check post installation section of this readme to optimize it )
- - ✔ Bluetooth ( Credits to Reddit user dveeden )
+ - ✔ Cooling fan ( Amazing initial work of *ErikaFluff*, rewritten in Python by *Chrisawcom*! Check post installation section of this readme to optimize it )
+ - ✔ Bluetooth ( Credits to Reddit user *dveeden* )
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
  - ✔ Charging at full speed ([Check charging info for more information](#charging-info))
