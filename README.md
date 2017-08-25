@@ -290,7 +290,7 @@ Follow link of Anker charger used.
 
 [Amazon IT - AUKEY USB C 29W PD 2.0](https://www.amazon.it/gp/product/B01N6536VP/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 
-# Monitor CPU frequencies
+## Monitor CPU frequencies
 
 You can monitor frequencies of cpu issuing:
 ```
