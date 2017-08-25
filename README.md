@@ -238,10 +238,16 @@ http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
           2 - Should have the fan working on boot
           
  - [2017/07/05 BIOS](https://mega.nz/#!EZoCmZhJ!s6VNjC6SOWuUhDZvxKf0jAYcs8rpuHeSo8Y0Ruzk3zM): Second BIOS officially released, it seems to be affected by a bug that turn on fan while charging when device is powered off.
+ 
+    [Changelog - Chinese](http://tieba.baidu.com/p/5242896448)
 
        Changelog (Google translate):
            1 - boot on the fan ( Probably to support GPD official Ubuntu firmware that doesn't seems to handle fan directly )
            2 - improve the DPTF temperature, before the limit for the CPU temperature higher than 85 degrees or the battery temperature is higher than 58 degrees will CPU down.
+           
+ - [2017/08/07 BIOS](https://mega.nz/#!RZoG2I6Y!E3tDSn2M2BNn-JxW8pX7OEo8QgxUkFLs11Uw_WiG0Wc)   
+ 
+       Changelog not yet available
            
 ### Updating the BIOS
 1. Download the latest BIOS
