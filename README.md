@@ -87,11 +87,25 @@ Download your favourite distribution ISO and copy it in this repository cloned f
 1. Place the downloaded kernel in the cloned repo's root directory. 
 
 ### Option 2: Build Your Own Kernel
+
+Kernel suggested is the one with patches from Hans De Goede. You can find his repository here:
+[Hans De Goede Kernel Repository](https://github.com/jwrdegoede/linux-sunxi.git)
  
 #### Debian Based Systems:
 ```
 sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
 git clone https://github.com/jwrdegoede/linux-sunxi.git
+```
+
+If you have already donwloaded the repository, you can update it with latest commits issuing:
+```
+git fetch origin
+git reset --hard origin/master
+```
+
+Then proceed with building:
+
+```
 cd linux-sunxi/
 make clean
 make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom   
@@ -275,6 +289,13 @@ Follow link of Anker charger used.
 [Amazon UK - AUKEY USB C 29W PD 2.0](https://www.amazon.co.uk/gp/product/B01MYVJELP/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1)
 
 [Amazon IT - AUKEY USB C 29W PD 2.0](https://www.amazon.it/gp/product/B01N6536VP/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
+
+# Monitor CPU frequencies
+
+You can monitor frequencies of cpu issuing:
+```
+cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_cur_freq
+```
 
 # Troubleshooting
 
