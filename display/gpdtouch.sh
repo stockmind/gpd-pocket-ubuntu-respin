@@ -40,6 +40,22 @@ do
 		xrandr --output DSI1 --rotate right
 	fi
 
+    currentaxesswap=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
+
+	if [ "$currentaxesswap" != "1" ]; then
+		xinput set-prop $id "Evdev Axes Swap" 1
+
+		currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
+	fi
+
+    currentaxesinversion=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
+
+	if [ "$currentaxesinversion" != "1, 0" ]; then
+		xinput set-prop $id "Evdev Axis Inversion" 1 0
+
+		currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
+	fi
+
 	sleep 3	
 	# wait for X loading on every try
 done  
