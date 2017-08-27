@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Script based on the initial work of the Reddit user chrisawcom
+# Contributions by: beeftornado, maxengel, stockmind
+
 if [[ $(pgrep Xorg -c) == 1 ]]; then
 	DISPLAY=:0
 else
@@ -42,7 +45,8 @@ do
 
     currentaxesswap=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
 
-    # If that proprierty exists
+    # If the proprierty exists (It seems to be present on Official GPD Firmware Kernel)
+    # Axes should be inverted to let touch work correctly
     if[ "$currentaxesswap" != "" ]; then
 
 		if [ "$currentaxesswap" != "1" ]; then
