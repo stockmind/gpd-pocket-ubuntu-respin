@@ -277,16 +277,21 @@ Follow some data recorded with several chargers and systems regarding the charge
 | Charger           | System                                   | Volts (Avg.) | Ampere (Avg.) |
 |-------------------|------------------------------------------|--------------|---------------|
 | Stock GPD charger | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
-| Anker charger     | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
+| Aukey charger     | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
 | Stock GPD charger | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 0.5a \*        |
-| Anker charger     | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 2a            |
+| Aukey charger     | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 2a            |
 | Stock GPD charger | 4.13-rc3 kernel (HansDeGoede kernel)     | 11.8v        | 1.5a          |
-| Anker charger     | 4.13-rc3 kernel (HansDeGoede kernel)     | 9.20v        | 0.5a \*\*       |
+| Aukey charger     | 4.13-rc3 kernel (HansDeGoede kernel)     | 9.20v        | 0.5a \*\*       |
+| Stock GPD charger | 4.13-rc5 kernel (HansDeGoede kernel)     | 11.8v        | 1.3a          |
+| Aukey charger     | 4.13-rc5 kernel (HansDeGoede kernel)     | 9.0v         | 1.4a          |
 | Stock GPD charger | Windows 10                               | 11.70v       | 1.7a          |
-| Anker charger     | Windows 10                               | 8.90v        | 2a            |
+| Aukey charger     | Windows 10                               | 8.90v        | 2a            |
 
 \* Charging will not drain battery but won't charge device more than when connected to power
+
 \*\* Charging will be slow
+
+Ampere delivered may vary depending on the remaining battery charge.
 
 The tests have been performed using this [Jokitech USB-C Power Meter Tester Multimeter](https://www.amazon.it/gp/product/B06XJNHFFX/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) 
 
@@ -326,6 +331,10 @@ It's fast, reliable and multi-platform.
 
 Check that the correct sound output device is selected in System Settings. 
 It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt5645" for the audio jack output.
+
+## Video glitches and overlapping desktops when HDMI connected
+
+Check your system displays settings and move your displays until they are not overlapping each others.
 
 ## Why is system UI so big?
 
