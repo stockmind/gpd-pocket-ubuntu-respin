@@ -47,7 +47,7 @@ do
 
     # If the proprierty exists (It seems to be present on Official GPD Firmware Kernel)
     # Axes should be inverted to let touch work correctly
-    if[ "$currentaxesswap" != "" ]; then
+    if[ -n "$currentaxesswap" ]; then
 
 		if [ "$currentaxesswap" != "1" ]; then
 			xinput set-prop $id "Evdev Axes Swap" 1
