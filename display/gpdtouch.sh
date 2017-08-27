@@ -42,18 +42,23 @@ do
 
     currentaxesswap=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
 
-	if [ "$currentaxesswap" != "1" ]; then
-		xinput set-prop $id "Evdev Axes Swap" 1
+    # If that proprierty exists
+    if[ "$currentaxesswap" != "" ]; then
 
-		currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
-	fi
+		if [ "$currentaxesswap" != "1" ]; then
+			xinput set-prop $id "Evdev Axes Swap" 1
 
-    currentaxesinversion=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
+			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
+		fi
 
-	if [ "$currentaxesinversion" != "1, 0" ]; then
-		xinput set-prop $id "Evdev Axis Inversion" 1 0
+	    currentaxesinversion=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
 
-		currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
+		if [ "$currentaxesinversion" != "1, 0" ]; then
+			xinput set-prop $id "Evdev Axis Inversion" 1 0
+
+			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
+		fi
+
 	fi
 
 	sleep 3	

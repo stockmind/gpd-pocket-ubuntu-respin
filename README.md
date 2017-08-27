@@ -124,9 +124,9 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 ```
 ./build.sh <iso filenamme>
 ```
-* Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+* Build Gnome based ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 ```
-./build.sh <iso filenamme> wayland
+./build.sh <iso filenamme> gnome
 ```
 
 ### Build on Arch-based systems:
@@ -135,10 +135,14 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 ```  
-* Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
+* BBuild Gnome based ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
 ```
-PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
+PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> gnome
 ```
+
+Gnome desktop environment and derivate (Pantheon of Elementary OS) use a different name convention for monitors.
+The default Xorg configuration won't work and a custom configuration must be used to get everything to work.
+That's the reason of the "gnome" argument for update and build script.
 
 ## Step 5: Install and Update
 
@@ -168,8 +172,13 @@ sudo ./update.sh
 ```
 1. GNOME, Pantheon (Elementary OS) as Desktop Environment:
 ```
-sudo ./update.sh wayland
+sudo ./update.sh gnome
 ```
+
+Gnome desktop environment and derivate (Pantheon of Elementary OS) use a different name convention for monitors.
+The default Xorg configuration won't work and a custom configuration must be used to get everything to work.
+That's the reason of the "gnome" argument for update and build script.
+
 #### Manual update
 
 ##### GRUB
