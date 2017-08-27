@@ -1,20 +1,10 @@
 #!/usr/bin/env bash
 
-if [[ $# -eq 0 ]]; then
+if [[ $(pgrep Xorg -c) == 1 ]]; then
 	DISPLAY=:0
+else
+	DISPLAY=:1
 fi
-
-case "$1" in
-	0)
-		DISPLAY=:0
-	;;
-	1)
-		DISPLAY=:1
-	;;
-	*)
-		DISPLAY=:0
-	;;
-esac
 
 # determine necessary variables
 XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')

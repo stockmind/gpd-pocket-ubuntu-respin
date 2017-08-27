@@ -6,9 +6,9 @@ KALICOMMANDS=""
 
 # Check arguments
 for i in "$@" ; do
-    if [[ $i == "wayland" ]] ; then
-        echo "Setting wayland monitors..."
-        WAYLAND=$i
+    if [[ $i == "gnome" ]] ; then
+        echo "Setting gnome monitors..."
+        GNOME=$i
         break
     fi
     if [[ $i == "kali" ]] ; then
@@ -18,11 +18,11 @@ for i in "$@" ; do
     fi	
 done
 
-if [ -n "$WAYLAND" ]; then
-	echo "Display setting: Wayland"
-	cp display/monitors_wayland.xml display/monitors.xml
+if [ -n "$GNOME" ]; then
+	echo "Display setting: Gnome"
+	cp display/monitors_gnome.xml display/monitors.xml
 else
-	echo "Display setting: Xorg"
+	echo "Display setting: Xorg-Standard"
 	cp display/monitors_xorg.xml display/monitors.xml
 fi
 
@@ -46,7 +46,7 @@ fi
 if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
     if [ ! -f gpd-pocket-kernel-files.zip ]; then
-	 if [ ! -f chrisaw-kernel-files.zip ]; then
+	 if [ ! -f gpdpocket-20170808-kernel-files.zip ]; then
 	    echo ""
 	    echo ""
 	    echo "###### WARNING KERNEL FILES MISSING! ######"
@@ -58,7 +58,7 @@ if [ ! -f linux-image* ]; then
 	    exit 1;
 	fi
 	echo "Extracting kernel files..."
-    	unzip -o chrisaw-kernel-files.zip
+    	unzip -o gpdpocket-20170808-kernel-files.zip
     else	    
         echo "Extracting custom kernel files..."
         unzip -o gpd-pocket-kernel-files.zip

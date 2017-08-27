@@ -7,18 +7,18 @@ fi
 
 # Check arguments
 for i in "$@" ; do
-    if [[ $i == "wayland" ]] ; then
-        echo "Setting wayland monitors..."
-        WAYLAND=$i
+    if [[ $i == "gnome" ]] ; then
+        echo "Setting gnome monitors..."
+        GNOME=$i
         break
     fi
 done
 
-if [ -n "$WAYLAND" ]; then
-	echo "Display setting: Wayland"
-	cp display/monitors_wayland.xml display/monitors.xml
+if [ -n "$GNOME" ]; then
+	echo "Display setting: Gnome"
+	cp display/monitors_gnome.xml display/monitors.xml
 else
-	echo "Display setting: Xorg"
+	echo "Display setting: Xorg-Standard"
 	cp display/monitors_xorg.xml display/monitors.xml
 fi
 
@@ -92,6 +92,7 @@ if [ -f /usr/share/sddm/scripts/Xsetup ]; then
     echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
     echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
   fi
+  # Clean old setting
   if grep -Fxq "GDK_SCALE=2" /etc/environment
   then
     echo "Remove environment variable GDK_SCALE"
@@ -115,7 +116,7 @@ else
 fi
 
 
-# Add touchscreen rotation daemon for login screens and wayland
+# Add touchscreen rotation daemon for login screens and gnome
 echo "Update/Install touchscreen and display rotation daemon..."
 cp gpdtouch.sh /usr/local/sbin/gpdtouch
 chmod +x /usr/local/sbin/gpdtouch
