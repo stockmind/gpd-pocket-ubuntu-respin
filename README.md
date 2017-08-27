@@ -9,7 +9,7 @@ https://github.com/cawilliamson/ansible-gpdpocket/
 This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
 
 All informations, tips and tricks was gathered from:
- - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Base project files and amazing collection of tips and tricks to get all up and running
+ - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Chrisawcom base project files and amazing collection of tips and tricks to get all up and running
  - http://linuxiumcomau.blogspot.com/ - Respin script and info
  - http://hansdegoede.livejournal.com/ - Kernel patches and amazing work on Bay Trail and Cherry Trail devices
  - https://www.indiegogo.com/projects/gpd-pocket-7-0-umpc-laptop-ubuntu-or-win-10-os-laptop--2/x/16403171#/ - GPD Pocket Indiegogo Campaign page 
@@ -30,11 +30,12 @@ All informations, tips and tricks was gathered from:
  - ✔ Bluetooth ( Credits to Reddit user *dveeden* )
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
+ - ✔ HDMI port
  - ✔ Charging at full speed ([Check charging info for more information](#charging-info))
  
 ### What Doesn't Work at the Moment
 
- - USB-C Data
+ - USB-C Data ( No usb live boot from it either ) 
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash ) 
  
 ### Overview for Building and Respinning an ISO
@@ -152,6 +153,8 @@ I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
 It's fast, reliable and multi-platform.
 
 Boot system using one time boot menu: Press during GPD logo Fn + F7 keys.
+
+Don't boot your USB from a USB Type C adapter or USB Type C drive as it wouldn't work until USB Type C data is supported by kernel.
 
 ### Post-install
 
