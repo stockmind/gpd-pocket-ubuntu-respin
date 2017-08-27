@@ -65,6 +65,14 @@ if [ -d /var/lib/gdm3 ]; then
   chown gdm:gdm /var/lib/gdm3/.config
 fi
 
+# patch GNOME wayland login setting
+if [ -f /etc/gdm/custom.conf ]; then
+  sed -i "s|#WaylandEnable=false|WaylandEnable=false|" /etc/gdm/custom.conf
+fi
+if [ -f /etc/gdm3/custom.conf ]; then
+  sed -i "s|#WaylandEnable=false|WaylandEnable=false|" /etc/gdm3/custom.conf
+fi
+
 # patch MDM monitors config if folder exists
 if [ -d /var/lib/mdm ]; then
   echo "Patching MDM files..."
@@ -99,7 +107,7 @@ if [ -f /usr/share/sddm/scripts/Xsetup ]; then
     sed -i "s|GDK_SCALE=2||" /etc/environment 
   fi
 fi
-
+  
 # check that environment variable exists
 echo "Adding envrironment variables to prevent glitches..."
 if grep -Fxq "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" /etc/environment
