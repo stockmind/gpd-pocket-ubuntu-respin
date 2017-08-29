@@ -7,7 +7,7 @@ https://github.com/cawilliamson/ansible-gpdpocket/
 # Update an installed system
 
 You can update an installed system using the update commands here:
-[Update steps](https://github.com/stockmind/gpd-pocket-ubuntu-respin#post-install)
+[Update steps](#post-install)
 
 # How to Respin an ISO for GPD Pocket
 ## Overview
