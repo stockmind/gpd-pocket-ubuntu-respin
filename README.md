@@ -4,6 +4,11 @@ Follow this as will be the fully supported project by now:
 https://www.reddit.com/r/GPDPocket/comments/6rszbo/project_linux_installer_for_gpd_pocket/
 https://github.com/cawilliamson/ansible-gpdpocket/
 
+# Update an installed system
+
+You can update an installed system using the update commands here:
+[Update steps](https://github.com/stockmind/gpd-pocket-ubuntu-respin#post-install)
+
 # How to Respin an ISO for GPD Pocket
 ## Overview
 This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
