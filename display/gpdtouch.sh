@@ -4,6 +4,7 @@
 # Contributions by: beeftornado, maxengel, stockmind
 
 SERVICE=false
+WAKE=false
 
 # Check arguments
 for i in "$@" ; do
@@ -12,11 +13,16 @@ for i in "$@" ; do
         SERVICE=true
         break
     fi
+    if [[ $i == "wake" ]] ; then
+        echo "Script called after wake"
+        WAKE=true
+        break
+    fi
 done
 
 # If i'm calling script from a service i must look for required variables
 if [ "$SERVICE" = true ] ; then
-	if [[ $(pgrep Xorg -c) == 1 ]]; then
+	if [[ "$WAKE" == false ]]; then
 		DISPLAY=:0
 	else
 		DISPLAY=:1
@@ -40,10 +46,9 @@ do
     currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 	#echo "Current matrix: $currentmatrix"
 
-	if [ "$currentmatrix" != "0.000000, 1.000000, 0.000000, -1.000000, 0.000000, 1.000000, 0.000000, 0.000000, 1.000000" ]; then
-		# Rotate every instance of Touchscreen, this will workaround the ambiguity warning problem
-		# that arise when calling xinput on "Goodix Capacitive Touchscreen"
-		xinput set-prop $id "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
+	if [ "$currentmatrix" != "1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000" ]; then
+		# Fix the transformation matrix		
+		xinput set-prop $id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
 
 		currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 		#echo "Done. Current matrix: $currentmatrix"

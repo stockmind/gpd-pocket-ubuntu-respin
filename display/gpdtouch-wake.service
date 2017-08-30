@@ -4,7 +4,7 @@ After=display-manager.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/sbin/gpdtouch service &
+ExecStart=/usr/local/sbin/gpdtouch service wake &
 
 [Install]
 WantedBy=multi-user.target
