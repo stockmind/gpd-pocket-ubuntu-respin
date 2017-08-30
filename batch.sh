@@ -2,8 +2,14 @@
 
 # Generate iso in batch from folder
 
-mkdir origin
-mkdir destination
+mkdir -p origin
+mkdir -p destination
+
+# Exec as root
+if [ $EUID != 0 ]; then
+    sudo "$0" "$@"
+    exit $?
+fi
 
 # Remove *.iso from found files
 shopt -s nullglob
@@ -26,7 +32,7 @@ for FILE in origin/*.iso; do
 	# Sanitize name
 	FILENAME="${FILENAME//[^[:alnum:]_-]/}"
 
-	if [[ $string == *"gnome"* ]]; then
+	if [[ $FILENAME == *"gnome"* ]]; then
 		echo "Gnome ISO"
 		./build.sh "$FILE" gnome
 	else
