@@ -3,16 +3,30 @@
 # Script based on the initial work of the Reddit user chrisawcom
 # Contributions by: beeftornado, maxengel, stockmind
 
-if [[ $(pgrep Xorg -c) == 1 ]]; then
-	DISPLAY=:0
-else
-	DISPLAY=:1
-fi
+SERVICE=false
 
-# determine necessary variables
-XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
-XAUTHORITY=$(echo "$XAUTHORITY" | sed "s|\(\:[0-9]\+\)|$DISPLAY|g")
-export DISPLAY XAUTHORITY
+# Check arguments
+for i in "$@" ; do
+    if [[ $i == "service" ]] ; then
+        echo "Script called from a service"
+        SERVICE=true
+        break
+    fi
+done
+
+# If i'm calling script from a service i must look for required variables
+if [ "$SERVICE" = true ] ; then
+	if [[ $(pgrep Xorg -c) == 1 ]]; then
+		DISPLAY=:0
+	else
+		DISPLAY=:1
+	fi
+
+	# determine necessary variables
+	XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
+	XAUTHORITY=$(echo "$XAUTHORITY" | sed "s|\(\:[0-9]\+\)|$DISPLAY|g")
+	export DISPLAY XAUTHORITY
+fi
 
 # try at least 3 times to set correct transformation matrix
 for k in `seq 1 3`;
