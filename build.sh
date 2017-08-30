@@ -47,15 +47,8 @@ if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
     if [ ! -f gpd-pocket-kernel-files.zip ]; then
 	 if [ ! -f gpdpocket-20170826-kernel-files.zip ]; then
-	    echo ""
-	    echo ""
-	    echo "###### WARNING KERNEL FILES MISSING! ######"
-	    echo "Download kernel files zip from this link: "
-	    echo "http://ge.tt/9ZasRJm2"
-	    echo "And put it on the build.sh folder."
-	    echo "Or check README to build kernel from source."
-	    echo "###########################################"
-	    exit 1;
+	    echo "Downloading kernel files...."
+	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20170826-kernel-files.zip
 	fi
 	echo "Extracting kernel files..."
     	unzip -o gpdpocket-20170826-kernel-files.zip
