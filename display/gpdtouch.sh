@@ -11,18 +11,18 @@ for i in "$@" ; do
     if [[ $i == "service" ]] ; then
         echo "Script called from a service"
         SERVICE=true
-        break
+        continue
     fi
     if [[ $i == "wake" ]] ; then
         echo "Script called after wake"
         WAKE=true
-        break
+        continue
     fi
 done
 
 # If i'm calling script from a service i must look for required variables
 if [ "$SERVICE" = true ] ; then
-	if [[ "$WAKE" == false ]]; then
+	if [[ "$WAKE" = false ]]; then
 		DISPLAY=:0
 	else
 		DISPLAY=:1

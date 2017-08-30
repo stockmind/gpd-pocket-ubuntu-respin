@@ -1,10 +1,10 @@
 [Unit]
 Description=GPD Touchscreen Rotation Service on Wake
-After=display-manager.service
+After=suspend.service
 
 [Service]
 Type=oneshot
 ExecStart=/usr/local/sbin/gpdtouch service wake &
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=suspend.target
