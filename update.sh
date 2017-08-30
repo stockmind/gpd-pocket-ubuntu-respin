@@ -52,6 +52,9 @@ mkdir -p /etc/X11/xinit/xinitrc.d/
 cp 90-touch /etc/X11/xinit/xinitrc.d/90-touch
 chmod 644 /etc/X11/xinit/xinitrc.d/90-touch
 
+# Add rules to rotate screen of 90 degree right on driver load
+cp 99-goodix-touch.rules /etc/udev/rules.d/99-goodix-touch.rules
+
 # patch lightdm monitors config if folder exists
 if [ -d /var/lib/lightdm ]; then
   echo "Patching lightdm files..."

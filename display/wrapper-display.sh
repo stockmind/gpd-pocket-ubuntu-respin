@@ -28,6 +28,9 @@ chmod 0644 /etc/systemd/system/gpdtouch-wake.service
 systemctl enable gpdtouch.service
 systemctl enable gpdtouch-wake.service
 
+# Add rules to rotate screen of 90 degree right on driver load
+cp 99-goodix-touch.rules /etc/udev/rules.d/99-goodix-touch.rules
+
 cp monitors.xml /usr/share/monitors.xml
 cp adduser.local /usr/local/sbin/adduser.local
 chmod +x /usr/local/sbin/adduser.local
