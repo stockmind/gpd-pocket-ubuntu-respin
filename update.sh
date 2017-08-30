@@ -47,6 +47,11 @@ chmod 644 /etc/X11/Xsession.d/90-interface
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
 
+# Add rotate script for GDM login script
+mkdir -p /etc/X11/xinit/xinitrc.d/
+cp 90-touch /etc/X11/xinit/xinitrc.d/90-touch
+chmod 644 /etc/X11/xinit/xinitrc.d/90-touch
+
 # patch lightdm monitors config if folder exists
 if [ -d /var/lib/lightdm ]; then
   echo "Patching lightdm files..."
