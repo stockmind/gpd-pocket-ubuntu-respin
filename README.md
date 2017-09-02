@@ -13,6 +13,7 @@ All informations, tips and tricks was gathered from:
  - http://hansdegoede.livejournal.com/ - Kernel patches and amazing work on Bay Trail and Cherry Trail devices
  - https://www.indiegogo.com/projects/gpd-pocket-7-0-umpc-laptop-ubuntu-or-win-10-os-laptop--2/x/16403171#/ - GPD Pocket Indiegogo Campaign page 
  - https://github.com/nexus511/gpd-ubuntu-packages - Alternative project by nexus511 
+ - https://github.com/cawilliamson/ansible-gpdpocket - Alternative awesome project by Cawilliamson that targets any linux distro - not maintained anymore
  
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
@@ -21,6 +22,7 @@ All informations, tips and tricks was gathered from:
  - ✔ Display already rotated in terminal buffer and desktop/login ( Hans de Goede kernel patch, monitors.xml file and rotation daemon based on initial work of *Chrisawcom* )
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
+ - ✔ Multitouch ( [Check multitouch section  for more information](#multitouch) )
  - ✔ Wifi
  - ✔ Speaker ( Must select "Speakers" in audio output devices if no sound output )
  - ✔ Headphones ( Must select "Headphones" in audio output devices, works only on kernel 4.13+ )
@@ -317,6 +319,15 @@ Follow link of Anker charger used.
 [Amazon UK - AUKEY USB C 29W PD 2.0](https://www.amazon.co.uk/gp/product/B01MYVJELP/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1)
 
 [Amazon IT - AUKEY USB C 29W PD 2.0](https://www.amazon.it/gp/product/B01N6536VP/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
+
+## Suggested packages
+
+### Multitouch
+
+ - Google Chrome: Works out of the box with multitouch gestures. No configuration needed.
+ - [Touchegg](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894): This enable some multitouch gesture on touchscreen and you can use it like a touchpad. It works only with non-libinput backend. Works good on XFCE. Won't work with GNOME, Elementary OS. [Issue](https://github.com/JoseExposito/touchegg/issues/281) [Possible fix for GNOME, Elementary OS](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894) 
+ You can install it by issuing "sudo apt-get install touchegg" and use, or try the [gpdpocket-touchegg-config](https://github.com/nexus511/gpd-ubuntu-packages) package by nexus511
+ - [Libinput-gestures](https://github.com/bulletmark/libinput-gestures): This enable multitouch gestures. Works on GNOME, Unity, Elementary OS and Desktop Environment that use libinput as default. It supports Xorg and partially Wayland.
 
 ## Monitor CPU frequencies
 
