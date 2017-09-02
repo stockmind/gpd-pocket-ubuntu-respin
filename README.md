@@ -12,6 +12,7 @@ All informations, tips and tricks was gathered from:
  - http://linuxiumcomau.blogspot.com/ - Respin script and info
  - http://hansdegoede.livejournal.com/ - Kernel patches and amazing work on Bay Trail and Cherry Trail devices
  - https://www.indiegogo.com/projects/gpd-pocket-7-0-umpc-laptop-ubuntu-or-win-10-os-laptop--2/x/16403171#/ - GPD Pocket Indiegogo Campaign page 
+ - https://github.com/nexus511/gpd-ubuntu-packages - Alternative project by nexus511 
  
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
