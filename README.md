@@ -372,7 +372,7 @@ sudo nano /etc/X11/Xsession.d/90-scale
 ```
 You have to edit all the values to their default:
 ```
-gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 1, 'DSI1': 1}" // Unity
+gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 14, 'DSI1': 8}" // Unity
 gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
 gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
 gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
