@@ -1,2 +1,3 @@
 /usr/local/sbin/gpdtouch &
 
+gsettings set org.gnome.settings-daemon.peripherals.touchscreen display ['unknown', 'unknown', 'unknown']
