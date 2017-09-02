@@ -239,6 +239,10 @@ You can find BIOS updates for GPD Pocket and original firmware files on this pag
 
 http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
 
+Useful informations:
+
+http://tieba.baidu.com/p/5293185138
+
 ### Official GPD Pocket Ubuntu ISO
 
 [Second version](https://mega.nz/#!SsNiQIKI!NyiD2EnKD-GguGmBfvdsD1nFoutvABcLEb0uUuXtjOA) - [Chinese Mirror](https://pan.baidu.com/s/1jIBV13K?fref=gc) - [My mirror](https://mega.nz/#!caAjUAKR!fwR0Mf9qBqSS4D43U5Ds8Wjj-3a1qc44LIR01cMGkx8)
@@ -264,7 +268,8 @@ http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
            
  - [2017/08/07 BIOS](https://mega.nz/#!RZoG2I6Y!E3tDSn2M2BNn-JxW8pX7OEo8QgxUkFLs11Uw_WiG0Wc)   
  
-       Changelog not yet available
+       Changelog (Google translate)
+           1 - This BIOS has changed the boot logic. In the previous BIOS device will boot only with a charge of 10 to 17%, now you only need at least some charge to boot. 
            
 ### Updating the BIOS
 1. Download the latest BIOS
