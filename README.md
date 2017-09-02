@@ -320,9 +320,7 @@ Follow link of Anker charger used.
 
 [Amazon IT - AUKEY USB C 29W PD 2.0](https://www.amazon.it/gp/product/B01N6536VP/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 
-## Suggested packages
-
-### Multitouch
+## Multitouch
 
  - Google Chrome: Works out of the box with multitouch gestures. No configuration needed.
  - [Touchegg](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894): This enable some multitouch gesture on touchscreen and you can use it like a touchpad. It works only with non-libinput backend. Works good on XFCE. Won't work with GNOME, Elementary OS. [Issue](https://github.com/JoseExposito/touchegg/issues/281) [Possible fix for GNOME, Elementary OS](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894) 
