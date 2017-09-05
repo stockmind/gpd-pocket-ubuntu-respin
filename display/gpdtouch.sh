@@ -5,6 +5,7 @@
 
 SERVICE=false
 WAKE=false
+PORTRAIT=false
 
 # Check arguments
 for i in "$@" ; do
@@ -16,6 +17,11 @@ for i in "$@" ; do
     if [[ $i == "wake" ]] ; then
         echo "Script called after wake"
         WAKE=true
+        continue
+    fi
+    if [[ $i == "portrait" ]] ; then
+        echo "Script called for portrait rotation"
+        PORTRAIT=true
         continue
     fi
 done
@@ -54,12 +60,23 @@ do
 		#echo "Done. Current matrix: $currentmatrix"
 	fi
 
-	currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b37-43))
-	echo $currentorientation
-
-	if [ "$currentorientation" != "right" ]; then
-		# try also to rotate display if monitors file gets ignored
-		xrandr --output DSI1 --rotate right
+	
+	
+	if [[ "$PORTRAIT" = false ]]; then
+		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b37-43))
+		echo $currentorientation
+	
+		if [ "$currentorientation" != "right" ]; then
+			# try also to rotate display if monitors file gets ignored
+			xrandr --output DSI1 --rotate right
+		fi
+	else
+		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-44))
+		echo $currentorientation
+		if [ "$currentorientation" != "normal" ]; then
+			# try also to rotate display if monitors file gets ignored
+			xrandr --output DSI1 --rotate normal
+		fi
 	fi
 
     currentaxesswap=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
@@ -68,16 +85,16 @@ do
     # Axes should be inverted to let touch work correctly
     if [ -n "$currentaxesswap" ]; then
 
-		if [ "$currentaxesswap" != "1" ]; then
-			xinput set-prop $id "Evdev Axes Swap" 1
+		if [ "$currentaxesswap" != "0" ]; then
+			xinput set-prop $id "Evdev Axes Swap" 0
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
 		fi
 
 	    currentaxesinversion=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
 
-		if [ "$currentaxesinversion" != "1, 0" ]; then
-			xinput set-prop $id "Evdev Axis Inversion" 1 0
+		if [ "$currentaxesinversion" != "0, 0" ]; then
+			xinput set-prop $id "Evdev Axis Inversion" 0 0
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
 		fi
