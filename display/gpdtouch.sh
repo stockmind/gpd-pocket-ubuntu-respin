@@ -55,6 +55,8 @@ do
     		if [ "$currentmatrix" != "1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000" ]; then
 			# Fix the transformation matrix		
 			xinput set-prop $id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
+			xinput set-prop $id "libinput Calibration Matrix" 1 0 0 0 1 0 0 0 1
+			xinput set-prop $id "libinput Calibration Matrix Default" 1 0 0 0 1 0 0 0 1
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 			#echo "Done. Current matrix: $currentmatrix"
@@ -62,6 +64,8 @@ do
 	else
 		if [ "$currentmatrix" != "0.000000, 1.000000, 0.000000, -1.000000, 0.000000, 1.000000, 0.000000, 0.000000, 1.000000" ]; then
 			xinput set-prop $id "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
+			xinput set-prop $id "libinput Calibration Matrix" 0 1 0 -1 0 1 0 0 1
+			xinput set-prop $id "libinput Calibration Matrix Default" 0 1 0 -1 0 1 0 0 1
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 			#echo "Done. Current matrix: $currentmatrix"
@@ -102,7 +106,7 @@ do
 			break # We did what needed
 		fi
 	else
-		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-44))
+		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-43))
 		echo $currentorientation
 		if [ "$currentorientation" != "normal" ]; then
 			# try also to rotate display if monitors file gets ignored
