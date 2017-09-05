@@ -49,7 +49,7 @@ do
 
 	id=$(xinput list --id-only pointer:"Goodix Capacitive TouchScreen")
 
-    currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
+    	currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 	#echo "Current matrix: $currentmatrix"
 
 	if [ "$currentmatrix" != "1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000" ]; then
@@ -69,6 +69,8 @@ do
 		if [ "$currentorientation" != "right" ]; then
 			# try also to rotate display if monitors file gets ignored
 			xrandr --output DSI1 --rotate right
+		else
+			break # We did what needed
 		fi
 	else
 		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-44))
@@ -76,6 +78,8 @@ do
 		if [ "$currentorientation" != "normal" ]; then
 			# try also to rotate display if monitors file gets ignored
 			xrandr --output DSI1 --rotate normal
+		else
+			break # We did what needed
 		fi
 	fi
 
