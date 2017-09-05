@@ -68,16 +68,16 @@ do
     # Axes should be inverted to let touch work correctly
     if [ -n "$currentaxesswap" ]; then
 
-		if [ "$currentaxesswap" != "1" ]; then
-			xinput set-prop $id "Evdev Axes Swap" 1
+		if [ "$currentaxesswap" != "0" ]; then
+			xinput set-prop $id "Evdev Axes Swap" 0
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
 		fi
 
 	    currentaxesinversion=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
 
-		if [ "$currentaxesinversion" != "1, 0" ]; then
-			xinput set-prop $id "Evdev Axis Inversion" 1 0
+		if [ "$currentaxesinversion" != "0, 0" ]; then
+			xinput set-prop $id "Evdev Axis Inversion" 0 0
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
 		fi
