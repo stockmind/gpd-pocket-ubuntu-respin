@@ -48,23 +48,31 @@ do
 	SEARCH="Goodix Capacitive TouchScreen"
 
 	id=$(xinput list --id-only pointer:"Goodix Capacitive TouchScreen")
-
-    	currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
+	currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 	#echo "Current matrix: $currentmatrix"
+	
+	if [[ "$PORTRAIT" = false ]]; then
+    		if [ "$currentmatrix" != "1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000" ]; then
+			# Fix the transformation matrix		
+			xinput set-prop $id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
 
-	if [ "$currentmatrix" != "1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000" ]; then
-		# Fix the transformation matrix		
-		xinput set-prop $id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
+			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
+			#echo "Done. Current matrix: $currentmatrix"
+		fi
+	else
+		if [ "$currentmatrix" != "0.000000, 1.000000, 0.000000, -1.000000, 0.000000, 1.000000, 0.000000, 0.000000, 1.000000" ]; then
+			xinput set-prop $id "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
 
-		currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
-		#echo "Done. Current matrix: $currentmatrix"
+			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
+			#echo "Done. Current matrix: $currentmatrix"
+		fi
 	fi
 
 	currentaxesswap=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
 
-    # If the proprierty exists (It seems to be present on Official GPD Firmware Kernel)
-    # Axes should be inverted to let touch work correctly
-    if [ -n "$currentaxesswap" ]; then
+	# If the proprierty exists (It seems to be present on Official GPD Firmware Kernel)
+        # Axes should be inverted to let touch work correctly
+        if [ -n "$currentaxesswap" ]; then
 
 		if [ "$currentaxesswap" != "0" ]; then
 			xinput set-prop $id "Evdev Axes Swap" 0
@@ -72,7 +80,7 @@ do
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
 		fi
 
-	    currentaxesinversion=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
+	    	currentaxesinversion=$(echo -e $(xinput list-props $id | grep 'Evdev Axis Inversion' | cut -d ':' -f2))
 
 		if [ "$currentaxesinversion" != "0, 0" ]; then
 			xinput set-prop $id "Evdev Axis Inversion" 0 0
