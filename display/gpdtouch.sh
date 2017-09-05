@@ -60,30 +60,7 @@ do
 		#echo "Done. Current matrix: $currentmatrix"
 	fi
 
-	
-	
-	if [[ "$PORTRAIT" = false ]]; then
-		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b37-43))
-		echo $currentorientation
-	
-		if [ "$currentorientation" != "right" ]; then
-			# try also to rotate display if monitors file gets ignored
-			xrandr --output DSI1 --rotate right
-		else
-			break # We did what needed
-		fi
-	else
-		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-44))
-		echo $currentorientation
-		if [ "$currentorientation" != "normal" ]; then
-			# try also to rotate display if monitors file gets ignored
-			xrandr --output DSI1 --rotate normal
-		else
-			break # We did what needed
-		fi
-	fi
-
-    currentaxesswap=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
+	currentaxesswap=$(echo -e $(xinput list-props $id | grep 'Evdev Axes Swap' | cut -d ':' -f2))
 
     # If the proprierty exists (It seems to be present on Official GPD Firmware Kernel)
     # Axes should be inverted to let touch work correctly
@@ -105,6 +82,28 @@ do
 
 	fi
 
+	
+	if [[ "$PORTRAIT" = false ]]; then
+		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b37-43))
+		echo $currentorientation
+	
+		if [ "$currentorientation" != "right" ]; then
+			# try also to rotate display if monitors file gets ignored
+			xrandr --output DSI1 --rotate right
+		else
+			break # We did what needed
+		fi
+	else
+		currentorientation=$(echo -e $(xrandr -q | grep DSI1 | cut -b38-44))
+		echo $currentorientation
+		if [ "$currentorientation" != "normal" ]; then
+			# try also to rotate display if monitors file gets ignored
+			xrandr --output DSI1 --rotate normal
+		else
+			break # We did what needed
+		fi
+	fi
+	
 	sleep 3	
 	# wait for X loading on every try
 done  
