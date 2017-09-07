@@ -6,6 +6,9 @@
 SERVICE=false
 WAKE=false
 PORTRAIT=false
+HIGHDPI=false
+NORMALDPI=false
+TOUCHRESET=false
 
 # Check arguments
 for i in "$@" ; do
@@ -24,6 +27,21 @@ for i in "$@" ; do
         PORTRAIT=true
         continue
     fi
+    if [[ $i == "highdpi" ]] ; then
+        echo "Script called for high dpi set"
+        HIGHDPI=true
+        continue
+    fi
+    if [[ $i == "normaldpi" ]] ; then
+        echo "Script called for normal dpi set"
+        NORMALDPI=true
+        continue
+    fi
+    if [[ $i == "touchreset" ]] ; then
+        echo "Script called for touch module reset"
+        TOUCHRESET=true
+        continue
+    fi
 done
 
 # If i'm calling script from a service i must look for required variables
@@ -38,6 +56,31 @@ if [ "$SERVICE" = true ] ; then
 	XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
 	XAUTHORITY=$(echo "$XAUTHORITY" | sed "s|\(\:[0-9]\+\)|$DISPLAY|g")
 	export DISPLAY XAUTHORITY
+fi
+
+if [[ "$HIGHDPI" = true ]]; then
+	gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 14, 'DSI1': 14}"
+	gsettings set org.gnome.desktop.interface scaling-factor 2
+	gsettings set org.gnome.desktop.interface text-scaling-factor 1
+	gsettings set org.cinnamon.desktop.interface scaling-factor 2
+	gsettings set org.cinnamon.desktop.interface text-scaling-factor 1
+	exit 0
+fi
+
+if [[ "$NORMALDPI" = true ]]; then
+	gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 8, 'DSI1': 8}" // Unity
+	gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
+	gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
+	gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
+	gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
+	exit 0
+fi
+
+if [[ "$RESETTOUCH" = true ]]; then
+	sudo modprobe -r goodix
+	sleep 3
+	sudo modprobe goodix
+	exit 0
 fi
 
 # try at least 3 times to set correct transformation matrix
