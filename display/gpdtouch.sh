@@ -44,20 +44,6 @@ for i in "$@" ; do
     fi
 done
 
-# If i'm calling script from a service i must look for required variables
-if [ "$SERVICE" = true ] ; then
-	if [[ "$WAKE" = false ]]; then
-		DISPLAY=:0
-	else
-		DISPLAY=:1
-	fi
-
-	# determine necessary variables
-	XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
-	XAUTHORITY=$(echo "$XAUTHORITY" | sed "s|\(\:[0-9]\+\)|$DISPLAY|g")
-	export DISPLAY XAUTHORITY
-fi
-
 if [[ "$HIGHDPI" = true ]]; then
 	gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 14, 'DSI1': 14}"
 	gsettings set org.gnome.desktop.interface scaling-factor 2
@@ -86,6 +72,24 @@ fi
 # try at least 3 times to set correct transformation matrix
 for k in `seq 1 3`;
 do 
+
+	# If i'm calling script from a service i must look for required variables
+	if [ "$SERVICE" = true ] ; then
+		if [[ "$WAKE" = false ]]; then
+			DISPLAY=:0
+		else
+			gpdtouch service &
+			DISPLAY=:1
+		fi
+
+		echo xdpyinfo -display ":0" > /dev/null 2>&1
+		echo xdpyinfo -display ":1" > /dev/null 2>&1
+
+		# determine necessary variables
+		XAUTHORITY=$(ps aux |grep -e Xorg | head -n1 | awk '{ split($0, a, "-auth "); split(a[2], b, " "); print b[1] }')
+		XAUTHORITY=$(echo "$XAUTHORITY" | sed "s|\(\:[0-9]\+\)|$DISPLAY|g")
+		export DISPLAY XAUTHORITY
+	fi
 
 	#echo "trying $k..."
 	SEARCH="Goodix Capacitive TouchScreen"
