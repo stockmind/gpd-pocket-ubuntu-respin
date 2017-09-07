@@ -95,14 +95,14 @@ do
 	SEARCH="Goodix Capacitive TouchScreen"
 
 	id=$(xinput list --id-only pointer:"Goodix Capacitive TouchScreen")
-	currentmatrix=$(echo -e $(xinput list-props $id | grep 'libinput Calibration Matrix' | cut -d ':' -f2))
+	currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
 	#echo "Current matrix: $currentmatrix"
 	
 	if [[ "$PORTRAIT" = true ]]; then
     	if [ "$currentmatrix" != "1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000" ]; then
 			# Fix the transformation matrix		
 			xinput set-prop $id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
-			xinput set-prop $id "libinput Calibration Matrix" 1 0 0 0 1 0 0 0 1
+			#xinput set-prop $id "libinput Calibration Matrix" 1 0 0 0 1 0 0 0 1
 			#xinput set-prop $id "libinput Calibration Matrix Default" 0 1 0 -1 0 1 0 0 1
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
@@ -110,8 +110,8 @@ do
 		fi
 	else
 		if [ "$currentmatrix" != "0.000000, 1.000000, 0.000000, -1.000000, 0.000000, 1.000000, 0.000000, 0.000000, 1.000000" ]; then
-			xinput set-prop $id "Coordinate Transformation Matrix" 1 0 0 0 1 0 0 0 1
-			xinput set-prop $id "libinput Calibration Matrix" 0 1 0 -1 0 1 0 0 1
+			xinput set-prop $id "Coordinate Transformation Matrix" 0 1 0 -1 0 1 0 0 1
+			#xinput set-prop $id "libinput Calibration Matrix" 0 1 0 -1 0 1 0 0 1
 			#xinput set-prop $id "libinput Calibration Matrix Default" 1 0 0 0 1 0 0 0 1
 
 			currentmatrix=$(echo -e $(xinput list-props $id | grep 'Coordinate Transformation Matrix' | cut -d ':' -f2))
