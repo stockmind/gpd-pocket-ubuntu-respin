@@ -68,11 +68,11 @@ if [[ "$HIGHDPI" = true ]]; then
 fi
 
 if [[ "$NORMALDPI" = true ]]; then
-	gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 8, 'DSI1': 8}" // Unity
-	gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
-	gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
-	gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
-	gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
+	gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 8, 'DSI1': 8}" 
+	gsettings set org.gnome.desktop.interface scaling-factor 1
+	gsettings set org.gnome.desktop.interface text-scaling-factor 1 
+	gsettings set org.cinnamon.desktop.interface scaling-factor 1 
+	gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 
 	exit 0
 fi
 
