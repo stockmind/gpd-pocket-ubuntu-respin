@@ -85,9 +85,7 @@ Download your favourite distribution ISO and copy it in this repository cloned f
 
 ### Option 1: Download the Latest Kernel
 
-1. Run `./build.sh` in the terminal to get the most recent download link
-1. Download the zipped kernel file from the link generated in the terminal.
-1. Place the downloaded kernel in the cloned repo's root directory. 
+1. Run `./build.sh` in the terminal to get the most recent kernel automatically.
 
 ### Option 2: Build Your Own Kernel
 
