@@ -1,33 +1,44 @@
+# Update an installed system
+
+You can update an installed system using the update commands here:
+[Update steps](#post-install)
+
 # How to Respin an ISO for GPD Pocket
 ## Overview
-This is a collection of scripts and tweaks to adapt Debian, Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
+This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
 
 All informations, tips and tricks was gathered from:
- - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Base project files and amazing collection of tips and tricks to get all up and running
+ - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Chrisawcom base project files and amazing collection of tips and tricks to get all up and running
  - http://linuxiumcomau.blogspot.com/ - Respin script and info
  - http://hansdegoede.livejournal.com/ - Kernel patches and amazing work on Bay Trail and Cherry Trail devices
  - https://www.indiegogo.com/projects/gpd-pocket-7-0-umpc-laptop-ubuntu-or-win-10-os-laptop--2/x/16403171#/ - GPD Pocket Indiegogo Campaign page 
+ - https://github.com/nexus511/gpd-ubuntu-packages - Alternative project by nexus511 
+ - https://github.com/cawilliamson/ansible-gpdpocket - Alternative awesome project by Cawilliamson that targets any linux distro - not maintained anymore
  
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
 ### What Works Out-of-the-Box
 
- - ✔ Display already rotated in terminal buffer and desktop/login
+ - ✔ Display already rotated in terminal buffer and desktop/login ( Hans de Goede kernel patch, monitors.xml file and rotation daemon based on initial work of *Chrisawcom* )
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
+ - ✔ Multitouch ( [Check multitouch section  for more information](#multitouch) )
  - ✔ Wifi
- - ✔ Sound ( Must select "Speakers" in audio output devices if no sound output )
+ - ✔ Speaker ( Must select "Speakers" in audio output devices if no sound output )
+ - ✔ Headphones ( Must select "Headphones" in audio output devices, works only on kernel 4.13+ )
  - ✔ Battery manager
  - ✔ Screen brightness ( Only after install at the moment )
- - ✔ Cooling fan ( Amazing ErikaFluff work! Check post installation section of this readme to optimize it )
- - ✔ Bluetooth ( Credits to Reddit user dveeden )
+ - ✔ Cooling fan ( Amazing initial work of *ErikaFluff*, rewritten in Python by *Chrisawcom*! Check post installation section of this readme to optimize it )
+ - ✔ Bluetooth ( Credits to Reddit user *dveeden* )
  - ✔ Intel video driver for streaming without tearing or crash
  - ✔ Sleep/wake
+ - ✔ HDMI port
+ - ✔ Charging at full speed ([Check charging info for more information](#charging-info))
  
 ### What Doesn't Work at the Moment
 
- - Charging at full speed ( Charging will be slow and will keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels. Shutdown device to get full speed charge. )
- - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash )
+ - USB-C Data ( No usb live boot from it either ) 
+ - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash ) 
  
 ### Overview for Building and Respinning an ISO
 
@@ -42,7 +53,10 @@ All informations, tips and tricks was gathered from:
 [Click here for the downloads section](#downloading-existing-isos)
 
 ### Updating the BIOS
-To update the BIOS, please go [here](#bios-updates-and-original-firmwares)
+
+At the moment no BIOS update is required to run Ubuntu respin iso.
+You can run any BIOS you want and you probably won't notice big differences.
+Different BIOS have however different features enabled. Check BIOS section [here](#bios-updates-and-original-firmwares)
  
 ## Step 1: Cloning the Repo and Installing Tools
 
@@ -79,11 +93,25 @@ Download your favourite distribution's ISO and copy it into this repository's cl
 1. Place the downloaded kernel in the cloned repo's root directory. 
 
 ### Option 2: Build Your Own Kernel
+
+Kernel suggested is the one with patches from Hans De Goede. You can find his repository here:
+[Hans De Goede Kernel Repository](https://github.com/jwrdegoede/linux-sunxi.git)
  
 #### Debian Based Systems:
 ```
 sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
 git clone https://github.com/jwrdegoede/linux-sunxi.git
+```
+
+If you have already donwloaded the repository, you can update it with latest commits issuing:
+```
+git fetch origin
+git reset --hard origin/master
+```
+
+Then proceed with building:
+
+```
 cd linux-sunxi/
 make clean
 make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom   
@@ -104,7 +132,7 @@ Run the `./build.sh` script as specified for your desired distro. If you built y
 ```
 * Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) by running this:
 ```
-./build.sh <iso filenamme> wayland
+./build.sh <iso filenamme> gnome
 ```
 
 ### Build on Arch-based systems:
@@ -115,8 +143,12 @@ PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 ```  
 * Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) by running this:
 ```
-PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> wayland
+PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> gnome
 ```
+
+Gnome desktop environment and derivate (Pantheon of Elementary OS) use a different name convention for monitors.
+The default Xorg configuration won't work and a custom configuration must be used to get everything to work.
+That's the reason of the "gnome" argument for update and build script.
 
 ## Step 5: Install and Update
 
@@ -126,6 +158,8 @@ I sugget [Etcher](https://etcher.io/) to write ISO's onto a USB flash drive.
 It's fast, reliable, and multi-platform.
 
 Boot the system using one-time boot menu: During boot, when you see the GPD logo, press the Fn + F7 keys.
+
+Don't boot your USB from a USB Type C adapter or USB Type C drive as it wouldn't work until USB Type C data is supported by kernel.
 
 ### Post-install
 
@@ -146,8 +180,13 @@ sudo ./update.sh
 ```
 1. GNOME, Pantheon (Elementary OS) as Desktop Environment:
 ```
-sudo ./update.sh wayland
+sudo ./update.sh gnome
 ```
+
+Gnome desktop environment and derivate (Pantheon of Elementary OS) use a different name convention for monitors.
+The default Xorg configuration won't work and a custom configuration must be used to get everything to work.
+That's the reason of the "gnome" argument for update and build script.
+
 #### Manual update
 
 ##### GRUB
@@ -155,7 +194,7 @@ sudo ./update.sh wayland
 Those commands will update your grub boot options to optimize the boot process for your Intel Atom processor
 ```
 sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
-sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/" /etc/default/grub
+sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1\"/" /etc/default/grub
 sudo update-grub
 ```    
 ##### GPDFAND 
@@ -196,9 +235,23 @@ https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
 ## BIOS Updates and Original Firmwares
 
+At the moment no BIOS update is required to run Ubuntu respin iso.
+You can run any BIOS you want and you probably won't notice big differences.
+Different BIOS have however different features enabled. Check it out on changelogs below.
+
 You can find BIOS updates for GPD Pocket and original firmware files on this page:
 
 http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
+
+Useful informations:
+
+http://tieba.baidu.com/p/5293185138
+
+### Official GPD Pocket Ubuntu ISO
+
+[Second version](https://mega.nz/#!SsNiQIKI!NyiD2EnKD-GguGmBfvdsD1nFoutvABcLEb0uUuXtjOA) - [Chinese Mirror](https://pan.baidu.com/s/1jIBV13K?fref=gc) - [My mirror](https://mega.nz/#!caAjUAKR!fwR0Mf9qBqSS4D43U5Ds8Wjj-3a1qc44LIR01cMGkx8)
+
+[First version](https://mega.nz/#!ZaoCDSqA!tbFx0Pev2dU0al8iVdmvNNiEA9RuL2jLZQV9md1S-iI) (Working iso, GPD one uploaded on indiegogo was corrupt)
 
 ### BIOS versions:
 
@@ -209,11 +262,18 @@ http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
           1 - All settings are enabled so you can customize all the option of the BIOS.
           2 - Should have the fan working on boot
           
- - [2017/07/05 BIOS](https://mega.nz/#!EZoCmZhJ!s6VNjC6SOWuUhDZvxKf0jAYcs8rpuHeSo8Y0Ruzk3zM): Second BIOS officially released, it seems to be affected by a bug that turn on fan while charging when device is powered off.
+ - [2017/07/05 BIOS](https://mega.nz/#!EZoCmZhJ!s6VNjC6SOWuUhDZvxKf0jAYcs8rpuHeSo8Y0Ruzk3zM): Second BIOS officially released, on this BIOS fan will turn on while charging when device is powered off.
+ 
+    [Changelog - Chinese](http://tieba.baidu.com/p/5242896448)
 
        Changelog (Google translate):
            1 - boot on the fan ( Probably to support GPD official Ubuntu firmware that doesn't seems to handle fan directly )
            2 - improve the DPTF temperature, before the limit for the CPU temperature higher than 85 degrees or the battery temperature is higher than 58 degrees will CPU down.
+           
+ - [2017/08/07 BIOS](https://mega.nz/#!RZoG2I6Y!E3tDSn2M2BNn-JxW8pX7OEo8QgxUkFLs11Uw_WiG0Wc)   
+ 
+       Changelog (Google translate)
+           1 - This BIOS has changed the boot logic. In the previous BIOS device will boot only with a charge of 10 to 17%, now you only need at least some charge to boot. 
            
 ### Updating the BIOS
 1. Download the latest BIOS
@@ -233,6 +293,53 @@ sudo flashrom -p internal -w Rom_8MB_Tablet.bin
 6. Reboot Your Computer
 
 Notes: You may need to restore BIOS setting to their default in order to get everything running smoothly.
+
+## Charging info
+
+To get charging working correctly a different Power Delivery 2.0 charger may be required, based on kernel used, otherwise charging will be slow and will just keep device charge stable when in use. i.e. it will not drain battery as it may happen on old or generic kernels, but won't charge device more than when connected to power.
+
+Follow some data recorded with several chargers and systems regarding the charge delivered and perceived by the system:
+
+| Charger           | System                                   | Volts (Avg.) | Ampere (Avg.) |
+|-------------------|------------------------------------------|--------------|---------------|
+| Stock GPD charger | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
+| Aukey charger     | 4.12-rc2+ kernel (GPD official firmware) | 4.70v        | 2.5a          |
+| Stock GPD charger | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 0.5a \*        |
+| Aukey charger     | 4.12-rc7 kernel (HansDeGoede kernel)     | 4.89v        | 2a            |
+| Stock GPD charger | 4.13-rc3 kernel (HansDeGoede kernel)     | 11.8v        | 1.5a          |
+| Aukey charger     | 4.13-rc3 kernel (HansDeGoede kernel)     | 9.20v        | 0.5a \*\*       |
+| Stock GPD charger | 4.13-rc5 kernel (HansDeGoede kernel)     | 11.8v        | 1.3a          |
+| Aukey charger     | 4.13-rc5 kernel (HansDeGoede kernel)     | 9.0v         | 1.4a          |
+| Stock GPD charger | Windows 10                               | 11.70v       | 1.7a          |
+| Aukey charger     | Windows 10                               | 8.90v        | 2a            |
+
+\* Charging will not drain battery but won't charge device more than when connected to power
+
+\*\* Charging will be slow
+
+Ampere delivered may vary depending on the remaining battery charge.
+
+The tests have been performed using this [Jokitech USB-C Power Meter Tester Multimeter](https://www.amazon.it/gp/product/B06XJNHFFX/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) 
+
+Follow link of Anker charger used.
+
+[Amazon UK - AUKEY USB C 29W PD 2.0](https://www.amazon.co.uk/gp/product/B01MYVJELP/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1)
+
+[Amazon IT - AUKEY USB C 29W PD 2.0](https://www.amazon.it/gp/product/B01N6536VP/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
+
+## Multitouch
+
+ - Google Chrome: Works out of the box with multitouch gestures. No configuration needed.
+ - [Touchegg](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894): This enable some multitouch gesture on touchscreen and you can use it like a touchpad. It works only with non-libinput backend. Works good on XFCE. Won't work with GNOME, Elementary OS. [Issue](https://github.com/JoseExposito/touchegg/issues/281) [Possible fix for GNOME, Elementary OS](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894) 
+ You can install it by issuing "sudo apt-get install touchegg" and use, or try the [gpdpocket-touchegg-config](https://github.com/nexus511/gpd-ubuntu-packages) package by nexus511
+ - [Libinput-gestures](https://github.com/bulletmark/libinput-gestures): This enable multitouch gestures. Works on GNOME, Unity, Elementary OS and Desktop Environment that use libinput as default. It supports Xorg and partially Wayland.
+
+## Monitor CPU frequencies
+
+You can monitor frequencies of cpu issuing:
+```
+cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_cur_freq
+```
 
 # Troubleshooting
 
@@ -258,7 +365,9 @@ It's fast, reliabl,e and multi-platform.
 Check that the correct sound output device is selected in System Settings. 
 It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt5645" for the audio jack output.
 
-## Why is the system's UI so big?
+## Video glitches and overlapping desktops when HDMI connected
+
+Check your system displays settings and move your displays until they are not overlapping each others.
 
 The scaling ratio is set to `2` to be able to read on the screen but it sure takes of a lot of space out of the FullHD screen.
 Things will be more aliased and have better edge but take more space on screen.
@@ -268,11 +377,12 @@ sudo nano /etc/X11/Xsession.d/90-scale
 ```
 You have to edit all the values to their default:
 ```
-gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 1, 'DSI1': 1}" // Unity
+gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 8, 'DSI1': 8}" // Unity
 gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
 gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
 gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
 ```
+
 This will affect all the different desktop environments. This might require a log-out, log-in, or reboot to take effect. Restarting the display manager service will also work.
 This way you can still read fine (if you have good 👀 ) and have all your pixels back.

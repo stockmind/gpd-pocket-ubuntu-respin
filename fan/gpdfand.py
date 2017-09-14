@@ -36,7 +36,7 @@ def get_temp():
                 temp = int(core_temp.read()) / 1000
                 temps.append(temp)
     if(len(temps) > 0): 	
-        return sum(temps) / float(len(temps))
+        return max(temps)
     else:
         return 0
 

@@ -68,6 +68,14 @@ if [ -d /etc/gnome/ ]; then
   cp monitors.xml /etc/gnome-settings-daemon/xrandr/
 fi
 
+# patch GNOME wayland login setting
+if [ -f /etc/gdm/custom.conf ]; then
+  sed -i "s|#WaylandEnable=false|WaylandEnable=false|" /etc/gdm/custom.conf
+fi
+if [ -f /etc/gdm3/custom.conf ]; then
+  sed -i "s|#WaylandEnable=false|WaylandEnable=false|" /etc/gdm3/custom.conf
+fi
+
 # patch MDM monitors config if folder exists
 if [ -d /var/lib/mdm ]; then
   mkdir -p /var/lib/mdm/.config/
