@@ -1,9 +1,3 @@
-# SUPPORT ON THIS PROJECT WILL GET A SLOWDOWN DUE TO PERSONAL DUTIES AND WORK
-
-Follow this as will be the fully supported project by now:
-https://www.reddit.com/r/GPDPocket/comments/6rszbo/project_linux_installer_for_gpd_pocket/
-https://github.com/cawilliamson/ansible-gpdpocket/
-
 # Update an installed system
 
 You can update an installed system using the update commands here:
@@ -18,6 +12,8 @@ All informations, tips and tricks was gathered from:
  - http://linuxiumcomau.blogspot.com/ - Respin script and info
  - http://hansdegoede.livejournal.com/ - Kernel patches and amazing work on Bay Trail and Cherry Trail devices
  - https://www.indiegogo.com/projects/gpd-pocket-7-0-umpc-laptop-ubuntu-or-win-10-os-laptop--2/x/16403171#/ - GPD Pocket Indiegogo Campaign page 
+ - https://github.com/nexus511/gpd-ubuntu-packages - Alternative project by nexus511 
+ - https://github.com/cawilliamson/ansible-gpdpocket - Alternative awesome project by Cawilliamson that targets any linux distro - not maintained anymore
  
  Kudos and all the credits for things not related to my work go to developers and users on those pages!
  
@@ -26,6 +22,7 @@ All informations, tips and tricks was gathered from:
  - ✔ Display already rotated in terminal buffer and desktop/login ( Hans de Goede kernel patch, monitors.xml file and rotation daemon based on initial work of *Chrisawcom* )
  - ✔ Scaling already set to 175%
  - ✔ Touchscreen aligned to rotation
+ - ✔ Multitouch ( [Check multitouch section  for more information](#multitouch) )
  - ✔ Wifi
  - ✔ Speaker ( Must select "Speakers" in audio output devices if no sound output )
  - ✔ Headphones ( Must select "Headphones" in audio output devices, works only on kernel 4.13+ )
@@ -56,7 +53,10 @@ All informations, tips and tricks was gathered from:
 [Click here for the downloads section](#downloading-existing-isos)
 
 ### Updating the BIOS
-To update the BIOS, please go [here](#bios-updates-and-original-firmwares)
+
+At the moment no BIOS update is required to run Ubuntu respin iso.
+You can run any BIOS you want and you probably won't notice big differences.
+Different BIOS have however different features enabled. Check BIOS section [here](#bios-updates-and-original-firmwares)
  
 ## Step 1: Cloning the Repo and Installing Tools
 
@@ -82,13 +82,13 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 
 ## Step 2: Download your ISO of Choice
 
-Download your favourite distribution ISO and copy it in this repository cloned folder.
+Download your favourite distribution's ISO and copy it into this repository's cloned folder.
 
 ## Step 3: Download or Build a Kernel for the Respin
 
 ### Option 1: Download the Latest Kernel
 
-1. Run `./build.sh` in the terminal to get the most recent download link
+1. Run `./build.sh` in the terminal to get the most recent download link.
 1. Download the zipped kernel file from the link generated in the terminal.
 1. Place the downloaded kernel in the cloned repo's root directory. 
 
@@ -118,30 +118,30 @@ make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom
 ```
 You can find the generated kernel .deb files in the parent folder where linux-sunxi repository have been cloned.
 
-Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository.
+Compress all of the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository.
 
 ## Step 4: Build Your Respun ISO
 
-Run `./build.sh` script as specified for your desired distro. If you built your own kernel, the build script wiill extract the kernels you zipped and install during respin.
+Run the `./build.sh` script as specified for your desired distro. If you built your own kernel, the build script will extract the kernels you zipped and install them during the respin.
 
 ### Build on Debian-based systems:
 
-* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) by running this:
 ```
 ./build.sh <iso filenamme>
 ```
-* Build Gnome based ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+* Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) by running this:
 ```
 ./build.sh <iso filenamme> gnome
 ```
 
 ### Build on Arch-based systems:
 
-* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
+* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) by running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 ```  
-* BBuild Gnome based ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
+* Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) by running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> gnome
 ```
@@ -152,12 +152,12 @@ That's the reason of the "gnome" argument for update and build script.
 
 ## Step 5: Install and Update
 
-### Boot ISO from USB device
+### Boot ISO from a USB device
 
-I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
-It's fast, reliable and multi-platform.
+I sugget [Etcher](https://etcher.io/) to write ISO's onto a USB flash drive.
+It's fast, reliable, and multi-platform.
 
-Boot system using one time boot menu: Press during GPD logo Fn + F7 keys.
+Boot the system using one-time boot menu: During boot, when you see the GPD logo, press the Fn + F7 keys.
 
 Don't boot your USB from a USB Type C adapter or USB Type C drive as it wouldn't work until USB Type C data is supported by kernel.
 
@@ -167,7 +167,7 @@ These commands should be run after the first boot. There is an update script tha
 
 #### Update script
 
-You can run my update script to update your installation and grub options, and to setup everything after an install or after a Desktop Environment change.
+You can run my update script to update your installation and grub options. Additionally, you can use this script to setup everything either after an install or after a Desktop Environment change.
 ```
 sudo apt-get install -y git
 git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
@@ -199,7 +199,7 @@ sudo update-grub
 ```    
 ##### GPDFAND 
 
-Latest GPD Fan control script is integrated into ISO.
+The latest GPD Fan control script is integrated into the ISO.
 You should update your installation using these commands:
 ```
 git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
@@ -235,9 +235,17 @@ https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
 ## BIOS Updates and Original Firmwares
 
+At the moment no BIOS update is required to run Ubuntu respin iso.
+You can run any BIOS you want and you probably won't notice big differences.
+Different BIOS have however different features enabled. Check it out on changelogs below.
+
 You can find BIOS updates for GPD Pocket and original firmware files on this page:
 
 http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
+
+Useful informations:
+
+http://tieba.baidu.com/p/5293185138
 
 ### Official GPD Pocket Ubuntu ISO
 
@@ -264,7 +272,8 @@ http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
            
  - [2017/08/07 BIOS](https://mega.nz/#!RZoG2I6Y!E3tDSn2M2BNn-JxW8pX7OEo8QgxUkFLs11Uw_WiG0Wc)   
  
-       Changelog not yet available
+       Changelog (Google translate)
+           1 - This BIOS has changed the boot logic. In the previous BIOS device will boot only with a charge of 10 to 17%, now you only need at least some charge to boot. 
            
 ### Updating the BIOS
 1. Download the latest BIOS
@@ -318,6 +327,13 @@ Follow link of Anker charger used.
 
 [Amazon IT - AUKEY USB C 29W PD 2.0](https://www.amazon.it/gp/product/B01N6536VP/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 
+## Multitouch
+
+ - Google Chrome: Works out of the box with multitouch gestures. No configuration needed.
+ - [Touchegg](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894): This enable some multitouch gesture on touchscreen and you can use it like a touchpad. It works only with non-libinput backend. Works good on XFCE. Won't work with GNOME, Elementary OS. [Issue](https://github.com/JoseExposito/touchegg/issues/281) [Possible fix for GNOME, Elementary OS](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894) 
+ You can install it by issuing "sudo apt-get install touchegg" and use, or try the [gpdpocket-touchegg-config](https://github.com/nexus511/gpd-ubuntu-packages) package by nexus511
+ - [Libinput-gestures](https://github.com/bulletmark/libinput-gestures): This enable multitouch gestures. Works on GNOME, Unity, Elementary OS and Desktop Environment that use libinput as default. It supports Xorg and partially Wayland.
+
 ## Monitor CPU frequencies
 
 You can monitor frequencies of cpu issuing:
@@ -341,8 +357,8 @@ It only happens on Unity as far as i know.
 
 Try to burn the image on a smaller usb device or try another image.
 
-I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
-It's fast, reliable and multi-platform.
+I sugget [Etcher](https://etcher.io/) to write the ISO on a USB flash drive.
+It's fast, reliabl,e and multi-platform.
 
 ## No sound / streaming video crashing/not playing
 
@@ -353,8 +369,6 @@ It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt564
 
 Check your system displays settings and move your displays until they are not overlapping each others.
 
-## Why is system UI so big?
-
 The scaling ratio is set to `2` to be able to read on the screen but it sure takes of a lot of space out of the FullHD screen.
 Things will be more aliased and have better edge but take more space on screen.
 To restore to native pixel resolution you have to edit the scale configuration:
@@ -363,7 +377,7 @@ sudo nano /etc/X11/Xsession.d/90-scale
 ```
 You have to edit all the values to their default:
 ```
-gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 1, 'DSI1': 1}" // Unity
+gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 8, 'DSI1': 8}" // Unity
 gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
 gsettings set org.gnome.desktop.interface text-scaling-factor 1 // Gnome 3
 gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
