@@ -3,6 +3,8 @@ isorespin
 isorespin/*
 katoolin
 katoolin/*
+destination/*
+origin/*
 *.iso
 *.log
 *.deb

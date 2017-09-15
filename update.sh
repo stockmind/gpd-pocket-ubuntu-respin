@@ -46,6 +46,15 @@ chmod 644 /etc/X11/Xsession.d/90-touch
 chmod 644 /etc/X11/Xsession.d/90-interface
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
+cp 40-touch.conf /etc/X11/xorg.conf.d/40-touch.conf
+
+# Add rotate script for GDM login script
+mkdir -p /etc/X11/xinit/xinitrc.d/
+cp 90-touch /etc/X11/xinit/xinitrc.d/90-touch
+chmod 644 /etc/X11/xinit/xinitrc.d/90-touch
+
+# remove rules to rotate screen of 90 degree right on driver load
+rm /etc/udev/rules.d/99-goodix-touch.rules
 
 # patch lightdm monitors config if folder exists
 if [ -d /var/lib/lightdm ]; then
@@ -216,6 +225,7 @@ fi
 
 # update grub
 sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
+sudo sed -i "s/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=640x480/" /etc/default/grub
 sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1\"/" /etc/default/grub
 sudo sed -i "s/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1\"/" /etc/default/grub
 sudo update-grub

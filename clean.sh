@@ -1,5 +1,6 @@
 #!/bin/bash
 
-rm isorespin.log
-rm linuxium-*
-rm linux-*.deb
+rm -rf isorespin
+rm -f isorespin.log
+rm -f linuxium-*
+rm -f linux-*.deb

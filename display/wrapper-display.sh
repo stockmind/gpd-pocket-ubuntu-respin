@@ -8,6 +8,11 @@ chmod 644 /etc/X11/Xsession.d/90-scale
 chmod 644 /etc/X11/Xsession.d/90-touch
 chmod 644 /etc/X11/Xsession.d/90-interface
 
+# Add rotate script for GDM login script
+mkdir -p /etc/X11/xinit/xinitrc.d/
+cp 90-touch /etc/X11/xinit/xinitrc.d/90-touch
+chmod 644 /etc/X11/xinit/xinitrc.d/90-touch
+
 # Add touchscreen rotation daemon for login screens and wayland
 cp gpdtouch.sh /usr/local/sbin/gpdtouch
 chmod +x /usr/local/sbin/gpdtouch
@@ -30,6 +35,7 @@ chmod +x /usr/local/sbin/adduser.local
 mkdir -p /etc/X11/xorg.conf.d/
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
+cp 40-touch.conf /etc/X11/xorg.conf.d/40-touch.conf
 
 cp adduser.local /usr/local/sbin/adduser.local
 chmod +x /usr/local/sbin/adduser.local
