@@ -143,7 +143,7 @@ rm -fr temp
 
 # update GPD Fan daemon
 echo "Update GPD Fan daemon"
-cd ../fan
+cd fan
 cp gpdfand.service /etc/systemd/system/gpdfand.service
 cp gpdfand /lib/systemd/system-sleep/gpdfand
 cp gpdfand.conf /etc/gpdfand.conf

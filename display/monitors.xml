@@ -1,7 +1,7 @@
 <monitors version="1">
   <configuration>
       <clone>no</clone>
-      <output name="DSI1">
+      <output name="DSI-1">
           <vendor>???</vendor>
           <product>0x0000</product>
           <serial>0x00000000</serial>
@@ -17,22 +17,20 @@
       </output>
   </configuration>
   <configuration>
-    <clone>no</clone>
-    <output name="DSI1">
-      <vendor>unknown</vendor>
-      <product>unknown</product>
-      <serial>unknown</serial>
-      <width>1920</width>
-      <height>1200</height>
-      <rate>60.384120941162109</rate>
-      <x>0</x>
-      <y>0</y>
-      <rotation>right</rotation>
-      <reflect_x>no</reflect_x>
-      <reflect_y>no</reflect_y>
-      <primary>yes</primary>
-      <presentation>no</presentation>
-      <underscanning>no</underscanning>
-    </output>
+      <clone>no</clone>
+      <output name="DSI1">
+          <vendor>???</vendor>
+          <product>0x0000</product>
+          <serial>0x00000000</serial>
+          <width>1200</width>
+          <height>1920</height>
+          <rate>60</rate>
+          <x>0</x>
+          <y>0</y>
+          <rotation>right</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>yes</primary>
+      </output>
   </configuration>
 </monitors>
