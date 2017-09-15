@@ -55,8 +55,10 @@ All informations, tips and tricks was gathered from:
 [Click here for the downloads section](#downloading-existing-isos)
 
 ### Updating the BIOS
-To update the BIOS, please go [here](#bios-updates-and-original-firmwares)
- 
+At the moment no BIOS update is required to run Ubuntu respin iso.
+You can run any BIOS you want and you probably won't notice big differences.
+Different BIOS have however different features enabled. Check BIOS section [here](#bios-updates-and-original-firmwares)
+
 ## Step 1: Cloning the Repo and Installing Tools
 
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
@@ -231,6 +233,10 @@ Here is an already respinned Ubuntu ISO for GPD Pocket
 https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
 ## BIOS Updates and Original Firmwares
+
+At the moment no BIOS update is required to run Ubuntu respin iso.
+You can run any BIOS you want and you probably won't notice big differences.
+Different BIOS have however different features enabled. Check changelogs below.
 
 You can find BIOS updates for GPD Pocket and original firmware files on this page:
 
