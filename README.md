@@ -1,3 +1,5 @@
+![GPD Pocket Ubuntu](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/screenshot.png)
+
 # Update an installed system
 
 You can update an installed system using the update commands here:
