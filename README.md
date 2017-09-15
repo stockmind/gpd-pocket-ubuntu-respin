@@ -53,10 +53,7 @@ All informations, tips and tricks was gathered from:
 [Click here for the downloads section](#downloading-existing-isos)
 
 ### Updating the BIOS
-
-At the moment no BIOS update is required to run Ubuntu respin iso.
-You can run any BIOS you want and you probably won't notice big differences.
-Different BIOS have however different features enabled. Check BIOS section [here](#bios-updates-and-original-firmwares)
+To update the BIOS, please go [here](#bios-updates-and-original-firmwares)
  
 ## Step 1: Cloning the Repo and Installing Tools
 
@@ -82,15 +79,13 @@ sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 
 ## Step 2: Download your ISO of Choice
 
-Download your favourite distribution's ISO and copy it into this repository's cloned folder.
+Download your favourite distribution ISO and copy it in this repository cloned folder.
 
 ## Step 3: Download or Build a Kernel for the Respin
 
 ### Option 1: Download the Latest Kernel
 
-1. Run `./build.sh` in the terminal to get the most recent download link.
-1. Download the zipped kernel file from the link generated in the terminal.
-1. Place the downloaded kernel in the cloned repo's root directory. 
+1. Run `./build.sh` in the terminal to get the most recent kernel automatically.
 
 ### Option 2: Build Your Own Kernel
 
@@ -118,30 +113,30 @@ make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom
 ```
 You can find the generated kernel .deb files in the parent folder where linux-sunxi repository have been cloned.
 
-Compress all of the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository.
+Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository.
 
 ## Step 4: Build Your Respun ISO
 
-Run the `./build.sh` script as specified for your desired distro. If you built your own kernel, the build script will extract the kernels you zipped and install them during the respin.
+Run `./build.sh` script as specified for your desired distro. If you built your own kernel, the build script wiill extract the kernels you zipped and install during respin.
 
 ### Build on Debian-based systems:
 
-* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) by running this:
+* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
 ./build.sh <iso filenamme>
 ```
-* Build Wayland ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) by running this:
+* Build Gnome based ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 ```
 ./build.sh <iso filenamme> gnome
 ```
 
 ### Build on Arch-based systems:
 
-* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) by running this:
+* Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
 ```  
-* Build Wayland ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) by running this:
+* BBuild Gnome based ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> gnome
 ```
@@ -152,12 +147,12 @@ That's the reason of the "gnome" argument for update and build script.
 
 ## Step 5: Install and Update
 
-### Boot ISO from a USB device
+### Boot ISO from USB device
 
-I sugget [Etcher](https://etcher.io/) to write ISO's onto a USB flash drive.
-It's fast, reliable, and multi-platform.
+I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
+It's fast, reliable and multi-platform.
 
-Boot the system using one-time boot menu: During boot, when you see the GPD logo, press the Fn + F7 keys.
+Boot system using one time boot menu: Press during GPD logo Fn + F7 keys.
 
 Don't boot your USB from a USB Type C adapter or USB Type C drive as it wouldn't work until USB Type C data is supported by kernel.
 
@@ -167,7 +162,7 @@ These commands should be run after the first boot. There is an update script tha
 
 #### Update script
 
-You can run my update script to update your installation and grub options. Additionally, you can use this script to setup everything either after an install or after a Desktop Environment change.
+You can run my update script to update your installation and grub options, and to setup everything after an install or after a Desktop Environment change.
 ```
 sudo apt-get install -y git
 git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
@@ -199,7 +194,7 @@ sudo update-grub
 ```    
 ##### GPDFAND 
 
-The latest GPD Fan control script is integrated into the ISO.
+Latest GPD Fan control script is integrated into ISO.
 You should update your installation using these commands:
 ```
 git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
@@ -234,10 +229,6 @@ Here is an already respinned Ubuntu ISO for GPD Pocket
 https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
 ## BIOS Updates and Original Firmwares
-
-At the moment no BIOS update is required to run Ubuntu respin iso.
-You can run any BIOS you want and you probably won't notice big differences.
-Different BIOS have however different features enabled. Check it out on changelogs below.
 
 You can find BIOS updates for GPD Pocket and original firmware files on this page:
 
@@ -357,8 +348,8 @@ It only happens on Unity as far as i know.
 
 Try to burn the image on a smaller usb device or try another image.
 
-I sugget [Etcher](https://etcher.io/) to write the ISO on a USB flash drive.
-It's fast, reliabl,e and multi-platform.
+I sugget [Etcher](https://etcher.io/) to write ISO on usb flash drives.
+It's fast, reliable and multi-platform.
 
 ## No sound / streaming video crashing/not playing
 
@@ -368,6 +359,8 @@ It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt564
 ## Video glitches and overlapping desktops when HDMI connected
 
 Check your system displays settings and move your displays until they are not overlapping each others.
+
+## Why is system UI so big?
 
 The scaling ratio is set to `2` to be able to read on the screen but it sure takes of a lot of space out of the FullHD screen.
 Things will be more aliased and have better edge but take more space on screen.
