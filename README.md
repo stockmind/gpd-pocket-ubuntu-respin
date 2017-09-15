@@ -5,6 +5,13 @@
 You can update an installed system using the update commands here:
 [Update steps](#post-install)
 
+# Check new rotation script and tray icon!
+![GPD Pocket Screen rotation utility](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/master/screenshot.png)
+
+https://github.com/stockmind/gpd-pocket-screen-indicator
+
+Run update script to install it automatically.
+
 # How to Respin an ISO for GPD Pocket
 ## Overview
 This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
@@ -23,7 +30,7 @@ All informations, tips and tricks was gathered from:
 
  - ✔ Display already rotated in terminal buffer and desktop/login ( Hans de Goede kernel patch, monitors.xml file and rotation daemon based on initial work of *Chrisawcom* )
  - ✔ Scaling already set to 175%
- - ✔ Touchscreen aligned to rotation
+ - ✔ Touchscreen aligned to rotation ( [Check new rotation script and tray icon](https://github.com/stockmind/gpd-pocket-screen-indicator) )
  - ✔ Multitouch ( [Check multitouch section  for more information](#multitouch) )
  - ✔ Wifi
  - ✔ Speaker ( Must select "Speakers" in audio output devices if no sound output )
