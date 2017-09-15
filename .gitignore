@@ -5,6 +5,8 @@ katoolin
 katoolin/*
 destination/*
 origin/*
+temp/*
+temp/
 *.iso
 *.log
 *.deb

@@ -39,10 +39,8 @@ rm /etc/X11/xorg.conf.d/90-monitor.conf
 echo "Update display files..."
 cd display
 cp 90-scale /etc/X11/Xsession.d/90-scale
-cp 90-touch /etc/X11/Xsession.d/90-touch
 cp 90-interface /etc/X11/Xsession.d/90-interface
 chmod 644 /etc/X11/Xsession.d/90-scale
-chmod 644 /etc/X11/Xsession.d/90-touch
 chmod 644 /etc/X11/Xsession.d/90-interface
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
@@ -132,19 +130,16 @@ else
   echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment   
 fi
 
-
-# Add touchscreen rotation daemon for login screens and gnome
-echo "Update/Install touchscreen and display rotation daemon..."
-cp gpdtouch.sh /usr/local/sbin/gpdtouch
-chmod +x /usr/local/sbin/gpdtouch
-cp gpdtouch /lib/systemd/system-sleep/gpdtouch
-chmod +x /lib/systemd/system-sleep/gpdtouch
-cp gpdtouch.service /etc/systemd/system/gpdtouch.service
-cp gpdtouch-wake.service /etc/systemd/system/gpdtouch-wake.service
-chmod 0644 /etc/systemd/system/gpdtouch.service
-chmod 0644 /etc/systemd/system/gpdtouch-wake.service
-systemctl enable gpdtouch.service
-systemctl enable gpdtouch-wake.service
+cd ..
+# Download rotation daemons and indicator
+mkdir -p temp
+cd temp
+git clone https://github.com/stockmind/gpd-pocket-screen-indicator.git
+cd gpd-pocket-screen-indicator
+chmod +x install.sh
+sudo ./install.sh
+cd ../../
+rm -fr temp
 
 # update GPD Fan daemon
 echo "Update GPD Fan daemon"
