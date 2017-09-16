@@ -32,7 +32,7 @@ for FILE in origin/*.iso; do
 	# Sanitize name
 	FILENAME="${FILENAME//[^[:alnum:]_-]/}"
 
-	if [[ $FILENAME == *"gnome"* ]]; then
+	if [[ $FILENAME == *"gnome"* ]] || [[ $FILENAME == *"elementary"* ]]; then
 		echo "Gnome ISO"
 		./build.sh "$FILE" gnome
 	else
