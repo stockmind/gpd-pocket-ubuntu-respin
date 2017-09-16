@@ -32,8 +32,8 @@ apt-get -y install thermald tlp va-driver-all vainfo libva1 i965-va-driver gstre
 
 # remove old display files
 echo "Remove old configuration files..."
-rm /etc/X11/Xsession.d/90x11-rotate_and_scale
-rm /etc/X11/xorg.conf.d/90-monitor.conf
+rm -f /etc/X11/Xsession.d/90x11-rotate_and_scale
+rm -f /etc/X11/xorg.conf.d/90-monitor.conf
 
 # update display files
 echo "Update display files..."
@@ -47,7 +47,7 @@ cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
 cp 40-touch.conf /etc/X11/xorg.conf.d/40-touch.conf
 
 # remove rules to rotate screen of 90 degree right on driver load
-rm /etc/udev/rules.d/99-goodix-touch.rules
+rm -f /etc/udev/rules.d/99-goodix-touch.rules
 
 # patch lightdm monitors config if folder exists
 if [ -d /var/lib/lightdm ]; then
