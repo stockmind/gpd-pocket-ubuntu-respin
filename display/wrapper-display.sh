@@ -6,11 +6,6 @@ cp 90-interface /etc/X11/Xsession.d/90-interface
 chmod 644 /etc/X11/Xsession.d/90-scale
 chmod 644 /etc/X11/Xsession.d/90-interface
 
-# Add rotate script for GDM login script
-mkdir -p /etc/X11/xinit/xinitrc.d/
-cp 90-touch /etc/X11/xinit/xinitrc.d/90-touch
-chmod 644 /etc/X11/xinit/xinitrc.d/90-touch
-
 # Download rotation daemons and indicator
 mkdir -p temp
 cd temp
