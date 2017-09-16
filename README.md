@@ -17,6 +17,8 @@ Run [update script](#post-install) to install it automatically.
 Check [Troubleshooting section.](#troubleshooting)
 If your problem persist or is not on the list check [Problem reporting section](#problem-reporting) before open an issue.
 
+**This packages is not compatible with Ansible-playbook setup due to rotation scripts that may conflict. Clean your system before use this.**
+
 # How to Respin an ISO for GPD Pocket
 ## Overview
 This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
