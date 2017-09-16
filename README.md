@@ -10,7 +10,7 @@ You can update an installed system using the update commands here:
 
 https://github.com/stockmind/gpd-pocket-screen-indicator
 
-Run update script to install it automatically.
+Run [update script](#post-install) to install it automatically.
 
 # Have an issue?
 
