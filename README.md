@@ -17,7 +17,7 @@ Run [update script](#post-install) to install it automatically.
 Check [Troubleshooting section.](#troubleshooting)
 If your problem persist or is not on the list check [Problem reporting section](#problem-reporting) before open an issue.
 
-**Those scripts are not compatible with Ansible-playbook setup due to rotation and other scripts that may conflict. Clean your system before use this.**
+**Scripts on this repository are not compatible with Ansible-playbook setup due to rotation and other scripts that may conflict. Clean your system before use this.**
 
 # How to Respin an ISO for GPD Pocket
 ## Overview
