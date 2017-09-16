@@ -46,11 +46,6 @@ cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
 cp 40-touch.conf /etc/X11/xorg.conf.d/40-touch.conf
 
-# Add rotate script for GDM login script
-mkdir -p /etc/X11/xinit/xinitrc.d/
-cp 90-touch /etc/X11/xinit/xinitrc.d/90-touch
-chmod 644 /etc/X11/xinit/xinitrc.d/90-touch
-
 # remove rules to rotate screen of 90 degree right on driver load
 rm /etc/udev/rules.d/99-goodix-touch.rules
 
