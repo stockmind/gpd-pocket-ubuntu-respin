@@ -12,6 +12,11 @@ https://github.com/stockmind/gpd-pocket-screen-indicator
 
 Run update script to install it automatically.
 
+# Have an issue?
+
+Check [Troubleshooting section.](#troubleshooting)
+If your problem persist or is not on the list check [Problem reporting section](#problem-reporting) before open an issue.
+
 # How to Respin an ISO for GPD Pocket
 ## Overview
 This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
@@ -193,44 +198,13 @@ Gnome desktop environment and derivate (Pantheon of Elementary OS) use a differe
 The default Xorg configuration won't work and a custom configuration must be used to get everything to work.
 That's the reason of the "gnome" argument for update and build script.
 
-#### Manual update
+Update kernel to latest version issuing the following command:
 
-##### GRUB
+```
+sudo ./update-kernel.sh gnome
+```
 
-Those commands will update your grub boot options to optimize the boot process for your Intel Atom processor
-```
-sudo sed -i "s/GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"/GRUB_CMDLINE_LINUX_DEFAULT=\"\"/" /etc/default/grub
-sudo sed -i "s/GRUB_CMDLINE_LINUX=\"\"/GRUB_CMDLINE_LINUX=\"i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1\"/" /etc/default/grub
-sudo update-grub
-```    
-##### GPDFAND 
-
-Latest GPD Fan control script is integrated into ISO.
-You should update your installation using these commands:
-```
-git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git
-cd gpd-pocket-ubuntu-respin/fan/
-sudo cp gpdfand.service /etc/systemd/system/gpdfand.service
-sudo cp gpdfand /lib/systemd/system-sleep/gpdfand
-sudo cp gpdfand.conf /etc/gpdfand.conf
-sudo cp gpdfand.py /usr/local/sbin/gpdfand
-sudo chmod +x /lib/systemd/system-sleep/gpdfand /usr/local/sbin/gpdfand
-sudo chmod 0644 /etc/gpdfand.conf
-sudo chmod 0644 /etc/systemd/system/gpdfand.service
-sudo systemctl enable gpdfand.service
-sudo systemctl restart gpdfand.service
-```   
-Check status using:
-```
-systemctl status gpdfand.service
-```
-##### SDDM/KDE DPI and Rotate
-
-To let SDDM (The preferred display manager for KDE Plasma desktop) to scale correctly and be rotated you should put two xrandr arguments into his starting configuration file like this:
-```
-echo "xrandr --output DSI1 --rotate right" >> /usr/share/sddm/scripts/Xsetup # Rotate Monitor0
-echo "xrandr --dpi 168" >> /usr/share/sddm/scripts/Xsetup # Scaling 175%
-```
+A kernel update is always recommended.
 
 # Additional Notes
 ## Downloading Existing ISO's
@@ -353,6 +327,10 @@ cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_cur_freq
 
 Press the power button to let the desktop load and look at issues below.
 
+## Brightness management doesn't work
+
+Brightness management is currently broken on a Live environment. You must install system on your drive to get it working.
+
 ## Sleep when plugging in charger
 
 Some sort of Unity daemon or watcher seems to read bad values from battery or charge and put system on sleep when charger is plugged in. This seems to happen also on boot of Live USB.
@@ -394,3 +372,11 @@ gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
 
 This will affect all the different desktop environments. This might require a log-out, log-in, or reboot to take effect. Restarting the display manager service will also work.
 This way you can still read fine (if you have good 👀 ) and have all your pixels back.
+
+# Problem reporting
+
+To report a problem clone the repo, run "problem-reporting.sh" script and attach it to your github issue. This will help debugging.
+
+```
+sudo ./problem-reporting.sh
+```
