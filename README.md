@@ -375,7 +375,7 @@ This way you can still read fine (if you have good 👀 ) and have all your pixe
 
 # Problem reporting
 
-To report a problem clone the repo, run "problem-reporting.sh" script and attach it to your github issue. This will help debugging.
+To report a problem clone the repo, run "problem-reporting.sh" script and attach the output to your github issue. This will help debugging.
 
 ```
 sudo ./problem-reporting.sh
