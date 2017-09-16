@@ -1,3 +1,5 @@
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY)
+
 ![GPD Pocket Ubuntu](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/screenshot.png)
 
 # Update an installed system
@@ -400,3 +402,9 @@ To report a problem clone the repo, run "problem-reporting.sh" script and attach
 ```
 sudo ./problem-reporting.sh
 ```
+
+# Donate
+
+If my work helped you consider a little donation to buy me a coffe... or an energy drink! :smile:
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY)
