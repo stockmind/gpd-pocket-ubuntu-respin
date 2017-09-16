@@ -387,7 +387,7 @@ The script will do it's best to compensate the alignment problems that may happe
 
 You can try to use the "Reset touchscreen" option from the GPD Screen Rotation icon on your tray bar ( ![GPD Screen Rotation icon](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/b26ef297ab46e1cb0c6534ff66571d60e10b25ad/icons/screen-rotation-button-black.png) ). It will ask for your password. Wait for 5 seconds than retry to use touchscreen. If problem persist try to put system in sleep for a bit or reboot your device.
 
-## No GPD Screen Rotation icon on GNOME Shell
+## No GPD Screen Rotation icon on GNOME Shell
 
 [Check this](https://github.com/stockmind/gpd-pocket-screen-indicator#gnome-shell-users)
 
