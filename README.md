@@ -17,7 +17,9 @@ Run [update script](#post-install) to install it automatically.
 Check [Troubleshooting section.](#troubleshooting)
 If your problem persist or is not on the list check [Problem reporting section](#problem-reporting) before open an issue.
 
-**Scripts on this repository are not compatible with Ansible-playbook setup due to rotation and other scripts that may conflict. Clean your system before use this.**
+**Scripts on this repository are not compatible with Ansible-playbook setup due to rotation and other scripts that may conflict. Clean your system before use this.
+You may try this clean script at your own risk: [Clean Ansible Playbook script](https://github.com/stockmind/gpd-pocket-ubuntu-respin/blob/master/clean-ansible.sh)**
+
 
 # How to Respin an ISO for GPD Pocket
 ## Overview
