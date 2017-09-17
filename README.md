@@ -235,6 +235,16 @@ http://tieba.baidu.com/p/5293185138
 
 ### Official GPD Pocket Ubuntu ISO
 
+Diffs of latest (0809_2) GPD Official Ubuntu image with files that GPD added to vanilla Ubuntu ISO: 
+
+https://www.reddit.com/r/GPDPocket/comments/70qdsp/diff_of_latest_gpd_official_ubuntu_firmware_iso/?st=j7pa5css&sh=02dc3f67
+
+Files: [Download Here](http://ge.tt/4t7qsZm2)
+
+ISO:
+
+Latest versions are available here: http://www.gpd.hk/news.asp?id=1519&selectclassid=002002
+
 [Second version](https://mega.nz/#!SsNiQIKI!NyiD2EnKD-GguGmBfvdsD1nFoutvABcLEb0uUuXtjOA) - [Chinese Mirror](https://pan.baidu.com/s/1jIBV13K?fref=gc) - [My mirror](https://mega.nz/#!caAjUAKR!fwR0Mf9qBqSS4D43U5Ds8Wjj-3a1qc44LIR01cMGkx8)
 
 [First version](https://mega.nz/#!ZaoCDSqA!tbFx0Pev2dU0al8iVdmvNNiEA9RuL2jLZQV9md1S-iI) (Working iso, GPD one uploaded on indiegogo was corrupt)
