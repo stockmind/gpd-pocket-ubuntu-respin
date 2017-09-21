@@ -408,6 +408,14 @@ You can try to use the "Reset touchscreen" option from the GPD Screen Rotation i
 
 [Check this](https://github.com/stockmind/gpd-pocket-screen-indicator#gnome-shell-users)
 
+## No GPD Screen Rotation icon shows at boot
+
+In some system it may happen that tray icon won't show at boot. Try to run in a terminal
+
+    gpdscreen-indicator
+    
+If it works add "gpdscreen-indicator" command to your system "Startup Application" utility to run it at boot.
+
 # Problem reporting
 
 To report a problem clone the repo, run "problem-reporting.sh" script and attach the output to your github issue. This will help debugging.
