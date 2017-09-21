@@ -54,12 +54,12 @@ All informations, tips and tricks was gathered from:
  - ✔ Sleep/wake
  - ✔ HDMI port
  - ✔ Charging at full speed ([Check charging info for more information](#charging-info))
+ - ✔ **USB-C for data**
  - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks @joshskidmore for the intuition! )
  - ✔ Trackpoint faster for a better experience right from the start ( Thanks @rustige for config! )
  
 ### What Doesn't Work at the Moment
 
- - USB-C Data ( No usb live boot from it either ) 
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash ) 
  
 ### Overview for Building and Respinning an ISO
