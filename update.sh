@@ -28,7 +28,7 @@ apt-get -y purge bcmwl-kernel-source
 
 # install required packages
 echo "Install required packages..."
-apt-get -y install thermald tlp va-driver-all vainfo libva1 i965-va-driver gstreamer1.0-libav gstreamer1.0-vaapi python-gi gksu git python gir1.2-appindicator3-0.1
+apt-get -y install thermald tlp va-driver-all vainfo libva1 i965-va-driver gstreamer1.0-libav gstreamer1.0-vaapi python-gi gksu git python gir1.2-appindicator3-0.1 xfonts-terminus
 
 # remove old display files
 echo "Remove old configuration files..."
@@ -44,7 +44,9 @@ chmod 644 /etc/X11/Xsession.d/90-scale
 chmod 644 /etc/X11/Xsession.d/90-interface
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
+cp 35-screen.conf /etc/X11/xorg.conf.d/35-screen.conf
 cp 40-touch.conf /etc/X11/xorg.conf.d/40-touch.conf
+cp 40-trackpoint.conf /etc/X11/xorg.conf.d/40-trackpoint.conf
 
 # remove rules to rotate screen of 90 degree right on driver load
 rm -f /etc/udev/rules.d/99-goodix-touch.rules
@@ -211,6 +213,15 @@ then
   echo "set sink port already ok!"
 else
   echo "set-sink-port alsa_output.platform-cht-bsw-rt5645.HiFi__hw_chtrt5645__sink [Out] Speaker" >> /etc/pulse/default.pa
+fi
+
+echo "Fix terminal font size"
+if grep -Fxq "FONT=ter-v32n" /etc/vconsole.conf
+then 
+  echo "Console font size alerady ok !"
+else
+  # update terminal font size
+  echo "FONT=ter-v32n" > /etc/vconsole.conf
 fi
 
 # update grub

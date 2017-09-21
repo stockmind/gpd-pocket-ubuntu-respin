@@ -23,7 +23,9 @@ chmod +x /usr/local/sbin/adduser.local
 mkdir -p /etc/X11/xorg.conf.d/
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
+cp 35-screen.conf /etc/X11/xorg.conf.d/35-screen.conf
 cp 40-touch.conf /etc/X11/xorg.conf.d/40-touch.conf
+cp 40-trackpoint.conf /etc/X11/xorg.conf.d/40-trackpoint.conf
 
 cp adduser.local /usr/local/sbin/adduser.local
 chmod +x /usr/local/sbin/adduser.local
@@ -77,5 +79,8 @@ if [ -d /var/lib/mdm ]; then
   chown gdm:gdm /var/lib/mdm/.config/monitors.xml
   chown gdm:gdm /var/lib/mdm/.config
 fi
+
+# update terminal font size
+echo "FONT=ter-v32n" > /etc/vconsole.conf
 
 rm -f adduser.local 20-intel.conf 30-monitor.conf 90-touch 90-scale wrapper-display.sh
