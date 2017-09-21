@@ -172,6 +172,19 @@ else
   echo "btusb" >> /etc/initramfs-tools/modules
 fi
 
+if grep -Fxq "i915" /etc/initramfs-tools/modules
+then 
+  echo "i915 module already present"
+else
+  echo "i915" >> /etc/initramfs-tools/modules
+fi
+
+# update terminal font size
+cp display/console-setup /etc/default/console-setup
+
+echo "Update modules of last kernel"
+update-initramfs -u
+
 # update network files
 echo "Update/Install network files..."
 cd ../network
@@ -213,15 +226,6 @@ then
   echo "set sink port already ok!"
 else
   echo "set-sink-port alsa_output.platform-cht-bsw-rt5645.HiFi__hw_chtrt5645__sink [Out] Speaker" >> /etc/pulse/default.pa
-fi
-
-echo "Fix terminal font size"
-if grep -Fxq "FONT=ter-v32n" /etc/vconsole.conf
-then 
-  echo "Console font size alerady ok !"
-else
-  # update terminal font size
-  echo "FONT=ter-v32n" > /etc/vconsole.conf
 fi
 
 # update grub

@@ -34,6 +34,8 @@ chmod +x /usr/local/sbin/adduser.local
 echo "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" >> /etc/environment
 echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment
 
+echo "i915" >> /etc/initramfs-tools/modules
+
 
 # patch lightdm monitors config if folder exists
 if [ -d /var/lib/lightdm ]; then
@@ -81,6 +83,6 @@ if [ -d /var/lib/mdm ]; then
 fi
 
 # update terminal font size
-echo "FONT=ter-v32n" > /etc/vconsole.conf
+cp display/console-setup /etc/default/console-setup
 
 rm -f adduser.local 20-intel.conf 30-monitor.conf 90-touch 90-scale wrapper-display.sh
