@@ -55,8 +55,8 @@ All informations, tips and tricks was gathered from:
  - ✔ HDMI port
  - ✔ Charging at full speed ([Check charging info for more information](#charging-info))
  - ✔ **USB-C for data** ( Kernel version 4.14 or later )
- - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks @joshskidmore for the intuition! )
- - ✔ Trackpoint faster for a better experience right from the start ( Thanks @rustige for config! )
+ - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks joshskidmore for the intuition! - Worsk only on installed system and a "update.sh" run may be needed )
+ - ✔ Trackpoint faster for a better experience right from the start ( Thanks rustige for config! )
  
 ### What Doesn't Work at the Moment
 
