@@ -54,11 +54,14 @@ All informations, tips and tricks was gathered from:
  - ✔ Sleep/wake
  - ✔ HDMI port
  - ✔ Charging at full speed ([Check charging info for more information](#charging-info))
+ - ✔ **USB-C for data** ( Kernel version 4.14 or later )
+ - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks @joshskidmore for the intuition! )
+ - ✔ Trackpoint faster for a better experience right from the start ( Thanks @rustige for config! )
  
 ### What Doesn't Work at the Moment
 
- - USB-C Data ( No usb live boot from it either ) 
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash ) 
+ - Audio crackling on high volumes ( Bug: https://bugzilla.kernel.org/show_bug.cgi?id=196351 )
  
 ### Overview for Building and Respinning an ISO
 
@@ -313,6 +316,9 @@ Follow some data recorded with several chargers and systems regarding the charge
 
 \*\* Charging will be slow
 
+**Any kernel after 4.13-rc5 (From Hans de Goede repository) should be fine for full-speed charging!
+Mainline kernel 4.14 or later should be fine.**
+
 Ampere delivered may vary depending on the remaining battery charge.
 
 The tests have been performed using this [Jokitech USB-C Power Meter Tester Multimeter](https://www.amazon.it/gp/product/B06XJNHFFX/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) 
@@ -326,6 +332,15 @@ Follow link of Anker charger used.
 ## Multitouch
 
  - Google Chrome: Works out of the box with multitouch gestures. No configuration needed.
+ - Firefox: Bundled builds of Firefox in Ubuntu and derivates doesn't support touch gestures by default. You need a build with cairo-gtk3 enabled, you can check it in "about:buildconfig", if it's missing touch will probably won't work in your build. You can get a build with that module enabled on Firefox official site or [here](https://sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/). Install it and add 
+ 
+       MOZ_USE_XINPUT2=1
+    
+    in /etc/environment (if not already present) or run Firefox with 
+
+       env MOZ_USE_XINPUT2=1 firefox
+    
+    If it still doesn't work after a reboot try to add this boolean key in "about:config": browser.tabs.remote.force-enable and set it to true.
  - [Touchegg](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894): This enable some multitouch gesture on touchscreen and you can use it like a touchpad. It works only with non-libinput backend. Works good on XFCE. Won't work with GNOME, Elementary OS. [Issue](https://github.com/JoseExposito/touchegg/issues/281) [Possible fix for GNOME, Elementary OS](https://github.com/JoseExposito/touchegg/issues/281#issuecomment-255712894) 
  You can install it by issuing "sudo apt-get install touchegg" and use, or try the [gpdpocket-touchegg-config](https://github.com/nexus511/gpd-ubuntu-packages) package by nexus511
  - [Libinput-gestures](https://github.com/bulletmark/libinput-gestures): This enable multitouch gestures. Works on GNOME, Unity, Elementary OS and Desktop Environment that use libinput as default. It supports Xorg and partially Wayland.
@@ -404,6 +419,14 @@ You can try to use the "Reset touchscreen" option from the GPD Screen Rotation i
 ## No GPD Screen Rotation icon on GNOME Shell
 
 [Check this](https://github.com/stockmind/gpd-pocket-screen-indicator#gnome-shell-users)
+
+## No GPD Screen Rotation icon shows at boot
+
+In some system it may happen that tray icon won't show at boot. Try to run in a terminal
+
+    gpdscreen-indicator
+    
+If it works add "gpdscreen-indicator" command to your system "Startup Application" utility to run it at boot.
 
 # Problem reporting
 
