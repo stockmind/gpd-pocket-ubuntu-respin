@@ -180,7 +180,8 @@ else
 fi
 
 # update terminal font size
-cp display/console-setup /etc/default/console-setup
+echo "Update console setup"
+cp ../display/console-setup /etc/default/console-setup
 
 echo "Update modules of last kernel"
 update-initramfs -u
