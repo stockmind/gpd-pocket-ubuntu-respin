@@ -61,6 +61,7 @@ All informations, tips and tricks was gathered from:
 ### What Doesn't Work at the Moment
 
  - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash ) 
+ - Audio crackling on high volumes ( Bug: https://bugzilla.kernel.org/show_bug.cgi?id=196351 )
  
 ### Overview for Building and Respinning an ISO
 
@@ -314,6 +315,9 @@ Follow some data recorded with several chargers and systems regarding the charge
 \* Charging will not drain battery but won't charge device more than when connected to power
 
 \*\* Charging will be slow
+
+**Any kernel after 4.13-rc5 (From Hans de Goede repository) should be fine for full-speed charging!
+Mainline kernel 4.14 or later should be fine.**
 
 Ampere delivered may vary depending on the remaining battery charge.
 
