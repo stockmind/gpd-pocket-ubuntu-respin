@@ -1,6 +1,19 @@
 #!/bin/bash
 set -e
 
+echo $(ip r)
+
+DEFAULT_GATEWAY=`ip r | grep default | cut -d ' ' -f 3`
+echo "Gateway: $DEFAULT_GATEWAY"
+
+if ( ! ping -q -w 1 -c 1 "${DEFAULT_GATEWAY}" > /dev/null 2>&1 ); then
+	echo "Internet test failed."
+	echo "RESULT:"
+	ping -q -w 1 -c 1 "${DEFAULT_GATEWAY}"
+else
+	echo "Internet test passed."
+fi
+
 if [ "$1" = 'kernel' ]; then
 	# Check if kernel sources have already been downloaded
 	if [ ! -d kernel-build ]; then
@@ -35,7 +48,14 @@ if [ "$1" = 'respin' ]; then
 	if [ -z "$2" ]; then
 		echo "An iso image must be selected!"
 	else
+		# Make node for respin
+		mknod /dev/loop0 b 7 0
+
 		cd gpd-pocket-ubuntu-respin
+		echo "Images found in folder:"
+		ls /docker-input/
+
+		echo "Starting process..."
 
 		# gnome argument setted?
 		if [ -z "$3"]; then
