@@ -27,6 +27,9 @@ if [ "$1" = 'kernel' ]; then
 
     cd kernel-build
 
+    CPUS=$(getconf _NPROCESSORS_ONLN)
+    echo "Processors in use for build $CPUS"
+
     # Build kernel
     make clean
 	make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-gpdpocket  
