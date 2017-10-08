@@ -384,7 +384,7 @@ It should be "Speakers: chtrt5645" for device speakers and "Headphones: chtrt564
 
 Check your system displays settings and move your displays until they are not overlapping each others.
 
-## System freeze or hangs on high temperatures or high load
+## System freeze or hangs on high temperatures, high load or randomly
 
 Disable DPTF in BIOS (Unlocked BIOS might be required), that's what freezes the system before it reaches the hardcoded factory limit of 90 degree. 
 
