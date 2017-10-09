@@ -80,7 +80,7 @@ At the moment no BIOS update is required to run Ubuntu respin iso.
 You can run any BIOS you want and you probably won't notice big differences.
 Different BIOS have however different features enabled. Check BIOS section [here](#bios-updates-and-original-firmwares)
 
-### Respin iso and build kernels with Docker
+## Respin iso and build kernels with Docker
 
 ![Docker](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/Docker.png)
 
