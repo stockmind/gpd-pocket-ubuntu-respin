@@ -1,4 +1,4 @@
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY) [![Docker Build Statu](https://img.shields.io/docker/build/stockmind/gpd-pocket-ubuntu-respin.svg)]() [![Docker Automated buil](https://img.shields.io/docker/automated/stockmind/gpd-pocket-ubuntu-respin.svg)]()
 
 ![GPD Pocket Ubuntu](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/screenshot.png)
 
@@ -81,6 +81,8 @@ You can run any BIOS you want and you probably won't notice big differences.
 Different BIOS have however different features enabled. Check BIOS section [here](#bios-updates-and-original-firmwares)
 
 ### Respin iso and build kernels with Docker
+
+![Docker](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/Docker.png)
 
 [Click here for the Docker building section](#build-with-docker)
 
@@ -279,6 +281,7 @@ Latest versions are available here: http://www.gpd.hk/news.asp?id=1519&selectcla
            1 - This BIOS has changed the boot logic. In the previous BIOS device will boot only with a charge of 10 to 17%, now you only need at least some charge to boot. 
            
 ### Updating the BIOS
+
 1. Download the latest BIOS
 2. Install the flashing utility
 ```
@@ -357,6 +360,8 @@ cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_cur_freq
 ```
 
 # Build with Docker
+
+![Docker](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/Docker.png)
 
 You can respin iso and build kernels on a Docker environment easily. This build system will likely work on any x86 Docker supported platform. Tested and working on Linux ad MacOS, builds on Windows not tested yet.
 
