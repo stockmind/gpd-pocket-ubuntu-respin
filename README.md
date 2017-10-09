@@ -397,7 +397,7 @@ Example:
 ```
 
 Let it run, it will take from 10 to 30 minutes based on your internet connection and system speed.
-Once done you will find output ISO in ```destination/``` folder of this repository named as "gpdpocket-<build-date>-<iso-file-name>.iso".
+Once done you will find output ISO in ```destination/``` folder of this repository named as  ```gpdpocket-<build-date>-<iso-file-name>.iso```.
 
 ## 2b. Build latest kernel
 
