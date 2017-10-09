@@ -362,7 +362,13 @@ You can respin iso and build kernels on a Docker environment easily. This build 
 
 You just need to build the Docker image, or download it from Docker Hub, and follow the steps below.
 
-## 1. Build Docker image
+## 1a. Download image from Docker Hub
+
+```
+docker pull stockmind/gpd-pocket-ubuntu-respin
+```
+
+## 1b. Build Docker image
 
 Clone repository and run the following script to build the docker image
 
