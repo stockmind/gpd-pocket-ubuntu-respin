@@ -48,8 +48,6 @@ fi
 
 if [ "$1" = 'respin' ]; then
 
-	git pull
-
 	if [ -z "$2" ]; then
 		echo "An iso image must be selected!"
 	else
@@ -60,6 +58,9 @@ if [ "$1" = 'respin' ]; then
 		fi
 
 		cd gpd-pocket-ubuntu-respin
+
+		git pull origin master
+		
 		echo "Images found in folder:"
 		ls /docker-input/
 
@@ -71,8 +72,12 @@ if [ "$1" = 'respin' ]; then
 		else
 			./build.sh "/docker-input/$2" gnome
 		fi
+
+		FILE=$2
+		# Remove path from file
+		FILECLEAN="${FILE##*/}"
 		
-    	mv linuxium-* /docker-output/
+    	mv linuxium-* "/docker-output/gpdpocket-$NOW-$FILECLEAN"
 	fi
 fi
 
