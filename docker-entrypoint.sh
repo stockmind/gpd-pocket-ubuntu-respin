@@ -48,11 +48,16 @@ fi
 
 if [ "$1" = 'respin' ]; then
 
+	git pull
+
 	if [ -z "$2" ]; then
 		echo "An iso image must be selected!"
 	else
-		# Make node for respin
-		mknod /dev/loop0 b 7 0
+		# If node is not present
+		if [ -d /dev/loop0 ]; then
+			# Make node for respin
+			mknod /dev/loop0 b 7 0
+		fi
 
 		cd gpd-pocket-ubuntu-respin
 		echo "Images found in folder:"
