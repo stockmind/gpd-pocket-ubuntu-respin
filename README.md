@@ -374,7 +374,7 @@ You just need to build the Docker image, or download it from Docker Hub, and fol
 docker pull stockmind/gpd-pocket-ubuntu-respin
 ```
 
-## 1b. Or build the Docker image locally
+## 1b. Or build the Docker image locally (Suggested way)
 
 Clone repository and run the following script to build the docker image
 
