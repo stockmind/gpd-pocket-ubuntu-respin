@@ -57,10 +57,11 @@ All informations, tips and tricks was gathered from:
  - ✔ **USB-C for data** ( Kernel version 4.14 or later )
  - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks joshskidmore for the intuition! - Worsk only on installed system and a "update.sh" run may be needed )
  - ✔ Trackpoint faster for a better experience right from the start ( Thanks rustige for config! )
+ - ✔ Bluetooth audio ( Kernel version 4.14-rc3 or later ) 
+
  
 ### What Doesn't Work at the Moment
 
- - Bluetooth audio ( Need further testing and experience, audio on bluetooth seems to work for just 10 seconds then crash ) 
  - Audio crackling on high volumes ( Bug: https://bugzilla.kernel.org/show_bug.cgi?id=196351 )
  
 ### Overview for Building and Respinning an ISO
