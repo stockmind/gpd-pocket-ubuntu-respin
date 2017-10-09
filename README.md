@@ -374,7 +374,7 @@ You just need to build the Docker image, or download it from Docker Hub, and fol
 docker pull stockmind/gpd-pocket-ubuntu-respin
 ```
 
-## 1b. Or build the Docker image locally (Suggested way)
+## 1b. Or build the Docker image locally
 
 Clone repository and run the following script to build the docker image
 
@@ -408,6 +408,13 @@ To build latest kernel you just need to run the following script:
 
 Let it run, it will take a while.
 When it's done you can find the kernel zipped in ```destination/``` folder of this repository.
+
+## Stop running containers
+
+If you made a mistake and want to stop the running containers in background for respinning or building you can use the stop script:
+```
+./docker-stop.sh
+```
 
 # Troubleshooting
 
