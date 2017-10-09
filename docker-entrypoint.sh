@@ -60,7 +60,7 @@ if [ "$1" = 'respin' ]; then
 		cd gpd-pocket-ubuntu-respin
 
 		git pull origin master
-		
+
 		echo "Images found in folder:"
 		ls /docker-input/
 
@@ -76,7 +76,9 @@ if [ "$1" = 'respin' ]; then
 		FILE=$2
 		# Remove path from file
 		FILECLEAN="${FILE##*/}"
-		
+		# Today date
+		NOW=$(date +"%Y%m%d")
+
     	mv linuxium-* "/docker-output/gpdpocket-$NOW-$FILECLEAN"
 	fi
 fi

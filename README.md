@@ -80,6 +80,10 @@ At the moment no BIOS update is required to run Ubuntu respin iso.
 You can run any BIOS you want and you probably won't notice big differences.
 Different BIOS have however different features enabled. Check BIOS section [here](#bios-updates-and-original-firmwares)
 
+### Build iso and kernels with Docker
+
+[Click here for the Docker building section](#build-with-docker)
+
 ## Step 1: Cloning the Repo and Installing Tools
 
 To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
@@ -351,6 +355,47 @@ You can monitor frequencies of cpu issuing:
 ```
 cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_cur_freq
 ```
+
+# Build with Docker
+
+You can respin iso and build kernels on a Docker environment easily. This build system will likely work on any x86 Docker supported platform. Tested and working on Linux ad MacOS, builds on Windows not tested yet.
+
+You just need to build the Docker image, or download it from Docker Hub, and follow the steps below.
+
+## 1. Build Docker image
+
+Clone repository and run the following script to build the docker image
+
+```
+./docker-build-image.sh
+```
+
+Once the image is ready you can choose from the following steps:
+
+## 2a. Respin ISO
+
+To respin an ISO you need to place desired ISO in ```origin/``` folder of this repository then run:
+```
+./docker-respin.sh <iso-file-name-without-path>
+```
+
+Example:
+```
+./docker-respin.sh ubuntu-17.04-desktop-amd64.iso
+```
+
+Let it run, it will take from 10 to 30 minutes based on your internet connection and system speed.
+Once done you will find output ISO in ```destination/``` folder of this repository named as "gpdpocket-<build-date>-<iso-file-name>.iso".
+
+## 2b. Build latest kernel
+
+To build latest kernel you just need to run the following script:
+```
+./docker-build-kernel.sh
+```
+
+Let it run, it will take a while.
+When it's done you can find the kernel zipped in ```destination/``` folder of this repository.
 
 # Troubleshooting
 
