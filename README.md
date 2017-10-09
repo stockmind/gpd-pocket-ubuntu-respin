@@ -364,7 +364,7 @@ cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_cur_freq
 
 ![Docker](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/Docker.png)
 
-You can respin iso and build kernels on a Docker environment easily. This build system will likely work on any x86 Docker supported platform. Tested and working on Linux ad MacOS, builds on Windows not tested yet.
+You can respin iso and build kernels on a Docker environment easily. This build system will likely work on any x86 Docker supported platform. Tested and working on Linux and MacOS, builds on Windows not tested yet.
 
 You just need to build the Docker image, or download it from Docker Hub, and follow the steps below.
 
