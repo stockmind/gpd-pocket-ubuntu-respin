@@ -15,17 +15,17 @@ else
 fi
 
 if [ "$1" = 'kernel' ]; then
-	# Check if kernel sources have already been downloaded
-	if [ ! -d kernel-build ]; then
-		# Download them if missing
+    # Check if kernel sources have already been downloaded
+    if [ ! -d kernel-build ]; then
+	# Download them if missing
     	git clone https://github.com/jwrdegoede/linux-sunxi.git ./kernel-build
+	cd kernel-build
     else
     	# Update them if already there
+	cd kernel-build
     	git fetch origin
-		git reset --hard origin/master
-	fi
-
-    cd kernel-build
+	git reset --hard origin/master
+    fi
 
     CPUS=$(getconf _NPROCESSORS_ONLN)
     echo "Processors in use for build $CPUS"
