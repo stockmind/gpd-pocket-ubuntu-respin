@@ -44,12 +44,15 @@ if [ "$1" = 'kernel' ]; then
 
 	NOW=$(date +"%Y%m%d")
 	mv "gpdpocket-kernel-files.tar.gz" "/docker-output/gpdpocket-""$NOW""-kernel-files.tar.gz"
+	
+	exit 0
 fi
 
 if [ "$1" = 'respin' ]; then
 
 	if [ -z "$2" ]; then
 		echo "An iso image must be selected!"
+		exit 1
 	else
 		# If node is not present
 		if [ -d /dev/loop0 ]; then
@@ -81,6 +84,8 @@ if [ "$1" = 'respin' ]; then
 
     	mv linuxium-* "/docker-output/gpdpocket-$NOW-$FILECLEAN"
 	fi
+	
+	exit 0
 fi
 
 exec "$@"
