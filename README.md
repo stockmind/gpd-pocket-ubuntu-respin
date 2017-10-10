@@ -2,6 +2,8 @@
 
 ![GPD Pocket Ubuntu](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/screenshot.png)
 
+# Notice: My device is currently broken. I'm waiting for a reply from GPD to get assistance. I'm actually low in cash and shipment and taxes here are high. If my work ever helped you consider just a little donation to help me get this repaired with less costs possible, any help is appreciated, thanks!
+
 # Update an installed system
 
 You can update an installed system using the update commands here:
