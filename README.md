@@ -60,11 +60,13 @@ All informations, tips and tricks was gathered from:
  - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks joshskidmore for the intuition! - Worsk only on installed system and a "update.sh" run may be needed )
  - ✔ Trackpoint faster for a better experience right from the start ( Thanks rustige for config! )
  - ✔ Bluetooth audio ( Kernel version 4.14-rc3 or later ) 
-
+ - ✔ **Audio aligned to Windows experience** ( See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351 )
  
 ### What Doesn't Work at the Moment
 
- - Audio crackling on high volumes ( Bug: https://bugzilla.kernel.org/show_bug.cgi?id=196351 )
+ - Audio on hdmi ( Need feedback )
+ - Hibernation ( Need feedback )
+ - USB-C as video output
  
 ### Overview for Building and Respinning an ISO
 
@@ -143,6 +145,7 @@ Then proceed with building:
 
 ```
 cd linux-sunxi/
+sed -i "s|CONFIG_INTEL_ATOMISP=y|CONFIG_INTEL_ATOMISP=n|" .config # Fix audio crackling
 make clean
 make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom   
 ```
@@ -390,13 +393,23 @@ Once the image is ready you can choose from the following steps:
 ## 2a. Respin ISO
 
 To respin an ISO you need to place desired ISO in ```origin/``` folder of this repository then run:
+
+a. Distro based on Unity, KDE, XFCE as Desktop Environment:    
 ```
 ./docker-respin.sh <iso-file-name-without-path>
+```
+b. Distro based on GNOME, Pantheon (Elementary OS) as Desktop Environment:
+```
+./docker-respin.sh <iso-file-name-without-path> gnome
 ```
 
 Example:
 ```
 ./docker-respin.sh ubuntu-17.04-desktop-amd64.iso
+```
+Or:
+```
+./docker-respin.sh ubuntu-GNOME-17.04-desktop-amd64.iso gnome
 ```
 
 Let it run, it will take from 10 to 30 minutes based on your internet connection and system speed.
