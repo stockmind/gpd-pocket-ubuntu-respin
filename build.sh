@@ -46,12 +46,12 @@ fi
 if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
     if [ ! -f gpd-pocket-kernel-files.zip ]; then
-	 if [ ! -f gpdpocket-20171007-kernel-files.zip ]; then
+	 if [ ! -f gpdpocket-20171010-kernel-files-audio-fix.zip ]; then
 	    echo "Downloading kernel files...."
-	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20171007-kernel-files.zip
+	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20171010-kernel-files-audio-fix.zip
 	fi
 	echo "Extracting kernel files..."
-    	unzip -o gpdpocket-20171007-kernel-files.zip
+    	unzip -o gpdpocket-20171010-kernel-files-audio-fix.zip
     else	    
         echo "Extracting custom kernel files..."
         unzip -o gpd-pocket-kernel-files.zip
