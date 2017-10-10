@@ -27,12 +27,17 @@ if [ "$1" = 'kernel' ]; then
 	git reset --hard origin/master
     fi
 
+    #patch kernel config for audio crackling
+    echo "Patch audio config"
+    sed -i "s|CONFIG_INTEL_ATOMISP=y|CONFIG_INTEL_ATOMISP=n|" .config
+
     CPUS=$(getconf _NPROCESSORS_ONLN)
+    CPUS=$(($CPUS*2+1))
     echo "Processors in use for build $CPUS"
 
     # Build kernel
     make clean
-	make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-gpdpocket  
+	make -j "$CPUS" deb-pkg LOCALVERSION=-audio-gpdpocket  
 
 	cd ..
 	# Remove possible old files

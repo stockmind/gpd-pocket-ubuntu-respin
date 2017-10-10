@@ -1,0 +1,5 @@
+origin/*
+destination/*
+*.deb
+*.zip
+*.iso
