@@ -16,3 +16,7 @@ sudo dpkg -i *.deb
 
 echo "Update grub..."
 sudo update-grub
+
+rm *.deb
+cd ..
+rm -rfd update-kernel
