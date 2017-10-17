@@ -65,8 +65,8 @@ packages+="gir1.2-appindicator3-0.1"
 chmod +x isorespin.sh
 
 ./isorespin.sh -i $ISOFILE \
-	-l "*.deb" \ 
-	-e "bcmwl-kernel-source" \ 
+	-l "*.deb" \
+	-e "bcmwl-kernel-source" \
 	-p "$packages" \
 	-f display/20-intel.conf \
 	-f display/30-monitor.conf \
