@@ -2,7 +2,7 @@
 
 ![GPD Pocket Ubuntu](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/screenshot.png)
 
-## Notice: My device is currently broken. I'm waiting for a reply from GPD to get assistance. I'm actually low in cash and shipment and taxes here are high. If my work ever helped you consider just a little donation to help me get this repaired with less costs possible, any help is appreciated, thanks!
+## Notice: My GPD Pocket has been shipped to GPD to get repaired. I continue to improve my scripts and develop/support even without the device, and will continue to do so. I really aprreciate your support and donations! Thanks to you i can cover the shipping costs and all the clearance customs i will get on Pocket return. I really appreciate all of your help! This is an amazing community!
 
 # Update an installed system
 
@@ -19,7 +19,8 @@ Run [update script](#post-install) to install it automatically.
 # Have an issue?
 
 Check [Troubleshooting section.](#troubleshooting)
-If your problem persist or is not on the list check [Problem reporting section](#problem-reporting) before open an issue.
+Try to download this repository and run `update.sh` script and `update-kernel.sh` script to update system to latest working configuration. [Check update section.](#update-script)
+If your problem persist or is not on the troubleshooting list check [Problem reporting section](#problem-reporting) before open an issue.
 
 **Scripts on this repository are not compatible with Ansible-playbook setup due to rotation and other scripts that may conflict. Clean your system before use this.
 You may try this clean script at your own risk: [Clean Ansible Playbook script](https://github.com/stockmind/gpd-pocket-ubuntu-respin/blob/master/clean-ansible.sh)**
@@ -60,7 +61,8 @@ All informations, tips and tricks was gathered from:
  - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks joshskidmore for the intuition! - Worsk only on installed system and a "update.sh" run may be needed )
  - ✔ Trackpoint faster for a better experience right from the start ( Thanks rustige for config! )
  - ✔ Bluetooth audio ( Kernel version 4.14-rc3 or later ) 
- - ✔ **Audio aligned to Windows experience** ( See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351 )
+ - ✔ **Audio aligned to Windows experience** ( Kernel version 4.14-rc3 with audio flag fix. See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351 )
+ - ✔ **Headphones/Speakers auto switch on jack plugged in/out** 
  
 ### What Doesn't Work at the Moment
 
@@ -223,7 +225,7 @@ That's the reason of the "gnome" argument for update and build script.
 Update kernel to latest version issuing the following command:
 
 ```
-sudo ./update-kernel.sh gnome
+sudo ./update-kernel.sh
 ```
 
 A kernel update is always recommended.
