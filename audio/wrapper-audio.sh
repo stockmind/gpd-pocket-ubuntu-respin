@@ -13,4 +13,9 @@ echo "set-sink-port alsa_output.platform-cht-bsw-rt5645.HiFi__hw_chtrt5645__sink
 
 echo "realtime-scheduling = no" >> /etc/pulse/daemon.conf
 
-rm -f HiFi.conf chtrt5645.conf wrapper-audio.sh
+# copy headphones/speakers auto switch when jack is plugged in/out
+cp headphone-jack /etc/acpi/events/headphone-jack
+cp headphone-jack.sh /etc/acpi/headphone-jack.sh
+chmod +x /etc/acpi/headphone-jack.sh
+
+rm -f HiFi.conf chtrt5645.conf headphone-jack headphone-jack.sh wrapper-audio.sh

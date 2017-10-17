@@ -205,6 +205,16 @@ cp 99-local-bluetooth.rules /etc/udev/rules.d/99-local-bluetooth.rules
 # update audio files
 echo "Update/Install audio files..."
 cd ../audio
+
+mkdir -p /usr/share/alsa/ucm/chtrt5645
+cp HiFi.conf /usr/share/alsa/ucm/chtrt5645/
+cp chtrt5645.conf /usr/share/alsa/ucm/chtrt5645/
+
+# copy headphones/speakers auto switch when jack is plugged in/out
+cp headphone-jack /etc/acpi/events/headphone-jack
+cp headphone-jack.sh /etc/acpi/headphone-jack.sh
+chmod +x /etc/acpi/headphone-jack.sh
+
 # clean pulse user config
 rm ~/.config/pulse/*
 
