@@ -526,6 +526,10 @@ sudo ./problem-reporting.sh
 
 If my work helped you consider a little donation to buy me a coffe... or an energy drink! :smile:
 
+**Paypal**
+
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY)
+
+**Bitcoin**
 
 [![Donate Bitcoin](https://stockmind.github.io/donate-bitcoin/bitcoin-button.png)](https://stockmind.github.io/donate-bitcoin/)
