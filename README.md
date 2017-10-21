@@ -1,8 +1,8 @@
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY) [![Docker Build Statu](https://img.shields.io/docker/build/stockmind/gpd-pocket-ubuntu-respin.svg)]() [![Docker Automated buil](https://img.shields.io/docker/automated/stockmind/gpd-pocket-ubuntu-respin.svg)]()
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY) [![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](https://stockmind.github.io/donate-bitcoin/) [![Docker Build Statu](https://img.shields.io/docker/build/stockmind/gpd-pocket-ubuntu-respin.svg)]() [![Docker Automated buil](https://img.shields.io/docker/automated/stockmind/gpd-pocket-ubuntu-respin.svg)]()
 
 ![GPD Pocket Ubuntu](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/screenshot.png)
 
-## Notice: My GPD Pocket has been shipped to GPD to get repaired. I continue to improve my scripts and develop/support even without the device, and will continue to do so. I really aprreciate your support and donations! Thanks to you i can cover the shipping costs and all the clearance customs i will get on Pocket return. I really appreciate all of your help! This is an amazing community!
+## Notice: My GPD Pocket has been shipped to GPD to get repaired. I continue to improve my scripts and develop/support even without the device, and will continue to do so. I really appreciate your support and donations! Thanks to you i can cover the shipping costs and all the clearance customs i will get on Pocket return. I really appreciate all of your help! This is an amazing community!
 
 # Update an installed system
 
@@ -527,3 +527,5 @@ sudo ./problem-reporting.sh
 If my work helped you consider a little donation to buy me a coffe... or an energy drink! :smile:
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY)
+
+[![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](https://stockmind.github.io/donate-bitcoin/bitcoin-button.png)
