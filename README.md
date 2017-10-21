@@ -528,4 +528,4 @@ If my work helped you consider a little donation to buy me a coffe... or an ener
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY)
 
-[![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](https://stockmind.github.io/donate-bitcoin/bitcoin-button.png)
+[![Donate Bitcoin](https://stockmind.github.io/donate-bitcoin/bitcoin-button.png)](https://stockmind.github.io/donate-bitcoin/)
