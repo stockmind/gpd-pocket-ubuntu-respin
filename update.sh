@@ -48,6 +48,9 @@ cp 35-screen.conf /etc/X11/xorg.conf.d/35-screen.conf
 cp 40-touch.conf /etc/X11/xorg.conf.d/40-touch.conf
 cp 40-trackpoint.conf /etc/X11/xorg.conf.d/40-trackpoint.conf
 
+# add passwordless touchpanel reset via indicator
+cp gpd-touchreset-sudoers /etc/sudoers.d/gpd.touchreset-sudoers
+
 # remove rules to rotate screen of 90 degree right on driver load
 rm -f /etc/udev/rules.d/99-goodix-touch.rules
 
