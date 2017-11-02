@@ -25,6 +25,17 @@ If your problem persist or is not on the troubleshooting list check [Problem rep
 **Scripts on this repository are not compatible with Ansible-playbook setup due to rotation and other scripts that may conflict. Clean your system before use this.
 You may try this clean script at your own risk: [Clean Ansible Playbook script](https://github.com/stockmind/gpd-pocket-ubuntu-respin/blob/master/clean-ansible.sh)**
 
+# Donate
+
+If my work helped you consider a little donation to buy me a coffe... or an energy drink! :smile:
+
+**Paypal**
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY)
+
+**Bitcoin**
+
+[![Donate Bitcoin](https://stockmind.github.io/donate-bitcoin/bitcoin-button.png)](https://stockmind.github.io/donate-bitcoin/)
 
 # How to Respin an ISO for GPD Pocket
 ## Overview
@@ -61,7 +72,7 @@ All informations, tips and tricks was gathered from:
  - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks joshskidmore for the intuition! - Worsk only on installed system and a "update.sh" run may be needed )
  - ✔ Trackpoint faster for a better experience right from the start ( Thanks rustige for config! )
  - ✔ Bluetooth audio ( Kernel version 4.14-rc3 or later ) 
- - ✔ **Audio aligned to Windows experience** ( Kernel version 4.14-rc3 with audio flag fix. See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351 )
+ - ✔ **Audio aligned to Windows experience** ( Kernel version 4.14-rc3 with audio flag fix. See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351, check also Troubleshooting section )
  - ✔ **Headphones/Speakers auto switch on jack plugged in/out** 
  
 ### What Doesn't Work at the Moment
@@ -469,6 +480,18 @@ Check your system displays settings and move your displays until they are not ov
 ## System freeze or hangs on high temperatures, high load or randomly
 
 Disable DPTF in BIOS (Unlocked BIOS might be required), that's what freezes the system before it reaches the hardcoded factory limit of 90 degree. 
+
+## Audio jack disconnected on volume over 70-80% (Windows and Linux same behaviour) with some headphones
+
+Audio jack may get disconnected on some headsets when volume is set over 70-80%. This seems to happen on Windows too. Maybe is hardware related. This doesn't seems to happen on tiny headphones. When this happen audio start to have a crackling noise again. To fix this you should restart pulseaudio and audio player.
+
+To restart pulseaudio issue the following command
+
+```
+pulseaudio --kill && pulseaudio --start
+```
+
+[Video of the problem by Petr Matula](https://www.youtube.com/watch?v=Dnm0bOqcVTk)
 
 ## Why is system UI so big?
 
