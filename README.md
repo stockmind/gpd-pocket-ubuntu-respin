@@ -72,7 +72,7 @@ All informations, tips and tricks was gathered from:
  - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks joshskidmore for the intuition! - Worsk only on installed system and a "update.sh" run may be needed )
  - ✔ Trackpoint faster for a better experience right from the start ( Thanks rustige for config! )
  - ✔ Bluetooth audio ( Kernel version 4.14-rc3 or later ) 
- - ✔ **Audio aligned to Windows experience** ( Kernel version 4.14-rc3 with audio flag fix. See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351, check also Troubleshooting section )
+ - ✔ **Audio aligned to Windows experience** ( Kernel version 4.14-rc3 with audio flag fix. See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351, check also [Troubleshooting section for more informations](https://github.com/stockmind/gpd-pocket-ubuntu-respin/blob/master/README.md#audio-jack-disconnected-on-volume-over-70-80-windows-and-linux-same-behaviour-with-some-headphones) )
  - ✔ **Headphones/Speakers auto switch on jack plugged in/out** 
  
 ### What Doesn't Work at the Moment
