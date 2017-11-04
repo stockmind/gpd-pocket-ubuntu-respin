@@ -12,7 +12,7 @@ boardflags3=0x0000000a
 #define BFL3_5G_SPUR_WAR   0x00080000   /* enable spur WAR in 5G band */
 #define BFL3_AvVim   0x40000000   /* load AvVim from nvram */
 macaddr=00:90:4c:1a:10:01
-ccode=0x5854
+ccode=X2
 regrev=205
 antswitch=0
 pdgain5g=4
