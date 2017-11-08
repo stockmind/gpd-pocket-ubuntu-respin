@@ -31,7 +31,7 @@ IF errorlevel 1 (
 )
 
 REM CLEAN OLD CONTAINER
-docker rm gpd-pocket-kernel-containers
+docker rm gpd-pocket-kernel-container
 
 REM RUN KERNEL BUILD
 docker run -t -v %INPUTDIR%:/docker-input -v %OUTPUTDIR%:/docker-output --name gpd-pocket-kernel-container %IMAGENAME% kernel
