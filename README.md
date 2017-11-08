@@ -483,15 +483,19 @@ Disable DPTF in BIOS (Unlocked BIOS might be required), that's what freezes the 
 
 ## Audio jack disconnected on volume over 70-80% (Windows and Linux same behaviour) with some headphones
 
-Audio jack may get disconnected on some headsets when volume is set over 70-80%. This seems to happen on Windows too. Maybe is hardware related. This doesn't seems to happen on tiny headphones. When this happen audio start to have a crackling noise again. To fix this you should restart pulseaudio and audio player.
+Audio jack may get disconnected on some headsets when volume is set over 70-80%.Windows does't have this problem with official GPD audio drivers, The same problem is related only when you use unofficial drivers (only one way is update over device manager). This doesn't seems to happen on tiny headphones. When this happen audio start to have a crackling noise again. To fix this you should restart pulseaudio and audio player.
 
 To restart pulseaudio issue the following command
 
 ```
 pulseaudio --kill && pulseaudio --start
 ```
+or 
+```
+pulseaudio -k
+```
 
-[Video of the problem by Petr Matula](https://www.youtube.com/watch?v=Dnm0bOqcVTk)
+[Video of the problem by Petr Matula @petrmatula (enable subtitles!)](https://www.youtube.com/watch?v=Dnm0bOqcVTk)
 
 ## Why is system UI so big?
 
