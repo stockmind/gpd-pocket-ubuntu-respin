@@ -481,17 +481,23 @@ Check your system displays settings and move your displays until they are not ov
 
 Disable DPTF in BIOS (Unlocked BIOS might be required), that's what freezes the system before it reaches the hardcoded factory limit of 90 degree. 
 
-## Audio jack disconnected on volume over 70-80% (Windows and Linux same behaviour) with some headphones
+## Audio jack disconnected on volume over 70-80% (only Linux behaviour) with some headphones
 
-Audio jack may get disconnected on some headsets when volume is set over 70-80%. This seems to happen on Windows too. Maybe is hardware related. This doesn't seems to happen on tiny headphones. When this happen audio start to have a crackling noise again. To fix this you should restart pulseaudio and audio player.
+Audio jack may get disconnected on some headsets when volume is set over 70-80%. Windows does't have this problem with official GPD audio drivers. Windows have the same problem only when you using unofficial audio drivers (only one accept way is update audio driver over device manager). 
+This doesn't seems to happen on tiny headphones. When this happen audio start to have a crackling noise again. To fix this you should restart pulseaudio and audio player.
 
 To restart pulseaudio issue the following command
 
 ```
 pulseaudio --kill && pulseaudio --start
 ```
+or 
+```
+pulseaudio -k
+```
 
-[Video of the problem by Petr Matula](https://www.youtube.com/watch?v=Dnm0bOqcVTk)
+[Video of the problem](https://www.youtube.com/watch?v=Dnm0bOqcVTk) by [Petr Matula @petrmatula](https://github.com/petrmatula190)  (enable subtitles!)
+
 
 ## Why is system UI so big?
 
