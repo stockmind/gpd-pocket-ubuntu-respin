@@ -75,7 +75,7 @@ if [ "$1" = 'respin' ]; then
 		echo "Starting process..."
 
 		# gnome argument setted?
-		if [ -z "$3"]; then
+		if [ -z "$3" ]; then
 			./build.sh "/docker-input/$2" 
 		else
 			./build.sh "/docker-input/$2" gnome
