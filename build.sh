@@ -29,12 +29,12 @@ fi
 if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
     if [ ! -f gpd-pocket-kernel-files.zip ]; then
-	 if [ ! -f gpdpocket-kernel-4.14rc4-noatomisp-fixaudio_v2.zip ]; then
+	 if [ ! -f gpdpocket-20171115-kernel-files.zip ]; then
 	    echo "Downloading kernel files...."
-	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-kernel-4.14rc4-noatomisp-fixaudio_v2.zip
+	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20171115-kernel-files.zip
 	fi
 	echo "Extracting kernel files..."
-    	unzip -o gpdpocket-kernel-4.14rc4-noatomisp-fixaudio_v2.zip
+    	unzip -o gpdpocket-20171115-kernel-files.zip
     else	    
         echo "Extracting custom kernel files..."
         unzip -o gpd-pocket-kernel-files.zip
