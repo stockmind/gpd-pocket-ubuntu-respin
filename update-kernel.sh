@@ -3,13 +3,13 @@
 mkdir -p update-kernel
 cd update-kernel
 
-if [ ! -f gpdpocket-kernel-4.14rc4-noatomisp-fixaudio_v2.zip ]; then
+if [ ! -f gpdpocket-20171115-kernel-files.zip ]; then
 	 echo "Downloading kernel files...."
-	 wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-kernel-4.14rc4-noatomisp-fixaudio_v2.zip
+	 wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20171115-kernel-files.zip
 fi
 
 echo "Extracting kernel files..."
-unzip -o gpdpocket-kernel-4.14rc4-noatomisp-fixaudio_v2.zip
+unzip -o gpdpocket-20171115-kernel-files.zip
 
 echo "Installing kernel..."
 sudo dpkg -i *.deb
