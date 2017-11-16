@@ -22,6 +22,9 @@ else
 	cp display/monitors_xorg.xml display/monitors.xml
 fi
 
+# refresh packages list
+apt update
+
 # remove conflicting packages
 echo "Remove conflicting packages..."
 apt-get -y purge bcmwl-kernel-source
