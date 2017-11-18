@@ -2,8 +2,6 @@
 
 ![GPD Pocket Ubuntu](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/screenshot.png)
 
-## Notice: My GPD Pocket has been shipped to GPD to get repaired. I continue to improve my scripts and develop/support even without the device, and will continue to do so. I really appreciate your support and donations! Thanks to you i can cover the shipping costs and all the clearance customs i will get on Pocket return. I really appreciate all of your help! This is an amazing community!
-
 # Update an installed system
 
 You can update an installed system using the update commands here:
@@ -107,7 +105,7 @@ Different BIOS have however different features enabled. Check BIOS section [here
 ## Build and respin without Docker
 ## Step 1: Cloning the Repo and Installing Tools
 
-To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection with at least 10GB of free space.
+To respin an existing Ubuntu ISO, you will need to use a Linux machine with `squashfs-tools` and `xorriso` installed (e.g. `sudo apt install -y squashfs-tools xorriso`) and a working internet connection and at least 10GB of free storage space.
 
 The first step is to clone this repo: 
 ```
@@ -116,13 +114,13 @@ cd gpd-pocket-ubuntu-respin/
 ```
 ### Debian-based systems:
 
-Install required packages:
+Install all the required packages:
 ```
 sudo apt install -y git wget genisoimage bc squashfs-tools xorriso
 ```
 ### Arch-Based Systems:
 
-Install required packages:
+Install all the required packages:
 ``` 
 sudo pacman -S git wget cdrkit bc libisoburn squashfs-tools dosfstools
 ```
@@ -135,7 +133,7 @@ Download your favourite distribution ISO and copy it in this repository cloned f
 
 ### Option 1: Download the Latest Kernel
 
-1. Run `./build.sh` in the terminal to get the most recent kernel automatically.
+1. Running `./build.sh` in the terminal will download the most recent kernel automatically.
 
 ### Option 2: Build Your Own Kernel
 
@@ -174,22 +172,22 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 
 * Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
-./build.sh <iso filenamme>
+./build.sh <iso filename>
 ```
 * Build Gnome based ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
 ```
-./build.sh <iso filenamme> gnome
+./build.sh <iso filename> gnome
 ```
 
 ### Build on Arch-based systems:
 
 * Build Xorg ISO (Ubuntu Unity, Linux Mint, XFCE, KDE) running this:
 ```
-PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme>
+PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename>
 ```  
-* BBuild Gnome based ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
+* Build Gnome based ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
 ```
-PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filenamme> gnome
+PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename> gnome
 ```
 
 Gnome desktop environment and derivate (Pantheon of Elementary OS) use a different name convention for monitors.
@@ -498,6 +496,9 @@ pulseaudio -k
 
 [Video of the problem](https://www.youtube.com/watch?v=Dnm0bOqcVTk) by [Petr Matula @petrmatula](https://github.com/petrmatula190)  (enable subtitles!)
 
+## Google Chrome tearing, glitch or flickering while scrolling or browsing heavy web pages
+
+Chrome doens't seems to behave great with the i915 intel driver, a workaround for the glitches or flickering while scrolling pages or seeing video is to set "GPU Rasterization" to "Force-Enabled for all layers". Quick link: chrome://flags/#enable-gpu-rasterization
 
 ## Why is system UI so big?
 
