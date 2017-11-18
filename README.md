@@ -498,7 +498,7 @@ pulseaudio -k
 
 ## Google Chrome tearing, glitch or flickering while scrolling or browsing heavy web pages
 
-Chrome doens't seems to behave great with the i915 intel driver, a workaround for the glitches or flickering while scrolling pages or seeing video is to set "GPU Rasterization" to "Force-Enabled for all layers". Quick link: chrome://flags/#enable-gpu-rasterization
+Chrome doens't seems to behave great with the i915 intel driver, a workaround for the glitches or flickering while scrolling pages or seeing video is to set "GPU Rasterization" to "Force-Enabled for all layers". Quick link: [chrome://flags/#enable-gpu-rasterization](chrome://flags/#enable-gpu-rasterization)
 
 ## Why is system UI so big?
 
