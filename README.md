@@ -62,7 +62,7 @@ All informations, tips and tricks was gathered from:
  - ✔ Screen brightness ( Only after install at the moment )
  - ✔ Cooling fan ( Amazing initial work of *ErikaFluff*, rewritten in Python by *Chrisawcom*! Check post installation section of this readme to optimize it )
  - ✔ Bluetooth ( Credits to Reddit user *dveeden* )
- - ✔ Intel video driver for streaming without tearing or crash
+ - ✔ Intel video driver for streaming without tearing or crash ( [Check Google Chrome workaround](#google-chrome-tearing-glitch-or-flickering-while-scrolling-or-browsing-heavy-web-pages) )
  - ✔ Sleep/wake
  - ✔ HDMI port
  - ✔ Charging at full speed ([Check charging info for more information](#charging-info))
