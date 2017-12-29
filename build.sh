@@ -89,6 +89,7 @@ chmod +x isorespin.sh
 	-f fan/gpdfand.py \
 	-f fan/gpdfand.service \
 	-f fan/wrapper-fan.sh \
+	-f touch/wrapper-touchscreen.sh \
 	-f network/99-local-bluetooth.rules \
 	-f network/brcmfmac4356-pcie.txt \
 	-f network/wrapper-network.sh \
@@ -96,6 +97,7 @@ chmod +x isorespin.sh
 	-c wrapper-audio.sh \
 	-c wrapper-display.sh \
 	-c wrapper-fan.sh \
+	-c 
 	-c wrapper-network.sh \
 	-c wrapper-power.sh \
 	-g "" \
