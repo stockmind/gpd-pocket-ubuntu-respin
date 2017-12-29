@@ -97,7 +97,7 @@ chmod +x isorespin.sh
 	-c wrapper-audio.sh \
 	-c wrapper-display.sh \
 	-c wrapper-fan.sh \
-	-c 
+	-c wrapper-touchscreen.sh
 	-c wrapper-network.sh \
 	-c wrapper-power.sh \
 	-g "" \
