@@ -150,6 +150,7 @@ chmod 0644 /etc/systemd/system/goodix-resume.service
 chmod 0644 /etc/systemd/system/goodix-sleep.service
 systemctl enable goodix-resume.service
 systemctl enable goodix-sleep.service
+cd ../
 
 # update GPD Fan daemon
 echo "Update GPD Fan daemon"
