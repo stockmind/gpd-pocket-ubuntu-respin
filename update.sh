@@ -141,6 +141,16 @@ sudo ./install.sh
 cd ../../
 rm -fr temp
 
+# update GPD touchscreen sleep/resume fix
+echo "Update GPD touchscreen sleep/resume fix"
+cd touch
+cp goodix-resume.service /etc/systemd/system/goodix-resume.service
+cp goodix-sleep.service /etc/systemd/system/goodix-sleep.service
+chmod 0644 /etc/systemd/system/goodix-resume.service
+chmod 0644 /etc/systemd/system/goodix-sleep.service
+systemctl enable goodix-resume.service
+systemctl enable goodix-sleep.service
+
 # update GPD Fan daemon
 echo "Update GPD Fan daemon"
 cd fan
@@ -153,16 +163,6 @@ chmod 0644 /etc/gpdfand.conf
 chmod 0644 /etc/systemd/system/gpdfand.service
 systemctl enable gpdfand.service
 systemctl restart gpdfand.service
-
-# update GPD touchscreen sleep/resume fix
-echo "Update GPD touchscreen sleep/resume fix"
-cd touch
-cp goodix-resume.service /etc/systemd/system/goodix-resume.service
-cp goodix-sleep.service /etc/systemd/system/goodix-sleep.service
-chmod 0644 /etc/systemd/system/goodix-resume.service
-chmod 0644 /etc/systemd/system/goodix-sleep.service
-systemctl enable goodix-resume.service
-systemctl enable goodix-sleep.service
 
 # check modules
 echo "Check modules..."
