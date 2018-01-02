@@ -1,49 +1,58 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Source basic functions
+source utils.sh
 
 ISOFILE=$1
 
 # Check arguments
 for i in "$@" ; do
     if [[ $i == "gnome" ]] ; then
-        echo "Setting gnome monitors..."
+        print_success "Setting gnome monitors"
         GNOME=$i
         break
     fi
-    if [[ $i == "kali" ]] ; then
-    	echo "Setting kali environment..."	
-    	KALI=true
-    	break
-    fi	
 done
 
 if [ -n "$GNOME" ]; then
-	echo "Display setting: Gnome"
+	print_info "Display setting: Gnome"
 	cp display/monitors_gnome.xml display/monitors.xml
 else
-	echo "Display setting: Xorg-Standard"
+	print_info "Display setting: Xorg-Standard"
 	cp display/monitors_xorg.xml display/monitors.xml
 fi
 
 ./clean.sh
 
 if [ ! -f linux-image* ]; then
-    echo "Looking for kernel image..."
+    print_info "Looking for kernel image..."
     if [ ! -f gpd-pocket-kernel-files.zip ]; then
 	 if [ ! -f gpdpocket-20180102-kernel-files.zip ]; then
-	    echo "Downloading kernel files...."
-	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20180102-kernel-files.zip
+	    print_warning "Downloading kernel files...."
+	    print_result \
+	    $(curl -LOk https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20180102-kernel-files.zip) \
+	    "Kernel files downloaded correctly!" \
+	    "Kernel files download filed. Check previous log for error."
 	fi
-	echo "Extracting kernel files..."
-    	unzip -o gpdpocket-20180102-kernel-files.zip
+		print_info "Extracting kernel files..."
+    	print_result \
+    	$(unzip -qq -o gpdpocket-20180102-kernel-files.zip) \
+    	"Zip extracted correctly!" \
+    	"Zip failed to extract. Check previous log for error."
     else	    
-        echo "Extracting custom kernel files..."
-        unzip -o gpd-pocket-kernel-files.zip
+        print_info "Extracting custom kernel files..."
+        print_result \
+        $(unzip -qq -o gpd-pocket-kernel-files.zip) \
+        "Zip extracted correctly!" \
+    	"Zip failed to extract. Check previous log for error."
     fi	
 fi
 
 if [ ! -f isorespin.sh ]; then
-	echo "Isorespin script not found. Downloading it..."
-	wget -O isorespin.sh "https://drive.google.com/uc?export=download&id=0B99O3A0dDe67S053UE8zN3NwM2c"
+	print_warning "Isorespin script not found. Downloading it..."
+	print_result $(curl -Lk -o isorespin.sh "https://drive.google.com/uc?export=download&id=0B99O3A0dDe67S053UE8zN3NwM2c") \
+	"Isorespin downloaded correctly!" \
+    "Isorespin failed to download. Check previous log for error."
 fi
 
 packages="xfonts-terminus "
@@ -100,3 +109,5 @@ chmod +x isorespin.sh
 	-c wrapper-power.sh \
 	-g "" \
 	-g "i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1"
+
+
