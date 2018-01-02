@@ -87,7 +87,7 @@ mkd() {
 }
 
 print_error() {
-    print_in_red "  [✖] $1 $2\n"
+    print_in_red " [✖] $1 $2\n"
 }
 
 print_in_green() {
@@ -102,6 +102,10 @@ print_in_red() {
     printf "\e[0;31m$1\e[0m"
 }
 
+print_in_bold() {
+    printf "\e\033[1m$1\e[0m"
+}
+
 print_in_yellow() {
     printf "\e[0;33m$1\e[0m"
 }
@@ -111,11 +115,11 @@ print_in_blue() {
 }
 
 print_info() {
-    print_in_blue " $1\n"
+    print_in_blue " $1 "$(print_in_bold "$2")"\n"
 }
 
 print_details() {
-    print_in_purple " $1\n"
+    print_in_purple " $1 "$(print_in_bold "$2")"\n"
 }
 
 print_question() {

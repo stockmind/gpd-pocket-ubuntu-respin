@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
 # Source basic functions
-source utils.sh
+source "$SCRIPTPATH"/utils.sh
 
 ISOFILE=$1
 
@@ -15,10 +16,10 @@ for i in "$@" ; do
 done
 
 if [ -n "$GNOME" ]; then
-	print_info "Display setting: Gnome"
+	print_info "Display setting:" "Gnome"
 	cp display/monitors_gnome.xml display/monitors.xml
 else
-	print_info "Display setting: Xorg-Standard"
+	print_info "Display setting:" "Xorg-Standard"
 	cp display/monitors_xorg.xml display/monitors.xml
 fi
 

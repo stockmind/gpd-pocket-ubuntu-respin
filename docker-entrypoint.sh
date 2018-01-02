@@ -1,17 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-echo $(ip r)
+SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
+# Source basic functions
+source "$SCRIPTPATH"/utils.sh
 
 DEFAULT_GATEWAY=`ip r | grep default | cut -d ' ' -f 3`
-echo "Gateway: $DEFAULT_GATEWAY"
+print_details "Gateway: $DEFAULT_GATEWAY"
 
 if ( ! ping -q -w 1 -c 1 "${DEFAULT_GATEWAY}" > /dev/null 2>&1 ); then
-	echo "Internet test failed."
-	echo "RESULT:"
+	print_error "Internet test failed."
+	print_details "RESULT:"
 	ping -q -w 1 -c 1 "${DEFAULT_GATEWAY}"
 else
-	echo "Internet test passed."
+	print_success "Internet test passed."
 fi
 
 if [ "$1" = 'kernel' ]; then
@@ -29,7 +31,7 @@ if [ "$1" = 'kernel' ]; then
 
     # If a config file is provided in input we will use that for kernel building
     if [ -f /docker-input/.config ]; then
-    	echo "Using custom kernel config..."
+    	print_details "Using custom kernel config..."
     	cp /docker-input/.config .config
     fi
 
@@ -39,7 +41,7 @@ if [ "$1" = 'kernel' ]; then
 
     CPUS=$(getconf _NPROCESSORS_ONLN)
     CPUS=$(($CPUS*2+1))
-    echo "Processors in use for build $CPUS"
+    print_details "Processors in use for build $CPUS"
 
     # Build kernel
     make clean
@@ -62,7 +64,7 @@ fi
 if [ "$1" = 'respin' ]; then
 
 	if [ -z "$2" ]; then
-		echo "An iso image must be selected!"
+		print_error "An iso image must be selected!"
 		exit 1
 	else
 		# If node is not present
@@ -73,12 +75,12 @@ if [ "$1" = 'respin' ]; then
 
 		cd gpd-pocket-ubuntu-respin
 
-		git pull origin master
+		git pull origin interactive
 
-		echo "Images found in folder:"
+		print_details "Images found in folder:"
 		ls /docker-input/
 
-		echo "Starting process..."
+		print_details "Starting process..."
 
 		# gnome argument setted?
 		if [ -z "$3" ]; then
