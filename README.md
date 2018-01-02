@@ -444,6 +444,11 @@ If you want to build kernel using the original .config file provided by Hans ins
 ./docker-build-kernel.sh keepconfig
 ```
 
+**If you are using the Docker Hub image remember to always pull latest version before running any of those scripts!**
+```
+docker pull stockmind/gpd-pocket-ubuntu-respin
+```
+
 ## Stop running containers
 
 If you made a mistake and want to stop the running containers in background for respinning or building you can use the stop script:
