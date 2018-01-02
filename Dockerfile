@@ -17,6 +17,8 @@ RUN wget -O gpd-pocket-ubuntu-respin/isorespin.sh "https://drive.google.com/uc?e
 RUN mkdir /docker-input
 RUN mkdir /docker-output
 
+COPY ./utils.sh /
 COPY ./docker-entrypoint.sh /
+RUN chmod +x utils.sh
 RUN chmod +x docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
