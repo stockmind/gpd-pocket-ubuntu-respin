@@ -42,7 +42,7 @@ if [ "$1" = 'kernel' ]; then
 
     # Build kernel
     make clean
-	make -j"$CPUS" deb-pkg LOCALVERSION=-audio-gpdpocket  
+	make -j"$CPUS" deb-pkg LOCALVERSION=-stockmind-gpdpocket  
 
 	cd ..
 	# Remove possible old files
