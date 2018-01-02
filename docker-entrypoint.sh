@@ -29,6 +29,7 @@ if [ "$1" = 'kernel' ]; then
 
     # If a config file is provided in input we will use that for kernel building
     if [ -f /docker-input/.config ]; then
+    	echo "Using custom kernel config..."
     	cp /docker-input/.config .config
     fi
 
