@@ -152,11 +152,12 @@ git fetch origin
 git reset --hard origin/master
 ```
 
+**If you want to use the custom kernel config provided by this repository copy and overwrite `.config` that you can find in this repository in `kernel/.config` with `.config` file of Hans kernel repository**
+
 Then proceed with building:
 
 ```
 cd linux-sunxi/
-sed -i "s|CONFIG_INTEL_ATOMISP=y|CONFIG_INTEL_ATOMISP=n|" .config # Fix audio crackling
 make clean
 make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom   
 ```
@@ -436,6 +437,11 @@ To build latest kernel you just need to run the following script:
 Let it run, it will take a while.
 When it's done you can find the kernel zipped in ```destination/``` folder of this repository.
 
+If you want to build kernel using the original .config file provided by Hans instead of the one provided in this repository run the script with `keepconfig` argument:
+```
+./docker-build-kernel.sh keepconfig
+```
+
 ## Stop running containers
 
 If you made a mistake and want to stop the running containers in background for respinning or building you can use the stop script:
@@ -478,6 +484,24 @@ Check your system displays settings and move your displays until they are not ov
 ## System freeze or hangs on high temperatures, high load or randomly
 
 Disable DPTF in BIOS (Unlocked BIOS might be required), that's what freezes the system before it reaches the hardcoded factory limit of 90 degree. 
+
+## Audio crackling and noise through speakers and headphones
+
+Update your system configuration with latest of this repository.
+You can encounter noises if you use a kernel 4.14-rc5 or below (Hans de Goede kernel) or if your kernel was compiled with `CONFIG_INTEL_ATOMISP=y` (If you are not using Hans de Goede kernel patches or a kernel compiled by his repository below 4.14-rc5).
+Set `CONFIG_INTEL_ATOMISP=y` to `CONFIG_INTEL_ATOMISP=n` and compile/install kernel. Noises should disappear.
+You may still encounter noises while on headphones, in this case check that your HiFi headphones volume configuration is not too high.
+
+Open the following file:
+
+```
+/usr/share/alsa/ucm/chtrt5645/HiFi.conf
+```
+
+
+And check that `cset "name='Headphone Playback Volume'"` is not too high. A good value seems to range between 25 and 30.
+
+Thanks to [Petr Matula @petrmatula](https://github.com/petrmatula190) for discovering and tests!
 
 ## Audio jack disconnected on volume over 70-80% (only Linux behaviour) with some headphones
 
