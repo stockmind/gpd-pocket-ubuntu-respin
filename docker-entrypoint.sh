@@ -27,9 +27,14 @@ if [ "$1" = 'kernel' ]; then
 	git reset --hard origin/master
     fi
 
-    #patch kernel config for audio crackling
-    echo "Patch audio config"
-    sed -i "s|CONFIG_INTEL_ATOMISP=y|CONFIG_INTEL_ATOMISP=n|" .config
+    # If a config file is provided in input we will use that for kernel building
+    if [ -f /docker-input/.config ]; then
+    	cp /docker-input/.config .config
+    fi
+
+    # patch kernel config for audio crackling
+    # echo "Patch audio config"
+    # sed -i "s|CONFIG_INTEL_ATOMISP=y|CONFIG_INTEL_ATOMISP=n|" .config
 
     CPUS=$(getconf _NPROCESSORS_ONLN)
     CPUS=$(($CPUS*2+1))

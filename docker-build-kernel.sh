@@ -19,6 +19,11 @@ else
 	exit 1
 fi
 
+# If no arg specified we use the custom kernel config provided in this repository
+if [ "$1" != 'keepconfig' ]; then
+	cp "$SCRIPTPATH"/kernel/.config "$INPUTDIR"/.config
+fi
+
 # Refresh container
 docker rm $(docker ps -aq --filter name=gpd-pocket-kernel-container)
 # Run command
