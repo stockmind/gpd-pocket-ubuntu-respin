@@ -103,7 +103,7 @@ print_in_red() {
 }
 
 print_in_bold() {
-    printf "\e\033[1m$1\e[0m"
+    printf "\033[1m$1\e[0m"
 }
 
 print_in_yellow() {
@@ -115,10 +115,12 @@ print_in_blue() {
 }
 
 print_info() {
+    [ -z "$2" ] && $2=""
     print_in_blue " $1 "$(print_in_bold "$2")"\n"
 }
 
 print_details() {
+    [ -z "$2" ] && $2=""
     print_in_purple " $1 "$(print_in_bold "$2")"\n"
 }
 
