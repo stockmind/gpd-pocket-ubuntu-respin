@@ -41,14 +41,14 @@ if [ "$1" = 'kernel' ]; then
 
 	cd ..
 	# Remove possible old files
-	rm -f "gpdpocket-kernel-files.tar.gz"
+	rm -f "gpdpocket-kernel-files.zip"
 	# Compress kernel files
-	tar -czvf "gpdpocket-kernel-files.tar.gz" *.deb
+	zip "gpdpocket-kernel-files.zip" *.deb
 	# Delete old deb files
 	rm -f *.deb
 
 	NOW=$(date +"%Y%m%d")
-	mv "gpdpocket-kernel-files.tar.gz" "/docker-output/gpdpocket-""$NOW""-kernel-files.tar.gz"
+	mv "gpdpocket-kernel-files.zip" "/docker-output/gpdpocket-""$NOW""-kernel-files.zip"
 	
 	exit 0
 fi
