@@ -437,6 +437,8 @@ To build latest kernel you just need to run the following script:
 Let it run, it will take a while.
 When it's done you can find the kernel zipped in ```destination/``` folder of this repository.
 
+If you want to customize the .config flags edit the file in `kernel/.config` of this repository and launch kernel build script. Configuration will be copied over the Hans one before building.
+
 If you want to build kernel using the original .config file provided by Hans instead of the one provided in this repository run the script with `keepconfig` argument:
 ```
 ./docker-build-kernel.sh keepconfig
