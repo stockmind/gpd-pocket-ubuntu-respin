@@ -492,7 +492,7 @@ Check your system displays settings and move your displays until they are not ov
 
 Disable DPTF in BIOS (Unlocked BIOS might be required), that's what freezes the system before it reaches the hardcoded factory limit of 90 degree. 
 
-## Audio crackling and noise through speakers and headphones
+## Audio crackling and noise through speakers and headphones
 
 Update your system configuration with latest of this repository.
 You can encounter noises if you use a kernel 4.14-rc5 or below (Hans de Goede kernel) or if your kernel was compiled with `CONFIG_INTEL_ATOMISP=y` (If you are not using Hans de Goede kernel patches or a kernel compiled by his repository below 4.14-rc5).
