@@ -1,0 +1,10 @@
+[Unit]
+Description=Remove goodix touch driver before sleep
+Before=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/modprobe -r goodix
+
+[Install]
+WantedBy=suspend.target

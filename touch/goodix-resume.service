@@ -1,0 +1,10 @@
+[Unit]
+Description=Add back goodix touch driver after resume
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/modprobe goodix
+
+[Install]
+WantedBy=suspend.target
