@@ -3,13 +3,13 @@
 mkdir -p update-kernel
 cd update-kernel
 
-if [ ! -f gpdpocket-20180102-kernel-files.zip ]; then
+if [ ! -f gpdpocket-20180103-kernel-files-petrmatula.zip ]; then
 	 echo "Downloading kernel files...."
-	 wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20180102-kernel-files.zip
+	 wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20180103-kernel-files-petrmatula.zip
 fi
 
 echo "Extracting kernel files..."
-unzip -o gpdpocket-20180102-kernel-files.zip
+unzip -o gpdpocket-20180103-kernel-files-petrmatula.zip
 
 echo "Installing kernel..."
 sudo dpkg -i *.deb
