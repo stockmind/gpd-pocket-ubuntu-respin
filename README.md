@@ -23,18 +23,6 @@ If your problem persist or is not on the troubleshooting list check [Problem rep
 **Scripts on this repository are not compatible with Ansible-playbook setup due to rotation and other scripts that may conflict. Clean your system before use this.
 You may try this clean script at your own risk: [Clean Ansible Playbook script](https://github.com/stockmind/gpd-pocket-ubuntu-respin/blob/master/clean-ansible.sh)**
 
-# Donate
-
-If my work helped you consider a little donation to buy me a coffe... or an energy drink! :smile:
-
-**Paypal**
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YYGKKE6FDX2KY)
-
-**Bitcoin**
-
-[![Donate Bitcoin](https://stockmind.github.io/donate-bitcoin/bitcoin-button.png)](https://stockmind.github.io/donate-bitcoin/)
-
 # How to Respin an ISO for GPD Pocket
 ## Overview
 This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
