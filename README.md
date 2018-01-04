@@ -72,10 +72,12 @@ All informations, tips and tricks was gathered from:
  - ✔ Bluetooth audio ( Kernel version 4.14-rc3 or later ) 
  - ✔ **Audio aligned to Windows experience** ( Kernel version 4.14-rc3 with audio flag fix. See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351, check also [Troubleshooting section for more informations](https://github.com/stockmind/gpd-pocket-ubuntu-respin/blob/master/README.md#audio-jack-disconnected-on-volume-over-70-80-windows-and-linux-same-behaviour-with-some-headphones) )
  - ✔ **Headphones/Speakers auto switch on jack plugged in/out** 
+ - ✔ **Internal Mic and Headphones Mic working** (Hans de Goede and Bard Liao great work! Kernel 4.15-rc5 or higher required) 
+ - ✔ **Touchscreen working after sleep/wake**
  
 ### What Doesn't Work at the Moment
 
- - Audio on hdmi ( Need feedback )
+ - Audio on hdmi ( Need feedback, an alsa-lib >=1.1.5 version may be required to get it working )
  - Hibernation ( Need feedback )
  - USB-C as video output
  
