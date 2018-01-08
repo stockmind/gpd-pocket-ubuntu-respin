@@ -116,18 +116,16 @@ if [ -f /usr/share/sddm/scripts/Xsetup ]; then
 fi
   
 # check that environment variable exists
-echo "Adding envrironment variables to prevent glitches..."
+echo "Remove environment variables to prevent glitches, not needed anymore..."
 if grep -Fxq "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" /etc/environment
-then 
-  echo "Environment variable COGL_ATLAS_DEFAULT_BLIT_MODE already set"
-else
-  echo "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" >> /etc/environment
+then
+  echo "Remove environment variable COGL_ATLAS_DEFAULT_BLIT_MODE"
+  sed -i "s|COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer||" /etc/environment 
 fi
 if grep -Fxq "LIBGL_DRI3_DISABLE=1" /etc/environment
 then
-  echo "Environment variable LIBGL_DRI3_DISABLE already set"
-else
-  echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment   
+  echo "Remove environment variable LIBGL_DRI3_DISABLE"
+  sed -i "s|LIBGL_DRI3_DISABLE=1||" /etc/environment 
 fi
 
 cd ..
