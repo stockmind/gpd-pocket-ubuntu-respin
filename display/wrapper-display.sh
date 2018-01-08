@@ -31,8 +31,8 @@ cp adduser.local /usr/local/sbin/adduser.local
 chmod +x /usr/local/sbin/adduser.local
 
 # fix missing glyphs and graphic glitches on resume
-echo "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" >> /etc/environment
-echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment
+# echo "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" >> /etc/environment
+# echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment
 
 echo "i915" >> /etc/initramfs-tools/modules
 
