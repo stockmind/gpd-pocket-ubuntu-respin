@@ -115,12 +115,22 @@ print_in_blue() {
 }
 
 print_info() {
-    [ -z "$2" ] && $2=""
-    print_in_blue " $1 "$(print_in_bold "$2")"\n"
+    if [ -z "$2" ]
+    then
+    	MESSAGE=""
+    else
+    	MESSAGE=$2
+    fi
+    print_in_blue " $1 "$(print_in_bold "$MESSAGE")"\n"
 }
 
 print_details() {
-    [ -z "$2" ] && $2=""
+    if [ -z "$2" ]
+    then
+    	MESSAGE=""
+    else
+    	MESSAGE=$2
+    fi
     print_in_purple " $1 "$(print_in_bold "$2")"\n"
 }
 
