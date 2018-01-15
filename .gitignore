@@ -1,3 +1,4 @@
+.DS_Store
 isorespin.sh
 isorespin
 isorespin/*
@@ -7,6 +8,8 @@ destination/*
 origin/*
 temp/*
 temp/
+kernel/*-config
+kernel/*.patch
 *.iso
 *.log
 *.deb

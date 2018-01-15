@@ -5,7 +5,6 @@ SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
 source "$SCRIPTPATH"/utils.sh
 
 # Find current directory
-SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
 INPUTDIR="$SCRIPTPATH""/origin"
 OUTPUTDIR="$SCRIPTPATH""/destination"
 

@@ -80,6 +80,11 @@ if [ "$1" = 'respin' ]; then
 		print_details "Images found in folder:"
 		ls /docker-input/
 
+		# If a custom kernel is present in origin folder we use that for respin the image
+		if [ -f /docker-input/gpd-pocket-kernel-files.zip ]; then
+			cp /docker-input/gpd-pocket-kernel-files.zip ./gpd-pocket-kernel-files.zip
+		fi
+
 		print_details "Starting process..."
 
 		# gnome argument setted?
