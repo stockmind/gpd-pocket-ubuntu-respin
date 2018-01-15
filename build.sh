@@ -29,12 +29,12 @@ fi
 if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
     if [ ! -f gpd-pocket-kernel-files.zip ]; then
-	 if [ ! -f gpdpocket-20180103-kernel-files-petrmatula.zip ]; then
+	 if [ ! -f gpdpocket-20180115-kernel-files.zip ]; then
 	    echo "Downloading kernel files...."
-	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20180103-kernel-files-petrmatula.zip
+	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20180115-kernel-files.zip
 	fi
 	echo "Extracting kernel files..."
-    	unzip -o gpdpocket-20180103-kernel-files-petrmatula.zip
+    	unzip -o gpdpocket-20180115-kernel-files.zip
     else	    
         echo "Extracting custom kernel files..."
         unzip -o gpd-pocket-kernel-files.zip
