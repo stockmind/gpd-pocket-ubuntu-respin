@@ -7,6 +7,12 @@
 You can update an installed system using the update commands here:
 [Update steps](#post-install)
 
+# Check kernel builds by Petr Matula
+
+[Petr Matula kernel repository](https://github.com/petrmatula190/gpd-pocket-kernel)
+
+Petr Matula is kindly starting building kernels with greater frequency than my releases, if you need/want an updated kernel without have to wait try his builds! He have an easy script to download and install the packages.
+
 # Check new rotation script and tray icon!
 ![GPD Pocket Screen rotation utility](https://github.com/stockmind/gpd-pocket-screen-indicator/raw/master/screenshot.png)
 
