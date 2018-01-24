@@ -239,9 +239,10 @@ A kernel update is always recommended.
 # Additional Notes
 ## Downloading Existing ISO's
 
-Here is an already respinned Ubuntu ISO for GPD Pocket
+On the following urls you can find already respinned Ubuntu ISO for GPD Pocket
 
-https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
+https://gpdpocket.cre.ovh/
+Mirror: https://mega.nz/#F!8WpQRZrD!0XHgajeG-QVZTp1Jbjndgw
 
 ## BIOS Updates and Original Firmwares
 
