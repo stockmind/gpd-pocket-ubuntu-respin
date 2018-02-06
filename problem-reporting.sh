@@ -12,6 +12,7 @@ fi
 echo "**Kernel:** $(uname -r)"
 echo "**Desktop Environment:** $XDG_CURRENT_DESKTOP"
 echo "**Display:** $DISPLAY"
+echo "**Login:** $(grep 'ExecStart=' /etc/systemd/system/display-manager.service)"
 echo "**Monitor:** $(xrandr | grep DSI1)"
 echo "**Scripts:** " $(ls /usr/local/sbin/ | tr "\n" " ")
 echo "**EFI:** " $(dmesg | grep "EFI v")
