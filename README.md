@@ -7,6 +7,17 @@
 You can update an installed system using the update commands here:
 [Update steps](#post-install)
 
+# 17.10 Ubuntu
+
+Ubuntu 17.10 ships with GNOME 3 as default desktop environment. There are several issues and things that doesn't work as expected at the moment (Scaling, rotation after sleep/login, etc...) . I suggest you to install Unity and use LightDM as login/dispay manager.
+
+You can do that issuing: 
+
+    sudo apt install unity lightdm
+    
+And select "LightDM" instead of "GDM" when prompted. 
+On first login after Unity and LightDM install click on the big "circle" icon near your username and select "Unity"  as Desktop Environment.
+
 # Check kernel builds by Petr Matula
 
 [Petr Matula kernel repository](https://github.com/petrmatula190/gpd-pocket-kernel)
