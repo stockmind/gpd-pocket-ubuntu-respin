@@ -1,4 +1,4 @@
-FROM ubuntu:17.04
+FROM ubuntu:17.10
 
 MAINTAINER Simone Roberto Nunzi "simone.roberto.nunzi@gmail.com"
 
