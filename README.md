@@ -183,7 +183,7 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 ```
 ./build.sh <iso filename>
 ```
-* Build Gnome based ISO (Ubuntu Gnome, Kali Linux, Gnome based distro) running this:
+* Build Gnome based ISO (Ubuntu Gnome, Elementary OS, Gnome based distro, etc...) running this:
 ```
 ./build.sh <iso filename> gnome
 ```
@@ -194,7 +194,7 @@ Run `./build.sh` script as specified for your desired distro. If you built your 
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename>
 ```  
-* Build Gnome based ISO (Ubuntu Gnome, Kali Linux, Elementary OS, Gnome based distro) running this:
+* Build Gnome based ISO (Ubuntu Gnome, Elementary OS, Gnome based distro, etc...) running this:
 ```
 PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename> gnome
 ```
