@@ -80,11 +80,11 @@ if [ "$1" = 'respin' ]; then
 
 		echo "Starting process..."
 
-		# gnome argument setted?
+		# argument setted?
 		if [ -z "$3" ]; then
 			./build.sh "/docker-input/$2" 
 		else
-			./build.sh "/docker-input/$2" gnome
+			./build.sh "/docker-input/$2" $3
 		fi
 
 		FILE=$2
