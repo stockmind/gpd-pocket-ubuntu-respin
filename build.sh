@@ -9,9 +9,9 @@ for i in "$@" ; do
         GNOME=$i
         break
     fi
-    if [[ $i == "kali" ]] ; then
-    	echo "Setting kali environment..."	
-    	KALI=true
+    if [[ $i == "unity" ]] ; then
+    	echo "Setting unity environment..."	
+    	UNITY=true
     	break
     fi	
 done
@@ -46,28 +46,49 @@ if [ ! -f isorespin.sh ]; then
 	wget -O isorespin.sh "https://drive.google.com/uc?export=download&id=0B99O3A0dDe67S053UE8zN3NwM2c"
 fi
 
-packages="xfonts-terminus "
-packages+="thermald "
-packages+="tlp "
-packages+="va-driver-all "
-packages+="vainfo "
-packages+="libva1 "
-packages+="i965-va-driver "
-packages+="gstreamer1.0-libav "
-packages+="gstreamer1.0-vaapi "
-packages+="vlc "
-packages+="python-gi "
-packages+="gksu "
-packages+="git "
-packages+="python "
-packages+="gir1.2-appindicator3-0.1"
+# Packages that will be installed:
+# Font used to scale TTY text to a resonable size during boot/TTY work
+installpackages="xfonts-terminus "
+# Thermal management stuff and packages
+installpackages+="thermald "
+installpackages+="tlp "
+# Streaming and codecs for correct video encoding/play
+installpackages+="va-driver-all "
+installpackages+="vainfo "
+installpackages+="libva1 "
+installpackages+="i965-va-driver "
+installpackages+="gstreamer1.0-libav "
+installpackages+="gstreamer1.0-vaapi "
+# Useful music/video player with large set of codecs
+installpackages+="vlc "
+# Utilities for traybar rotation indicator and fan handling
+installpackages+="python-gi " # Required by traybar rotation indicator
+installpackages+="gksu " # Required by traybar rotation indicator to reset touchscreen
+installpackages+="git " # Required by traybar rotation indicator to download repository
+installpackages+="python " # Required by traybar rotation indicator & fan script
+installpackages+="gir1.2-appindicator3-0.1 " # Required by traybar rotation indicator
+
+# Packages that will be removed:
+removepackages="bcmwl-kernel-source" # This may conflict with wifi provided driver and blacklist it
+
+# If Unity is requested, install it and remove other Display Manager to avoid conflicts
+if [ -n "$UNITY" ]; then
+	echo "Display setting: Unity"
+
+	installpackages+="unity "
+	installpackages+="lightdm "
+
+	removepackages+="gdm "
+	removepakcages+="gdm3 "
+	removepackages+="sddm "
+fi
 
 chmod +x isorespin.sh
 
 ./isorespin.sh -i $ISOFILE \
 	-l "*.deb" \
-	-e "bcmwl-kernel-source" \
-	-p "$packages" \
+	-e "$removepackages" \
+	-p "$installpackages" \
 	-f display/20-intel.conf \
 	-f display/30-monitor.conf \
 	-f display/35-screen.conf \
