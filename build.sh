@@ -84,7 +84,7 @@ if [ -n "$UNITY" ]; then
 	installpackages+="lightdm "
 
 	removepackages+="gdm "
-	removepakcages+="gdm3 "
+	removepackages+="gdm3 "
 	removepackages+="sddm "
 fi
 
