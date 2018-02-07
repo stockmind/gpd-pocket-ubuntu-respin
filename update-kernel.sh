@@ -1,15 +1,17 @@
 #!/bin/bash
 
+LATESTKERNEL="gpdpocket-20180207-kernel-files.zip"
+
 mkdir -p update-kernel
 cd update-kernel
 
 if [ ! -f gpdpocket-20180103-kernel-files-petrmatula.zip ]; then
 	 echo "Downloading kernel files...."
-	 wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20180115-kernel-files.zip
+	 wget "https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/$LATESTKERNEL"
 fi
 
 echo "Extracting kernel files..."
-unzip -o gpdpocket-20180115-kernel-files.zip
+unzip -o "$LATESTKERNEL"
 
 echo "Installing kernel..."
 sudo dpkg -i *.deb

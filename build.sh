@@ -1,6 +1,8 @@
 #!/bin/bash
 
 ISOFILE=$1
+LATESTKERNEL="gpdpocket-20180207-kernel-files.zip"
+LOCALKERNEL="gpd-pocket-kernel-files.zip"
 
 # Check arguments
 for i in "$@" ; do
@@ -32,16 +34,16 @@ fi
 # Looking for kernel packages and download them if required
 if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
-    if [ ! -f gpd-pocket-kernel-files.zip ]; then
-	 if [ ! -f gpdpocket-20180115-kernel-files.zip ]; then
-	    echo "Downloading kernel files...."
-	    wget https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/gpdpocket-20180115-kernel-files.zip
-	fi
-	echo "Extracting kernel files..."
-    	unzip -o gpdpocket-20180115-kernel-files.zip
+    if [ ! -f "$LOCALKERNEL" ]; then
+		if [ ! -f "$LATESTKERNEL" ]; then
+			echo "Downloading kernel files...."
+			wget "https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/$LATESTKERNEL"
+		fi
+		echo "Extracting latest kernel files..."
+	    unzip -o "$LATESTKERNEL"
     else	    
         echo "Extracting custom kernel files..."
-        unzip -o gpd-pocket-kernel-files.zip
+        unzip -o "$LOCALKERNEL"
     fi	
 fi
 
