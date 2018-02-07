@@ -122,6 +122,10 @@ fi
 
 if [ -n "$KDE" ]; then
   echo "KDE flag provided. No environemnt variable is needed."
+  echo "Remove environment variable COGL_ATLAS_DEFAULT_BLIT_MODE"
+  sed -i "s|COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer||" /etc/environment 
+  echo "Remove environment variable LIBGL_DRI3_DISABLE"
+  sed -i "s|LIBGL_DRI3_DISABLE=1||" /etc/environment
   # On KDE the following flags seems to give problems.
 else
   # check that environment variable exists
