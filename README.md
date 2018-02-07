@@ -9,7 +9,7 @@ You can update an installed system using the update commands here:
 
 # Warning: Ubuntu 17.10 Issues
 
-Ubuntu 17.10 ships with GNOME 3 as default desktop environment. There are several issues and things that doesn't work as expected at the moment (Scaling, rotation after sleep/login, etc...) . I suggest you to install Unity and use LightDM as login/display manager.
+Ubuntu 17.10 ships with GNOME 3 as default desktop environment. There are several issues and things that doesn't work as expected at the moment (Scaling, rotation after sleep/login, etc...). I suggest you to install Unity and use LightDM as login/display manager until GNOME gets updated with latest patches.
 
 You can do that issuing: 
 
@@ -203,6 +203,8 @@ PATH=/usr/sbin:/sbin:/bin:$PATH ./build.sh <iso filename> gnome
 Gnome desktop environment and derivate (Pantheon of Elementary OS) use a different name convention for monitors.
 The default Xorg configuration won't work and a custom configuration must be used to get everything to work.
 That's the reason of the "gnome" argument for update and build script.
+
+**If you want to use lightDM as Display/Login manager (Suggested) and Unity as Desktop Environment (Suggested) you can use `unity` as flag instead of `gnome` when calling `build.sh` script. This is experimental and may not work as expected but is the suggested environment on GNOME based distros like 17.10 Ubuntu default ISO for the moment.**
 
 ## Step 5: Install and Update
 
