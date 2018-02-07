@@ -6,7 +6,7 @@ ISOFILE=$1
 for i in "$@" ; do
     if [[ $i == "gnome" ]] ; then
         echo "Setting gnome monitors..."
-        GNOME=$i
+        GNOME=true
         break
     fi
     if [[ $i == "unity" ]] ; then
@@ -16,6 +16,8 @@ for i in "$@" ; do
     fi	
 done
 
+# Select correct monitors file based on Desktop Environment kind
+# GNOME or Desktop Environments on Wayland require a special monitors file
 if [ -n "$GNOME" ]; then
 	echo "Display setting: Gnome"
 	cp display/monitors_gnome.xml display/monitors.xml
@@ -24,8 +26,10 @@ else
 	cp display/monitors_xorg.xml display/monitors.xml
 fi
 
+# Remove old files
 ./clean.sh
 
+# Looking for kernel pakcages and download them if required
 if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
     if [ ! -f gpd-pocket-kernel-files.zip ]; then
@@ -41,6 +45,7 @@ if [ ! -f linux-image* ]; then
     fi	
 fi
 
+# If missing, download latest version of the script that will respin the ISO
 if [ ! -f isorespin.sh ]; then
 	echo "Isorespin script not found. Downloading it..."
 	wget -O isorespin.sh "https://drive.google.com/uc?export=download&id=0B99O3A0dDe67S053UE8zN3NwM2c"
