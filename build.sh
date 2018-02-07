@@ -29,7 +29,7 @@ fi
 # Remove old files
 ./clean.sh
 
-# Looking for kernel pakcages and download them if required
+# Looking for kernel packages and download them if required
 if [ ! -f linux-image* ]; then
     echo "Looking for kernel image..."
     if [ ! -f gpd-pocket-kernel-files.zip ]; then
