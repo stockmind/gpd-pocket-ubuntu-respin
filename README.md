@@ -243,6 +243,14 @@ Gnome desktop environment and derivate (Pantheon of Elementary OS) use a differe
 The default Xorg configuration won't work and a custom configuration must be used to get everything to work.
 That's the reason of the "gnome" argument for update and build script.
 
+**KDE systems:**
+There are reports that on KDE some flags that the script sets in `/etc/environment` may cause graphic glitches and issues. To prevent `update.sh` script from adding those lines, append `kde` flag to `update.sh` script call. 
+Like:
+```
+sudo ./update.sh kde
+```
+
+
 Update kernel to latest version issuing the following command:
 
 ```
@@ -543,6 +551,16 @@ pulseaudio -k
 ## Google Chrome tearing, glitch or flickering while scrolling or browsing heavy web pages
 
 Chrome doens't seems to behave great with the i915 intel driver, a workaround for the glitches or flickering while scrolling pages or seeing video is to set "GPU Rasterization" to "Force-Enabled for all layers". Quick link: [chrome://flags/#enable-gpu-rasterization](chrome://flags/#enable-gpu-rasterization)
+
+## Graphical glitches on KDE 
+
+Remove/comment those lines from `/etc/environment` and reboot.
+```
+LIBGL_DRI3_DISABLE=1
+COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer
+```
+
+When you want to update your system in future launch `update.sh` with `kde` flag to prevent re-add of these lines.
 
 ## Why is system UI so big?
 

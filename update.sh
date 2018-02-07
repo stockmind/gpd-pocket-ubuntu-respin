@@ -9,7 +9,12 @@ fi
 for i in "$@" ; do
     if [[ $i == "gnome" ]] ; then
         echo "Setting gnome monitors..."
-        GNOME=$i
+        GNOME=true
+        break
+    fi
+    if [[ $i == "kde" ]] ; then
+        echo "Setting kde environment..."
+        KDE=true
         break
     fi
 done
@@ -114,20 +119,25 @@ if [ -f /usr/share/sddm/scripts/Xsetup ]; then
     sed -i "s|GDK_SCALE=2||" /etc/environment 
   fi
 fi
-  
-# check that environment variable exists
-echo "Adding envrironment variables to prevent glitches..."
-if grep -Fxq "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" /etc/environment
-then 
-  echo "Environment variable COGL_ATLAS_DEFAULT_BLIT_MODE already set"
+
+if [ -n "$KDE" ]; then
+  echo "KDE flag provided. No environemnt variable is needed."
+  # On KDE the following flags seems to give problems.
 else
-  echo "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" >> /etc/environment
-fi
-if grep -Fxq "LIBGL_DRI3_DISABLE=1" /etc/environment
-then
-  echo "Environment variable LIBGL_DRI3_DISABLE already set"
-else
-  echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment   
+  # check that environment variable exists
+  echo "Adding envrironment variables to prevent glitches..."
+  if grep -Fxq "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" /etc/environment
+  then 
+    echo "Environment variable COGL_ATLAS_DEFAULT_BLIT_MODE already set"
+  else
+    echo "COGL_ATLAS_DEFAULT_BLIT_MODE=framebuffer" >> /etc/environment
+  fi
+  if grep -Fxq "LIBGL_DRI3_DISABLE=1" /etc/environment
+  then
+    echo "Environment variable LIBGL_DRI3_DISABLE already set"
+  else
+    echo "LIBGL_DRI3_DISABLE=1" >> /etc/environment   
+  fi
 fi
 
 cd ..
