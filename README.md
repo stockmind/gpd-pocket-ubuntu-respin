@@ -86,6 +86,7 @@ All informations, tips and tricks was gathered from:
  - Audio on hdmi ( Need feedback, an alsa-lib >=1.1.5 version may be required to get it working )
  - Hibernation ( Need feedback )
  - USB-C as video output
+ - HDMI plugged before boot may cause issues (No video output on internal and external monitor, flickering, etc...)
  
 ### Overview for Building and Respinning an ISO
 
