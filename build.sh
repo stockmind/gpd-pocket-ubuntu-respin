@@ -76,7 +76,7 @@ installpackages+="python " # Required by traybar rotation indicator & fan script
 installpackages+="gir1.2-appindicator3-0.1 " # Required by traybar rotation indicator
 
 # Packages that will be removed:
-removepackages="bcmwl-kernel-source" # This may conflict with wifi provided driver and blacklist it
+removepackages="bcmwl-kernel-source " # This may conflict with wifi provided driver and blacklist it
 
 # If Unity is requested, install it and remove other Display Manager to avoid conflicts
 if [ -n "$UNITY" ]; then
