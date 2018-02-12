@@ -3,3 +3,4 @@ gsettings set org.gnome.desktop.interface scaling-factor 2
 gsettings set org.gnome.desktop.interface text-scaling-factor 1
 gsettings set org.cinnamon.desktop.interface scaling-factor 2
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1
+gsettings set org.mate.font-rendering dpi 168.0
