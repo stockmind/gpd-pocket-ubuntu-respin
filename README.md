@@ -68,7 +68,7 @@ All informations, tips and tricks was gathered from:
  - ✔ Headphones ( Must select "Headphones" in audio output devices, works only on kernel 4.13+ )
  - ✔ Battery manager
  - ✔ Screen brightness ( **Working on Live environments too with kernel 4.15-rc5 or higher** )
- - ✔ Cooling fan ( Amazing initial work of *ErikaFluff*, rewritten in Python by *Chrisawcom*! Check post installation section of this readme to optimize it )
+ - ✔ Cooling fan ( Amazing initial work of *ErikaFluff*, rewritten in Python by *Chrisawcom*! Check this [GPD Fan Daemon](#gpd-fan-daemon-fail-to-run) for kernel 4.15+ )
  - ✔ Bluetooth ( Credits to Reddit user *dveeden* )
  - ✔ Intel video driver for streaming without tearing or crash ( [Check Google Chrome workaround](#google-chrome-tearing-glitch-or-flickering-while-scrolling-or-browsing-heavy-web-pages) )
  - ✔ Sleep/wake
