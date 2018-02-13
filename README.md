@@ -82,13 +82,14 @@ All informations, tips and tricks was gathered from:
  - ✔ **Headphones/Speakers auto switch on jack plugged in/out** 
  - ✔ **Internal Mic and Headphones Mic working** (Hans de Goede and Bard Liao great work! Kernel 4.15-rc5 or higher required) 
  - ✔ **Touchscreen working after sleep/wake**
+ - ✔ Hibernation ( This seems to work on latest kernels, [check this issue for more informations](https://github.com/stockmind/gpd-pocket-ubuntu-respin/issues/93), Thanks samyongsj and geek78 for feedback and infos! )
  
 ### What Doesn't Work at the Moment
 
  - Audio on hdmi ( Need feedback, an alsa-lib >=1.1.5 version may be required to get it working )
- - Hibernation ( Need feedback )
  - USB-C as video output
  - HDMI plugged before boot may cause issues (No video output on internal and external monitor, flickering, etc...)
+ - GDM rotation on re-login or after sleep (Use another display manager like LightDM or SDDM until this gets fixed)
  
 ### Overview for Building and Respinning an ISO
 
