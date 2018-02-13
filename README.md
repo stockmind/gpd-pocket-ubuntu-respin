@@ -19,6 +19,8 @@ And select "LightDM" instead of "GDM" when prompted.
 
 **On first login after Unity and LightDM install click on the big "circle" icon near your username and select "Unity"  as Desktop Environment.**
 
+An experimental ISO of Ubuntu 17.10 with Unity preinstalled as default DE can be found in the [downloads section](#downloading-existing-isos) (First mirror gpdpocket.cre.ovh)
+
 # Check kernel builds by Petr Matula
 
 [Petr Matula kernel repository](https://github.com/petrmatula190/gpd-pocket-kernel)
@@ -605,6 +607,18 @@ In some system it may happen that tray icon won't show at boot. Try to run in a 
     gpdscreen-indicator
     
 If it works add "gpdscreen-indicator" command to your system "Startup Application" utility to run it at boot.
+
+## GPD Fan daemon fail to run
+
+Hans de Goede pushed a proper fan driver for kernel:
+https://www.reddit.com/r/GPDPocket/comments/7jiv3g/linux_proper_fan_driver_submitted_for_mainline/
+
+The gpdfand daemon fail when the module for GPD fan gets loaded from kernel.
+You can check this by issuing:
+
+    lsmod | grep gpd
+
+On kernel like 4.14 the daemon will run without issues, but i keep the daemon just for the moment, to let fan work on kernels that doesn't ship with the Hans driver included, so it is possible to switch kernels and try different configs without tinker too much with basic things (same approach for bluetooth).
 
 # Problem reporting
 
