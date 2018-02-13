@@ -17,7 +17,7 @@ You can do that issuing:
     
 And select "LightDM" instead of "GDM" when prompted. 
 
-**On first login after Unity and LightDM install click on the big "circle" icon near your username and select "Unity"  as Desktop Environment.**
+**On first login after Unity and LightDM install, click on the big "circle" icon near your username and select "Unity"  as Desktop Environment.**
 
 An experimental ISO of Ubuntu 17.10 with Unity preinstalled as default DE can be found in the [downloads section](#downloading-existing-isos) (First mirror gpdpocket.cre.ovh)
 
