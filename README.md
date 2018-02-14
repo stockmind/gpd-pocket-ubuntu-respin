@@ -60,7 +60,7 @@ All informations, tips and tricks was gathered from:
 ### What Works Out-of-the-Box
 
  - ✔ Display already rotated in terminal buffer and desktop/login ( Hans de Goede kernel patch, monitors.xml file and rotation daemon based on initial work of *Chrisawcom* )
- - ✔ Scaling already set to 175%
+ - ✔ Scaling already set to 175% ( [Check scale section to customize it](#why-is-system-ui-so-big) )
  - ✔ Touchscreen aligned to rotation ( [Check new rotation script and tray icon](https://github.com/stockmind/gpd-pocket-screen-indicator) )
  - ✔ Multitouch ( [Check multitouch section  for more information](#multitouch) )
  - ✔ Wifi
@@ -78,7 +78,7 @@ All informations, tips and tricks was gathered from:
  - ✔ TTY/Console font size reasonably bigger to improve readability ( Thanks joshskidmore for the intuition! - Worsk only on installed system and a "update.sh" run may be needed )
  - ✔ Trackpoint faster for a better experience right from the start ( Thanks rustige for config! )
  - ✔ Bluetooth audio ( Kernel version 4.14-rc3 or later ) 
- - ✔ **Audio aligned to Windows experience** ( Kernel version 4.14-rc3 with audio flag fix. See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351, check also [Troubleshooting section for more informations](https://github.com/stockmind/gpd-pocket-ubuntu-respin/blob/master/README.md#audio-jack-disconnected-on-volume-over-70-80-windows-and-linux-same-behaviour-with-some-headphones) )
+ - ✔ **Audio aligned to Windows experience** ( Kernel version 4.14-rc3 with audio flag fix. See for previous issues: https://bugzilla.kernel.org/show_bug.cgi?id=196351, check also [Troubleshooting section for more informations](#audio-jack-disconnected-on-volume-over-70-80-windows-and-linux-same-behaviour-with-some-headphones) )
  - ✔ **Headphones/Speakers auto switch on jack plugged in/out** 
  - ✔ **Internal Mic and Headphones Mic working** (Hans de Goede and Bard Liao great work! Kernel 4.15-rc5 or higher required) 
  - ✔ **Touchscreen working after sleep/wake**
@@ -573,7 +573,7 @@ To restore to native pixel resolution you have to edit the scale configuration:
 ```
 sudo nano /etc/X11/Xsession.d/90-scale
 ```
-You have to edit all the values to their default:
+You have to edit all the values to their default like below:
 ```
 gsettings set com.ubuntu.user-interface scale-factor "{'DSI-1': 8, 'DSI1': 8}" // Unity
 gsettings set org.gnome.desktop.interface scaling-factor 1 // Gnome 3
@@ -582,7 +582,14 @@ gsettings set org.cinnamon.desktop.interface scaling-factor 1 // Cinnamon
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1 // Cinnamon
 ```
 
-This will affect all the different desktop environments. This might require a log-out, log-in, or reboot to take effect. Restarting the display manager service will also work.
+To make this changes persistent to updates you should copy the current 90-scale and name it with a greather starting number like `91-scale`:
+```
+cp /etc/X11/Xsession.d/90-scale /etc/X11/Xsession.d/91-scale
+```
+
+Then edit the required settings in `/etc/X11/Xsession.d/91-scale`. Future runs of `update.sh` script will not overwrite your custom settings.
+
+The settings in scale file cover all the main desktop environments. Change on settings might require a log-out, log-in, or reboot to take effect. Restarting the display manager service will also work.
 This way you can still read fine (if you have good 👀 ) and have all your pixels back.
 
 ## Touchscreen or display rotation is wrong after wake/sleep or screen lock
