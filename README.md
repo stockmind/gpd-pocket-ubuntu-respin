@@ -68,7 +68,7 @@ All informations, tips and tricks was gathered from:
  - ✔ Headphones ( Must select "Headphones" in audio output devices, works only on kernel 4.13+ )
  - ✔ Battery manager
  - ✔ Screen brightness ( **Working on Live environments too with kernel 4.15-rc5 or higher** )
- - ✔ Cooling fan ( Amazing initial work of *ErikaFluff*, rewritten in Python by *Chrisawcom*! Check this [GPD Fan Daemon](#gpd-fan-daemon-fail-to-run) for kernel 4.15+ )
+ - ✔ Cooling fan ( Amazing initial work of *ErikaFluff*, rewritten in Python by *Chrisawcom*! Check this [GPD Fan Daemon](#gpd-fan-daemon-fail-to-run) and this [GPD Fan on AC](#gpd-fan-always-spinning-on-ac) for kernel 4.15+ )
  - ✔ Bluetooth ( Credits to Reddit user *dveeden* )
  - ✔ Intel video driver for streaming without tearing or crash ( [Check Google Chrome workaround](#google-chrome-tearing-glitch-or-flickering-while-scrolling-or-browsing-heavy-web-pages) )
  - ✔ Sleep/wake
@@ -636,9 +636,9 @@ On kernel like 4.14 the daemon will run without issues, but i keep the daemon ju
 
 ## GPD Fan always spinning on AC
 
-On latest kernels with Hans patches and proper fan driver enabled (gpd-pocket-fan kernel module), fan is set as always spinning at speed 2 (of 3) on AC. That's because when charging it may be desirable to have some extra cooling, as some BIOS versions also do.
+On latest kernels with Hans patches and proper fan driver enabled (gpd-pocket-fan kernel module), fan is set as always spinning at speed 2 (of 3) on AC. That's because when charging it may be desirable to have some extra cooling, as some BIOS versions also do. (Thanks Hans for explanations!)
 
-You can disable this behaviour by setting the speed_on_ac parameter (must be between 0 and 3) for the gpd-pocket-fan module to 0 in GRUB (see setting). Note the default is 2, which is medium speed, 1 is low speed and 3 is max speed. 0 will turn off fan when not required (So when temps are fine and below the fan trigger temperatures).
+You can disable this behaviour by setting the speed_on_ac parameter (must be between 0 and 3) for the gpd-pocket-fan module to 0 in GRUB (see setting below). Note the default is 2, which is medium speed, 1 is low speed and 3 is max speed. 0 will not turn on fan on AC when not required (So when temps are fine and below the fan trigger temperatures).
 
 File to edit `/etc/default/grub`:
 
