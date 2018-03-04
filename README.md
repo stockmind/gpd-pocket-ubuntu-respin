@@ -555,7 +555,7 @@ pulseaudio -k
 
 Chrome doens't seems to behave great with the i915 intel driver, a workaround for the glitches or flickering while scrolling pages or seeing video is to set "GPU Rasterization" to "Force-Enabled for all layers". Quick link: [chrome://flags/#enable-gpu-rasterization](chrome://flags/#enable-gpu-rasterization)
 
-## Graphical glitches on KDE 
+## Graphical glitches on KDE 
 
 Remove/comment those lines from `/etc/environment` and reboot.
 ```
@@ -634,7 +634,7 @@ You can check this by issuing:
 
 On kernel like 4.14 the daemon will run without issues, but i keep the daemon just for the moment, to let fan work on kernels that doesn't ship with the Hans driver included, so it is possible to switch kernels and try different configs without tinker too much with basic things (same approach for bluetooth).
 
-## GPD Fan always spinning on AC
+## GPD Fan always spinning on AC
 
 On latest kernels with Hans patches and proper fan driver enabled (gpd-pocket-fan kernel module), fan is set as always spinning at speed 2 (of 3) on AC. That's because when charging it may be desirable to have some extra cooling, as some BIOS versions also do. (Thanks Hans for explanations!)
 
