@@ -127,4 +127,4 @@ chmod +x isorespin.sh
 	-c wrapper-network.sh \
 	-c wrapper-power.sh \
 	-g "" \
-	-g "i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1"
+	-g "i915.fastboot=1 i915.semaphores=1 fbcon=rotate:1 gpd-pocket-fan.speed_on_ac=0"

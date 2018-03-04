@@ -634,6 +634,20 @@ You can check this by issuing:
 
 On kernel like 4.14 the daemon will run without issues, but i keep the daemon just for the moment, to let fan work on kernels that doesn't ship with the Hans driver included, so it is possible to switch kernels and try different configs without tinker too much with basic things (same approach for bluetooth).
 
+## GPD Fan always spinning on AC
+
+On latest kernels with Hans patches and proper fan driver enabled (gpd-pocket-fan kernel module), fan is set as always spinning at speed 2 (of 3) on AC. That's because when charging it may be desirable to have some extra cooling, as some BIOS versions also do.
+
+You can disable this behaviour by setting the speed_on_ac parameter (must be between 0 and 3) for the gpd-pocket-fan module to 0 in GRUB (see setting). Note the default is 2, which is medium speed, 1 is low speed and 3 is max speed. 0 will turn off fan when not required (So when temps are fine and below the fan trigger temperatures).
+
+File to edit `/etc/default/grub`:
+
+    GRUB_CMDLINE_LINUX=" ... gpd-pocket-fan.speed_on_ac=0"
+
+Save and run `sudo update-grub` to apply new settings.
+
+This repository default has been set to `gpd-pocket-fan.speed_on_ac=0` so you don't need to worry about this if you use scripts on this repository to setup your GPD Pocket.
+
 # Problem reporting
 
 To report a problem clone the repo, run "problem-reporting.sh" script and attach the output to your github issue. This will help debugging.
