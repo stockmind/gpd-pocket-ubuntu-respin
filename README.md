@@ -373,7 +373,7 @@ Ampere delivered may vary depending on the remaining battery charge.
 
 The tests have been performed using this [Jokitech USB-C Power Meter Tester Multimeter](https://www.amazon.it/gp/product/B06XJNHFFX/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1) 
 
-Follow link of Anker charger used.
+Follow link of Aukey charger used.
 
 [Amazon UK - AUKEY USB C 29W PD 2.0](https://www.amazon.co.uk/gp/product/B01MYVJELP/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1)
 
