@@ -48,13 +48,26 @@ if [ "$1" = 'kernel' ]; then
 	cd ..
 	# Remove possible old files
 	rm -f "gpdpocket-kernel-files.zip"
+
+	# Try to extract kernel version
+	KERNELIMAGE=$(ls linux-image-* | head -1)
+	KERNELVERSION=$($KERNELIMAGE | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+(-rc[0-9]+)?" | head -1)
+
 	# Compress kernel files
 	zip "gpdpocket-kernel-files.zip" *.deb
 	# Delete old deb files
 	rm -f *.deb
 
+	LABEL=""
 	NOW=$(date +"%Y%m%d")
-	mv "gpdpocket-kernel-files.zip" "/docker-output/gpdpocket-""$NOW""-kernel-files.zip"
+
+	if [ -n "$KERNELVERSION" ]; then
+		LABEL="$NOW-$KERNELVERSION"
+	else
+		LABEL="$NOW"
+	fi
+
+	mv "gpdpocket-kernel-files.zip" "/docker-output/gpdpocket-""$LABEL""-kernel-files.zip"
 	
 	exit 0
 fi
@@ -87,13 +100,25 @@ if [ "$1" = 'respin' ]; then
 			./build.sh "/docker-input/$2" $3
 		fi
 
+		# Try to extract kernel version
+		KERNELIMAGE=$(ls linux-image-* | head -1)
+		KERNELVERSION=$($KERNELIMAGE | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+(-rc[0-9]+)?" | head -1)
+
 		FILE=$2
 		# Remove path from file
 		FILECLEAN="${FILE##*/}"
 		# Today date
 		NOW=$(date +"%Y%m%d")
 
-    	mv linuxium-* "/docker-output/gpdpocket-$NOW-$FILECLEAN"
+		LABEL=""
+
+		if [ -n "$KERNELVERSION" ]; then
+			LABEL="$NOW-$KERNELVERSION"
+		else
+			LABEL="$NOW"
+		fi
+
+    	mv linuxium-* "/docker-output/gpdpocket-$LABEL-$FILECLEAN"
 	fi
 	
 	exit 0
