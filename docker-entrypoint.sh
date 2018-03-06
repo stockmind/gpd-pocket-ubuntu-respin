@@ -106,11 +106,18 @@ if [ "$1" = 'respin' ]; then
 
 		echo "Starting process..."
 
+		LABEL=""
+
 		# argument setted?
 		if [ -z "$3" ]; then
 			./build.sh "/docker-input/$2" 
 		else
 			./build.sh "/docker-input/$2" $3
+
+			if [ "$3" = 'unity' ]; then
+				echo "Setting unity label..."
+				LABEL+= "unity-"
+			fi
 		fi
 
 		# Try to extract kernel version
@@ -123,12 +130,10 @@ if [ "$1" = 'respin' ]; then
 		# Today date
 		NOW=$(date +"%Y%m%d")
 
-		LABEL=""
-
 		if [ -n "$KERNELVERSION" ]; then
-			LABEL="$NOW-$KERNELVERSION"
+			LABEL+="$NOW-$KERNELVERSION"
 		else
-			LABEL="$NOW"
+			LABEL+="$NOW"
 		fi
 
     	mv linuxium-* "/docker-output/gpdpocket-$LABEL-$FILECLEAN"
@@ -136,5 +141,3 @@ if [ "$1" = 'respin' ]; then
 	
 	exit 0
 fi
-
-exec "$@"
