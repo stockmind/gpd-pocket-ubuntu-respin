@@ -2,7 +2,7 @@
 
 ISOFILE=$1
 LATESTKERNEL="gpdpocket-20180207-kernel-files.zip"
-LOCALKERNEL="gpd-pocket-kernel-files.zip"
+LOCALKERNEL="gpdpocket-kernel-files.zip"
 
 # Check arguments
 for i in "$@" ; do
