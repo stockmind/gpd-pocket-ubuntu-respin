@@ -51,7 +51,7 @@ if [ "$1" = 'kernel' ]; then
 
 	# Try to extract kernel version
 	KERNELIMAGE=$(ls linux-image-* | head -1)
-	KERNELVERSION=$($KERNELIMAGE | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+(-rc[0-9]+)?" | head -1)
+	KERNELVERSION=$(echo "$KERNELIMAGE" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+(-rc[0-9]+)?" | head -1)
 
 	# Compress kernel files
 	zip "gpdpocket-kernel-files.zip" *.deb
@@ -115,7 +115,7 @@ if [ "$1" = 'respin' ]; then
 
 		# Try to extract kernel version
 		KERNELIMAGE=$(ls linux-image-* | head -1)
-		KERNELVERSION=$($KERNELIMAGE | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+(-rc[0-9]+)?" | head -1)
+		KERNELVERSION=$(echo "$KERNELIMAGE" | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+(-rc[0-9]+)?" | head -1)
 
 		FILE=$2
 		# Remove path from file
