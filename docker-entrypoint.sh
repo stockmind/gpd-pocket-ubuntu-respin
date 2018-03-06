@@ -69,7 +69,7 @@ if [ "$1" = 'kernel' ]; then
 
 	mv "gpdpocket-kernel-files.zip" "/docker-output/gpdpocket-""$LABEL""-kernel-files.zip"
 
-	if [ -n "$2" ]; then
+	if [ "$2" = 'keepkernel' ]; then
 		echo "Copy kernel for future respins"
 		cp "/docker-output/gpdpocket-""$LABEL""-kernel-files.zip" "/docker-input/gpdpocket-""$LABEL""-kernel-files.zip"
 	fi
