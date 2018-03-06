@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LATESTKERNEL="gpdpocket-20180207-kernel-files.zip"
+LATESTKERNEL="gpdpocket-20180306-4.16.0-rc3-kernel-files.zip"
 
 mkdir -p update-kernel
 cd update-kernel
