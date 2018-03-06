@@ -4,6 +4,7 @@
 SCRIPTPATH=$( cd $(dirname $0) ; pwd -P )
 INPUTDIR="$SCRIPTPATH""/origin"
 OUTPUTDIR="$SCRIPTPATH""/destination"
+PAR1=$1
 
 echo "Input dir: $INPUTDIR"
 echo "Output dir: $OUTPUTDIR"
@@ -27,4 +28,4 @@ fi
 # Refresh container
 docker rm $(docker ps -aq --filter name=gpd-pocket-kernel-container)
 # Run command
-docker run -t -v "$INPUTDIR":/docker-input -v "$OUTPUTDIR":/docker-output --name gpd-pocket-kernel-container "$IMAGENAME" kernel
+docker run -t -v "$INPUTDIR":/docker-input -v "$OUTPUTDIR":/docker-output --name gpd-pocket-kernel-container "$IMAGENAME" kernel "$PAR1"

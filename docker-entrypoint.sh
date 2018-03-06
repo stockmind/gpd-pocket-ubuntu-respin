@@ -68,6 +68,11 @@ if [ "$1" = 'kernel' ]; then
 	fi
 
 	mv "gpdpocket-kernel-files.zip" "/docker-output/gpdpocket-""$LABEL""-kernel-files.zip"
+
+	if [ -n "$2" ]; then
+		echo "Copy kernel for future respins"
+		cp "/docker-output/gpdpocket-""$LABEL""-kernel-files.zip" "/docker-input/gpdpocket-""$LABEL""-kernel-files.zip"
+	fi
 	
 	exit 0
 fi
@@ -90,6 +95,14 @@ if [ "$1" = 'respin' ]; then
 
 		echo "Images found in folder:"
 		ls /docker-input/
+
+		# Use a local kernel zip if provided
+		if [ -f /docker-input/gpdpocket-*kernel-files.zip ]; then
+			cp /docker-input/gpdpocket-*kernel-files.zip ./gpdpocket-kernel-files.zip
+			echo "Local kernel found!"
+		else
+			echo "No local kernel found!"
+		fi	
 
 		echo "Starting process..."
 
