@@ -116,7 +116,7 @@ if [ "$1" = 'respin' ]; then
 
 			if [ "$3" = 'unity' ]; then
 				echo "Setting unity label..."
-				LABEL+= "unity-"
+				LABEL+="unity-"
 			fi
 		fi
 
