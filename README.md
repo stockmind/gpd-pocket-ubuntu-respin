@@ -108,6 +108,8 @@ At the moment no BIOS update is required to run Ubuntu respin iso.
 You can run any BIOS you want and you probably won't notice big differences.
 Different BIOS have however different features enabled. Check BIOS section [here](#bios-updates-and-original-firmwares)
 
+**NOTE: Based on my experience the best BIOS version is the latest 2017/08/07 BIOS. It doesn't turn on fan at max when device is off and charging. It also let you boot on zero battery charge (previous versions require at least 15-20% of battery charge to boot. It seems also to fix the odds system "freeze" that some users encounter on unlocked BIOS.**
+
 ## Respin iso and build kernels with Docker
 
 ![Docker](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/Docker.png)
@@ -253,6 +255,7 @@ Like:
 sudo ./update.sh kde
 ```
 
+**Update kernel:**
 
 Update kernel to latest version issuing the following command:
 
