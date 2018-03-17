@@ -48,6 +48,8 @@ You may try this clean script at your own risk: [Clean Ansible Playbook script](
 This is a collection of scripts and tweaks to adapt Ubuntu and Linux Mint ISO images and let them run smoothly on GPD Pocket.
 
 All informations, tips and tricks was gathered from:
+ - https://www.reddit.com/r/GPDPocket/ - Reddit GPD Pocket community
+ - https://www.facebook.com/groups/144602682766328/ - GPD Pocket Facebook Group
  - https://www.reddit.com/r/GPDPocket/comments/6idnia/linux_on_gpd_pocket/ - Chrisawcom base project files and amazing collection of tips and tricks to get all up and running
  - http://linuxiumcomau.blogspot.com/ - Respin script and info
  - http://hansdegoede.livejournal.com/ - Kernel patches and amazing work on Bay Trail and Cherry Trail devices
