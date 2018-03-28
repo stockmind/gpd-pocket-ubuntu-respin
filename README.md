@@ -179,7 +179,7 @@ make -j `getconf _NPROCESSORS_ONLN` deb-pkg LOCALVERSION=-custom
 ```
 You can find the generated kernel .deb files in the parent folder where linux-sunxi repository have been cloned.
 
-Compress all the .deb files generated into a zip named "gpd-pocket-kernel-files.zip" and put it in the root folder of this repository.
+Compress all the .deb files generated into a zip named "gpdpocket-kernel-files.zip" and put it in the root folder of this repository.
 
 ## Step 4: Build Your Respun ISO
 
