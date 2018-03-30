@@ -234,6 +234,7 @@ cp HiFi.conf /usr/share/alsa/ucm/chtrt5645/
 cp chtrt5645.conf /usr/share/alsa/ucm/chtrt5645/
 
 # copy headphones/speakers auto switch when jack is plugged in/out
+mkdir -p /etc/acpi/events/
 cp headphone-jack /etc/acpi/events/headphone-jack
 cp headphone-jack.sh /etc/acpi/headphone-jack.sh
 chmod +x /etc/acpi/headphone-jack.sh
