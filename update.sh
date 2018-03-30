@@ -50,6 +50,10 @@ cp 90-scale /etc/X11/Xsession.d/90-scale
 cp 90-interface /etc/X11/Xsession.d/90-interface
 chmod 644 /etc/X11/Xsession.d/90-scale
 chmod 644 /etc/X11/Xsession.d/90-interface
+
+# Make xorg conf directory if doesn't exists
+mkdir -p /etc/X11/xorg.conf.d/
+
 cp 20-intel.conf /etc/X11/xorg.conf.d/20-intel.conf
 cp 30-monitor.conf /etc/X11/xorg.conf.d/30-monitor.conf
 cp 35-screen.conf /etc/X11/xorg.conf.d/35-screen.conf
