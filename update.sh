@@ -36,7 +36,7 @@ apt-get -y purge bcmwl-kernel-source
 
 # install required packages
 echo "Install required packages..."
-for i in thermald tlp va-driver-all vainfo libva1 libva2 i965-va-driver gstreamer1.0-libav gstreamer1.0-vaapi python-gi gksu git python gir1.2-appindicator3-0.1 xfonts-terminus; do
+for i in thermald tlp va-driver-all vainfo libva1 libva2 i965-va-driver gstreamer1.0-libav gstreamer1.0-vaapi python-gi gksu git python gir1.2-appindicator3-0.1 xfonts-terminus xinput; do
   sudo apt-get install -y $i
 done
 
