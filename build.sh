@@ -16,6 +16,11 @@ for i in "$@" ; do
     	UNITY=true
     	break
     fi	
+    if [[ $i == "bionicbeaver" ]] ; then
+    	echo "Setting Bionic Beaver environment..."	
+    	BIONICBEAVER=true
+    	break
+    fi	
 done
 
 # Select correct monitors file based on Desktop Environment kind
@@ -62,7 +67,13 @@ installpackages+="tlp "
 # Streaming and codecs for correct video encoding/play
 installpackages+="va-driver-all "
 installpackages+="vainfo "
-installpackages+="libva1 "
+
+if [ -n "$BIONICBEAVER" ]; then
+	installpackages+="libva2 "
+else
+	installpackages+="libva1 "
+fi
+
 installpackages+="i965-va-driver "
 installpackages+="gstreamer1.0-libav "
 installpackages+="gstreamer1.0-vaapi "
