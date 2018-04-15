@@ -213,6 +213,14 @@ That's the reason of the "gnome" argument for update and build script.
 
 **If you want to use lightDM as Display/Login manager (Suggested) and Unity as Desktop Environment (Suggested) you can use `unity` as flag instead of `gnome` when calling `build.sh` script. This is experimental and may not work as expected but is the suggested environment on GNOME based distros like 17.10 Ubuntu default ISO for the moment.**
 
+### Build Ubuntu 18.04 ISO
+
+Pass `bionicbeaver` parameter to respin script. This will select the correct packages to install on ISO.
+
+```
+./build.sh <iso filename> gnome bionicbeaver
+```
+
 ## Step 5: Install and Update
 
 ### Boot ISO from USB device
