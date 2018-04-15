@@ -9,17 +9,17 @@ for i in "$@" ; do
     if [[ $i == "gnome" ]] ; then
         echo "Setting gnome monitors..."
         GNOME=true
-        break
+        continue
     fi
     if [[ $i == "unity" ]] ; then
     	echo "Setting unity environment..."	
     	UNITY=true
-    	break
+    	continue
     fi	
     if [[ $i == "bionicbeaver" ]] ; then
     	echo "Setting Bionic Beaver environment..."	
     	BIONICBEAVER=true
-    	break
+    	continue
     fi	
 done
 
