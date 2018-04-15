@@ -3,10 +3,10 @@ FROM ubuntu:17.10
 MAINTAINER Simone Roberto Nunzi "simone.roberto.nunzi@gmail.com"
 
 # Install required software
-RUN apt-get update && apt-get install -y sudo git wget zip genisoimage bc squashfs-tools xorriso tar klibc-utils iproute2 dosfstools rsync unzip findutils iputils-ping grep
+RUN apt update && apt install -y sudo git wget zip genisoimage bc squashfs-tools xorriso tar klibc-utils iproute2 dosfstools rsync unzip findutils iputils-ping grep
 
 # Install required packages for kernel building
-RUN apt-get install -y build-essential libncurses5-dev libssl-dev libelf-dev bison flex
+RUN apt update && apt install -y build-essential libncurses5-dev libssl-dev libelf-dev bison flex
 
 # Download repository
 RUN git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git ./gpd-pocket-ubuntu-respin
