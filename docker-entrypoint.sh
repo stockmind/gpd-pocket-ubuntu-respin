@@ -112,7 +112,7 @@ if [ "$1" = 'respin' ]; then
 		if [ -z "$3" ]; then
 			./build.sh "/docker-input/$2" 
 		else
-			./build.sh "/docker-input/$2" $3
+			./build.sh "/docker-input/$2" $3 $4
 
 			if [ "$3" = 'unity' ]; then
 				echo "Setting unity label..."
