@@ -68,7 +68,7 @@ installpackages+="tlp "
 installpackages+="va-driver-all "
 installpackages+="vainfo "
 
-if [ -n "$BIONICBEAVER" ]; then
+if [ -n "$BIONICBEAVER" ]; then
 	installpackages+="libva2 "
 else
 	installpackages+="libva1 "
