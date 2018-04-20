@@ -25,4 +25,4 @@ echo "Output dir: $OUTPUTDIR"
 # Refresh container
 docker rm $(docker ps -aq --filter name=gpd-pocket-respin-container)
 # Run command
-docker run -t --cap-add MKNOD -v "$INPUTDIR":/docker-input -v "$OUTPUTDIR":/docker-output --privileged --name gpd-pocket-respin-container "$IMAGENAME" respin $ISO "${@:2}"
+docker run --rm -t --cap-add MKNOD -v "$INPUTDIR":/docker-input -v "$OUTPUTDIR":/docker-output --privileged --name gpd-pocket-respin-container "$IMAGENAME" respin $ISO "${@:2}"

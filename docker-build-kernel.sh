@@ -28,4 +28,4 @@ fi
 # Refresh container
 docker rm $(docker ps -aq --filter name=gpd-pocket-kernel-container)
 # Run command
-docker run -t -v "$INPUTDIR":/docker-input -v "$OUTPUTDIR":/docker-output --name gpd-pocket-kernel-container "$IMAGENAME" kernel "$PAR1"
+docker run --rm -t -v "$INPUTDIR":/docker-input -v "$OUTPUTDIR":/docker-output --name gpd-pocket-kernel-container "$IMAGENAME" kernel "$PAR1"
