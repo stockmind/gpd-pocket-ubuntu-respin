@@ -108,17 +108,15 @@ if [ "$1" = 'respin' ]; then
 
 		LABEL=""
 
-		# argument setted?
-		if [ -z "$3" ]; then
-			./build.sh "/docker-input/$2" 
-		else
-			./build.sh "/docker-input/$2" $3 $4
-
-			if [ "$3" = 'unity' ]; then
-				echo "Setting unity label..."
-				LABEL+="unity-"
-			fi
-		fi
+		./build.sh "/docker-input/${@:2}"
+		
+		for i in "$@" ; do
+		    if [[ $i == "unity" ]] ; then
+			echo "Setting unity label..."	
+			LABEL+="unity-"
+			continue
+		    fi
+		done
 
 		# Try to extract kernel version
 		KERNELIMAGE=$(ls linux-image-* | head -1)
