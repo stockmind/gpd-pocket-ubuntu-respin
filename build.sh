@@ -81,7 +81,6 @@ installpackages+="gstreamer1.0-vaapi "
 installpackages+="vlc "
 # Utilities for traybar rotation indicator and fan handling
 installpackages+="python-gi " # Required by traybar rotation indicator
-installpackages+="gksu " # Required by traybar rotation indicator to reset touchscreen
 installpackages+="git " # Required by traybar rotation indicator to download repository
 installpackages+="python " # Required by traybar rotation indicator & fan script
 installpackages+="gir1.2-appindicator3-0.1 " # Required by traybar rotation indicator
