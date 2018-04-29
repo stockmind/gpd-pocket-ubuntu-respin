@@ -3,6 +3,7 @@
 ISOFILE=$1
 LATESTKERNEL="gpdpocket-20180306-4.16.0-rc3-kernel-files.zip"
 LOCALKERNEL="gpdpocket-kernel-files.zip"
+ARGS=""
 
 # Check arguments
 for i in "$@" ; do
@@ -19,6 +20,12 @@ for i in "$@" ; do
     if [[ $i == "bionicbeaver" ]] ; then
     	echo "Setting Bionic Beaver environment..."	
     	BIONICBEAVER=true
+    	continue
+    fi	
+    if [[ $i == "mainline" ]] ; then
+    	echo "Setting mainline kernel environment..."	
+    	ARGS+="-u "
+    	MAINLINE=true
     	continue
     fi	
 done
@@ -38,18 +45,20 @@ fi
 
 # Looking for kernel packages and download them if required
 if [ ! -f linux-image* ]; then
-    echo "Looking for kernel image..."
-    if [ ! -f "$LOCALKERNEL" ]; then
-		if [ ! -f "$LATESTKERNEL" ]; then
-			echo "Downloading kernel files...."
-			wget "https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/$LATESTKERNEL"
-		fi
-		echo "Extracting latest kernel files..."
-	    unzip -o "$LATESTKERNEL"
-    else	    
-        echo "Extracting custom kernel files..."
-        unzip -o "$LOCALKERNEL"
-    fi	
+	if [ ! -n "$MAINLINE" ]; then
+	    echo "Looking for kernel image..."
+	    if [ ! -f "$LOCALKERNEL" ]; then
+			if [ ! -f "$LATESTKERNEL" ]; then
+				echo "Downloading kernel files...."
+				wget "https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/$LATESTKERNEL"
+			fi
+			echo "Extracting latest kernel files..."
+		    unzip -o "$LATESTKERNEL"
+	    else	    
+	        echo "Extracting custom kernel files..."
+	        unzip -o "$LOCALKERNEL"
+	    fi	
+	fi
 fi
 
 # If missing, download latest version of the script that will respin the ISO
@@ -102,7 +111,7 @@ fi
 
 chmod +x isorespin.sh
 
-./isorespin.sh -i $ISOFILE \
+./isorespin.sh "$ARGS" -i $ISOFILE \
 	-l "*.deb" \
 	-e "$removepackages" \
 	-p "$installpackages" \
