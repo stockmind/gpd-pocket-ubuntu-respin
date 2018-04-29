@@ -3,8 +3,7 @@
 ISOFILE=$1
 LATESTKERNEL="gpdpocket-20180306-4.16.0-rc3-kernel-files.zip"
 LOCALKERNEL="gpdpocket-kernel-files.zip"
-FILELIST="*.deb"
-ARGS="-l $FILELIST"
+ARGS="-l \"*.deb\""
 
 # Check arguments
 for i in "$@" ; do
