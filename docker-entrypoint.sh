@@ -127,6 +127,7 @@ if [ "$1" = 'respin' ]; then
 		FILECLEAN="${FILE##*/}"
 		# Today date
 		NOW=$(date +"%Y%m%d")
+		TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 
 		if [ -n "$KERNELVERSION" ]; then
 			LABEL+="$NOW-$KERNELVERSION"
@@ -135,6 +136,7 @@ if [ "$1" = 'respin' ]; then
 		fi
 
     	mv linuxium-* "/docker-output/gpdpocket-$LABEL-$FILECLEAN"
+    	mv isorespin.log "/docker-output/isorespin-$LABEL-$TIMESTAMP"
 	fi
 	
 	exit 0

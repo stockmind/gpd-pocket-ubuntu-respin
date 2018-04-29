@@ -24,7 +24,7 @@ for i in "$@" ; do
     fi	
     if [[ $i == "mainline" ]] ; then
     	echo "Setting mainline kernel environment..."	
-    	ARGS="-u"
+    	ARGS="-k v4.17-rc2"
     	MAINLINE=true
     	continue
     fi	
