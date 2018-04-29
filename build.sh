@@ -3,7 +3,7 @@
 ISOFILE=$1
 LATESTKERNEL="gpdpocket-20180306-4.16.0-rc3-kernel-files.zip"
 LOCALKERNEL="gpdpocket-kernel-files.zip"
-ARGS=""
+ARGS="-l *.deb"
 
 # Check arguments
 for i in "$@" ; do
@@ -24,7 +24,7 @@ for i in "$@" ; do
     fi	
     if [[ $i == "mainline" ]] ; then
     	echo "Setting mainline kernel environment..."	
-    	ARGS+="-u "
+    	ARGS="-u"
     	MAINLINE=true
     	continue
     fi	
@@ -112,7 +112,6 @@ fi
 chmod +x isorespin.sh
 
 ./isorespin.sh "$ARGS" -i $ISOFILE \
-	-l "*.deb" \
 	-e "$removepackages" \
 	-p "$installpackages" \
 	-f display/20-intel.conf \
