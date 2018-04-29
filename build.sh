@@ -3,7 +3,8 @@
 ISOFILE=$1
 LATESTKERNEL="gpdpocket-20180306-4.16.0-rc3-kernel-files.zip"
 LOCALKERNEL="gpdpocket-kernel-files.zip"
-ARGS="-l *.deb"
+FILELIST="*.deb"
+ARGS="-l $FILELIST"
 
 # Check arguments
 for i in "$@" ; do
@@ -111,7 +112,7 @@ fi
 
 chmod +x isorespin.sh
 
-./isorespin.sh "$ARGS" -i $ISOFILE \
+./isorespin.sh $ARGS -i $ISOFILE \
 	-e "$removepackages" \
 	-p "$installpackages" \
 	-f display/20-intel.conf \
