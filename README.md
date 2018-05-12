@@ -7,9 +7,9 @@
 You can update an installed system using the update commands here:
 [Update steps](#post-install)
 
-# Warning: Ubuntu 17.10 Issues
+# Warning: Ubuntu 17.10/18.04 Issues
 
-Ubuntu 17.10 ships with GNOME 3 as default desktop environment. There are several issues and things that doesn't work as expected at the moment (Scaling, rotation after sleep/login, random missing characters, graphical glitches etc...). I suggest you to install Unity and use LightDM as login/display manager until GNOME gets updated with latest patches.
+Ubuntu 17.10/18.04 ships with GNOME 3 as default desktop environment. There are several issues and things that doesn't work as expected at the moment (Scaling, rotation after sleep/login, random missing characters, graphical glitches etc...). I suggest you to install Unity and use LightDM as login/display manager until GNOME gets updated with latest patches.
 
 You can do that issuing: 
 
