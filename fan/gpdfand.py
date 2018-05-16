@@ -42,9 +42,9 @@ def get_temp():
 
 # Set fans function
 def set_fans(a,b):
-    with io.open('/sys/class/gpio/gpio397/value', 'w') as gpio:
+    with io.open('/sys/class/gpio/gpio341/value', 'w') as gpio:
         gpio.write(unicode(a))
-    with io.open('/sys/class/gpio/gpio398/value', 'w') as gpio:
+    with io.open('/sys/class/gpio/gpio342/value', 'w') as gpio:
         gpio.write(unicode(b))
 
 # Set no turbo boost function
@@ -54,7 +54,7 @@ def set_no_turbo(state):
 
 # Initialization function
 def init():
-    for id in [397,398]:
+    for id in [341,342]:
         if not os.path.isfile('/sys/class/gpio/gpio' + str(id) + '/value'):
             with io.open('/sys/class/gpio/export', 'w') as gpio_export:
                 gpio_export.write(unicode(id))
