@@ -111,6 +111,8 @@ fi
 
 chmod +x isorespin.sh
 
+sync
+
 ./isorespin.sh $ARGS -i $ISOFILE \
 	-e "$removepackages" \
 	-p "$installpackages" \
