@@ -6,7 +6,7 @@ MAINTAINER Simone Roberto Nunzi "simone.roberto.nunzi@gmail.com"
 RUN apt update && apt install -y sudo git wget zip genisoimage bc squashfs-tools xorriso tar klibc-utils iproute2 dosfstools rsync unzip findutils iputils-ping grep
 
 # Install required packages for kernel building
-RUN apt update && apt install -y build-essential libncurses5-dev libssl-dev libelf-dev bison flex
+RUN apt update && apt install -y build-essential libncurses5-dev libssl-dev libelf-dev bison flex kmod cpio
 
 # Download repository
 RUN git clone https://github.com/stockmind/gpd-pocket-ubuntu-respin.git ./gpd-pocket-ubuntu-respin
