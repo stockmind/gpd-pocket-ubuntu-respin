@@ -83,6 +83,6 @@ if [ -d /var/lib/mdm ]; then
 fi
 
 # update terminal font size
-cp display/console-setup /etc/default/console-setup
+cp console-setup /etc/default/console-setup
 
 rm -f adduser.local 20-intel.conf 30-monitor.conf 90-touch 90-scale wrapper-display.sh
