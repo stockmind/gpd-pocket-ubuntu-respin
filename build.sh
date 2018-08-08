@@ -3,7 +3,8 @@
 ISOFILE=$1
 LATESTKERNEL="gpdpocket-20180306-4.16.0-rc3-kernel-files.zip"
 LOCALKERNEL="gpdpocket-kernel-files.zip"
-ARGS="-l \"*.deb\""
+KERNELARGS="-l \"*.deb\""
+ARGS=""
 
 # Check arguments
 for i in "$@" ; do
@@ -24,8 +25,13 @@ for i in "$@" ; do
     fi	
     if [[ $i == "mainline" ]] ; then
     	echo "Setting mainline kernel environment..."	
-    	ARGS="-u"
+    	KERNELARGS="-u"
     	MAINLINE=true
+    	continue
+    fi		
+    if [[ $i == "upgrade" ]] ; then
+    	echo "Upgrade ISO packages..."
+    	ARGS="--upgrade"
     	continue
     fi	
 done
@@ -113,7 +119,7 @@ chmod +x isorespin.sh
 
 sync
 
-./isorespin.sh $ARGS -i $ISOFILE \
+./isorespin.sh $ARGS $KERNELARGS -i $ISOFILE \
 	-e "$removepackages" \
 	-p "$installpackages" \
 	-f display/20-intel.conf \
