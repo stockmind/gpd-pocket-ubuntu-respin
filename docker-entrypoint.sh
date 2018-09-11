@@ -17,15 +17,22 @@ fi
 if [ "$1" = 'kernel' ]; then
     # Check if kernel sources have already been downloaded
     if [ ! -d kernel-build ]; then
-	# Download them if missing
+		# Download them if missing
     	git clone https://github.com/jwrdegoede/linux-sunxi.git ./kernel-build
-	cd kernel-build
+		cd kernel-build
     else
     	# Update them if already there
-	cd kernel-build
+		cd kernel-build
     	git fetch origin
-	git reset --hard origin/master
+		git reset --hard origin/master
     fi
+
+    # Build another branch
+    if [ -n "$2" ]; then
+		if [ "$2" != 'keepconfig' ]; then
+			git checkout "$2"
+		fi
+	fi		
 
     # If a config file is provided in input we will use that for kernel building
     if [ -f /docker-input/.config ]; then
