@@ -7,12 +7,12 @@ OUTPUTDIR="$SCRIPTPATH""/destination"
 ORIGINDIR="origin/"
 ISO=${1#$ORIGINDIR} # Remove 'origin/' prefix path if found
 
-if $(docker image inspect stockmind/gpd-pocket-ubuntu-respin:latest >/dev/null 2>&1); then
-	echo "Found Docker Hub image!"
-	IMAGENAME="stockmind/gpd-pocket-ubuntu-respin"
-elif $(docker image inspect gpd-pocket-ubuntu-respin:latest >/dev/null 2>&1); then
+if $(docker image inspect gpd-pocket-ubuntu-respin:latest >/dev/null 2>&1); then
 	echo "Found local image!"
 	IMAGENAME="gpd-pocket-ubuntu-respin"
+elif $(docker image inspect stockmind/gpd-pocket-ubuntu-respin:latest >/dev/null 2>&1); then
+	echo "Found Docker Hub image!"
+	IMAGENAME="stockmind/gpd-pocket-ubuntu-respin"
 else
 	echo "Build docker image or download it from Docker Hub!"
 	exit 1
