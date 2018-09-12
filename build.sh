@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ISOFILE=$1
-LATESTKERNEL="gpdpocket-20180306-4.16.0-rc3-kernel-files.zip"
+LATESTKERNEL="gpdpocket-20180911-4.18.0-rc8-kernel-files.zip"
 LOCALKERNEL="gpdpocket-kernel-files.zip"
 KERNELARGS="-l \"*.deb\""
 ARGS=""
