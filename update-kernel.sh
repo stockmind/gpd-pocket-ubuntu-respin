@@ -1,11 +1,11 @@
 #!/bin/bash
 
-LATESTKERNEL="gpdpocket-20180306-4.16.0-rc3-kernel-files.zip"
+LATESTKERNEL="gpdpocket-20180911-4.18.0-rc8-kernel-files.zip"
 
 mkdir -p update-kernel
 cd update-kernel
 
-if [ ! -f gpdpocket-20180103-kernel-files-petrmatula.zip ]; then
+if [ ! -f "$LATESTKERNEL" ]; then
 	 echo "Downloading kernel files...."
 	 wget "https://bitbucket.org/simone_nunzi/gpdpocket-kernel/downloads/$LATESTKERNEL"
 fi
