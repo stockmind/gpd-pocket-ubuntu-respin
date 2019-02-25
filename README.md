@@ -85,11 +85,11 @@ All informations, tips and tricks was gathered from:
  - ✔ **Internal Mic and Headphones Mic working** (Hans de Goede and Bard Liao great work! Kernel 4.15-rc5 or higher required) 
  - ✔ **Touchscreen working after sleep/wake**
  - ✔ Hibernation ( This seems to work on latest kernels, [check this issue for more informations](https://github.com/stockmind/gpd-pocket-ubuntu-respin/issues/93), Thanks samyongsj and geek78 for feedback and infos! )
+ - ✔ **USB-C as video output (5.0.0-rc7+ kernel from Hans repository [check this issue for more informations](https://github.com/stockmind/gpd-pocket-ubuntu-respin/issues/98#issuecomment-467014805) )**
  
 ### What Doesn't Work at the Moment
 
  - Audio on hdmi ( Need feedback, an alsa-lib >=1.1.5 version may be required to get it working )
- - USB-C as video output
  - HDMI plugged before boot may cause issues (No video output on internal and external monitor, flickering, etc...)
  - GDM rotation on re-login or after sleep (Use another display manager like LightDM or SDDM until this gets fixed)
  
@@ -660,6 +660,26 @@ File to edit `/etc/default/grub`:
 Save and run `sudo update-grub` to apply new settings.
 
 This repository default has been set to `gpd-pocket-fan.speed_on_ac=0` so you don't need to worry about this if you use scripts on this repository to setup your GPD Pocket.
+
+## USB Type-C to video output not working
+
+Once you've a kernel build from latest Hans's git master branch (version 5.0.0-rc7+), plug in a Type-C to video dongle and then do:
+```
+cat /sys/class/typec/port0-partner/port0-partner.0/displayport/pin_assignment
+```
+
+This should give you something like this:
+```
+C [D]
+```
+
+Which means that the USB-PD stack / Type-C state-machine in the kernel has correctly negotiated DisplayPort altmode.
+
+If the above cat command fails with a `No such file or directory` error, then your dongle is not compatible with the kernels USB-PD stack for now.
+
+Check issue #98 
+https://github.com/stockmind/gpd-pocket-ubuntu-respin/issues/98
+https://github.com/stockmind/gpd-pocket-ubuntu-respin/issues/98#issuecomment-467014805
 
 # Problem reporting
 
