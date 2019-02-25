@@ -158,7 +158,7 @@ Kernel suggested is the one with patches from Hans De Goede. You can find his re
  
 #### Debian Based Systems:
 ```
-sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev
+sudo apt-get install build-essential git libncurses5-dev libssl-dev libelf-dev bison flex
 git clone https://github.com/jwrdegoede/linux-sunxi.git
 ```
 
