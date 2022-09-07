@@ -2,6 +2,10 @@
 
 ![GPD Pocket Ubuntu](https://github.com/stockmind/gpd-pocket-ubuntu-respin/raw/master/screenshot.png)
 
+# Unmaintained
+
+Check out [Ultra Mobile PC (UMPC) hardware configuration for Ubuntu](https://github.com/wimpysworld/umpc-ubuntu), a similar project targeting multiple GPD devices to work with Ubuntu 20.04 and 22.04.
+
 # Update an installed system
 
 You can update an installed system using the update commands here:
